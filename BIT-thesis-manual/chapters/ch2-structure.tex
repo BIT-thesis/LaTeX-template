@@ -1,0 +1,143 @@
+%%==================================================
+%% ch2.tex for BIT Master Thesis
+%% modified by yang yating
+%% version: 0.2
+%% last update: Feb 16th, 2017
+%%==================================================
+
+\chapter{文档架构}
+\label{chap:textStructure}
+
+本章的目的是介绍\LaTeX{}的文本控制流程，即如何实现文本在各章节中的分布，以及章节内的交叉引用问题，用户可以根据自身对\LaTeX{}的熟悉程度适当地略过阅读。在了解了本章的内容后，用户即可快速实现文本内容的粘贴和复制，实现一个在文本内容满足基本需求的文档。
+
+\section{格式控制文件}
+\label{sec:format}
+
+格式控制文件控制着论文的表现形式，包括以下几个文件：
+bitmaster-xetex.cfg, bitmaster-xetex.cls~和~GBT7714-2005NLang.bst。
+其中，``.cfg''和``.cls''控制论文主体格式，``.bst''控制参考文献条目的格式，
+
+一般用户可以``忽略''格式控制文件的存在。因为该文件已经按照《北京理工大学博士、硕士学位
+论文撰写规范》进行了修改。有其他格式需要，参见第\ref{sec:thesisformat}章。
+
+\section{论文组成}
+
+\subsection{主控文件~demo.tex}
+\label{sec:demotex}
+
+主控文件~demo.tex~的作用就是将你分散在多个文件中的内容``整合''成一篇完整的论文。
+使用这个模板撰写学位论文时，学位论文内容和素材会被``拆散''到各个文件中：
+譬如各章正文、各个附录、各章参考文献等等。
+在~demo.tex~中通过``include''命令将论文的各个部分包含进来，从而形成一篇结构完成的论文。
+封面页中的论文标题、作者等中英文信息，也是在~demo.tex~中填写。
+部分可能会频繁修改的设置，譬如行间距、图片文件目录等，我也放在了demo.tex中。
+你也可以在demo.tex中按照自己的需要引入一些的宏包
+\footnote{一般只有当你需要在文档中使用那个宏包时，才需要在导言区中用~usepackage~引入该宏包。如若不然，通过usepackage引入一大堆不被用到的宏包，必然是一场灾难。由于一开始没有一致的设计目标，\LaTeX~ 的各宏包几乎都是独立发展起来的，因重定义命令导致的宏包冲突屡见不鲜。}。
+
+大致而言，在~demo.tex~中，大家只要留意把``章''一级的内容，以及各章参考文
+献内容包含进来就可以了。需要注意，处理文档时所有的操作命令
+{}\cndash{}xelatex, bibtex等，都是作用在~demo.tex~上，而\emph{不是}后面这
+些``分散''的文件，请参考\ref{sec:process}小节。
+
+\subsection{论文主体文件夹chapters}
+\label{sec:thesisbody}
+
+这一部分是论文的主体，是以``章''为单位划分的。
+
+正文前部分(frontmatter)：中英文摘要(abstract.tex)。其他部分，诸如中英文封
+面、授权信息等，都是根据~demo.tex~所填的信息``画''好了，不单独弄成文件。
+
+正文部分(mainmatter)：自然就是各章内容~chapter\emph{xxx}.tex~了，这部分无法自动生成
+
+正文后的部分(backmatter)：附录(app\emph{xx}.tex)；致谢(thuanks.tex)；攻读
+学位论文期间发表的学术论文目录(pub.tex)；个人简历(resume.tex)。参考文献列
+表是``生成''的，也不作为一个单独的文件。另外，学校的硕士研究生学位论文模
+板中，也没有要求加入个人建立，所以我没有在~demo.tex~中引入resume.tex。
+
+章节的设置分别通过关键字完成，按照章节的级别依此如表~\ref{tab:setSection}所示，关于文档中具体章节的关键词设置可以参看原宏包中tex文件夹下的实例文件。
+
+
+\begin{table}[htb]
+ \centering
+  \caption{章节设置关键字}     % title of Table
+  \label{tab:setSection}    % label of Table
+  \begin{tabular}{cl}
+    \hline
+    章节级别        & 关键字     \\
+    \hline
+    1 / 章        & \textbackslash chapter \\
+    2 / 节        & \textbackslash section \\
+    3 / 子节      & \textbackslash  subsection \\
+    表格名称       & \textbackslash caption\{章节设置关键字\} \\
+    引用标签       & \textbackslash label\{sec:labelName\} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+
+
+\subsection{图片文件夹~figures}
+\label{sec:figuresdir}
+
+figures~文件夹放置了需要插入文档中的图片文件(PNG/JPG/PDF/EPS)。如果图片较多，建议按章再
+划分子目录存储图片。
+
+\subsection{参考文献数据库文件夹~reference}
+\label{sec:bibdir}
+
+reference~文件夹放置的是各章``可能''会被引用的参考文献文件。参考文献的元
+数据，例如作者、文献名称、年限、出版地等，会以一定的格式记录在纯文本文
+件.bib中。最终的参考文献列表是BibTeX处理.bib后得到的，名为~demo.bbl。将参
+考文献按章划分的一个好处是，可以在各章后生成独立的参考文献，不过，现在看
+来没有这个必要。关于参考文献的管理，可以进一步参考第\ref{chap:example}章
+中的例子。
+
+
+
+\section{交叉引用}
+\subsection{公式、图表和插图引用}
+\label{sec:refofFigAndTab}
+交叉引用的前提是需要在定义章节、公式和图表的时候都对其进行命名标签（即\textbackslash label\{sec:labelName\}命令），在实际使用过程中通过标签进行引用。根据引用的特点可以将应用分成表~\ref{tab:citeType}中所示三类。
+
+\begin{table}[htb]
+ \centering
+  \caption{交叉引用类型}       % title of Table
+  \label{tab:citeType}    % label of Table
+  \begin{tabular}{cl}
+    \hline
+    引用类型     & 关键字     \\
+    \hline
+    标签设置        & \textbackslash label\{marker\}  \\
+    引用代号        & \textbackslash ref\{marker\}    \\
+    引用页码        & \textbackslash pageref\{marker\} \\
+    引用文献        & \textbackslash cite\{regLabel\} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+其中，表格和图片的摆放位置由 \textbackslash begin\{table\}或\textbackslash begin\{figure\}后面的中括号设置，例如[htb]表示可以将图表放在当前位置（here）、页面顶端（top）或者页面底端（bottom）。通常，我校的学位论文要求图表就近放置，因此采用[htb]。
+
+{\bf{实例1：}}这里是对表格《交叉引用类型》的引用——表~\ref{tab:citeType}位于第~\pageref{tab:citeType}页，其标签为\textbackslash label\{tab:citeType\}。
+
+另外，在编译的过程中首次编译全文后需要对引用项进行索引编译，
+
+\begin{center}
+  {\color{blue}makeindex myThesis.nlo -s nomencl.ist -o myThesis.nls}
+\end{center}
+
+再进行第二次编译后才能更新全文中的交叉引用项。
+
+\subsection{文献引用}
+\label{sec:citeRefs}
+
+{\bf{实例2：}}这里是对文献《{\it{State-Space Representation of Aerodynamic Characteristics of an Aircraft at High Angles of Attack}}》的引用——文献\cite{Goman:state_aerodynamics}。这里文献采用bibTex格式。对于中文文献的引用也是如此\cite{BUAA:2002-CFD-missile}。
+
+同样，在编译的过程中首次编译全文后需要对参考文献进行索引编译，
+
+\begin{center}
+  {\color{blue}bibtex myThesis.aux}
+\end{center}
+
+再进行第二次编译后才能更新全文中的文献引用项。
+
+特别针对《中华人民共和国国家标准 GBT 7714-2005 文后参考文献著录规则》的要求，需要首先配置编译环境的文献模版，方法参考~bib~子目录下的GBT7714-2005NLang压缩包。

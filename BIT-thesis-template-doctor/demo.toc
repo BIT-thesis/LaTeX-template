@@ -1,0 +1,20 @@
+\let \CTEX@spaceChar \relax 
+\contentsline {chapter}{\numberline {第1\ignorespaces 章\hspace {0.3em}}绪论}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}本论文研究的目的和意义}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}国内外研究现状及发展趋势}{1}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}形状记忆聚氨酯的形状记忆机理}{1}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}形状记忆聚氨酯的研究进展}{2}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}水系聚氨酯及聚氨酯整理剂}{2}{subsection.1.2.3}
+\contentsline {chapter}{\numberline {第2\ignorespaces 章\hspace {0.3em}}绪论}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}本论文研究的目的和意义}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}国内外研究现状及发展趋势}{3}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}形状记忆聚氨酯的形状记忆机理}{3}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}形状记忆聚氨酯的研究进展}{4}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}水系聚氨酯及聚氨酯整理剂}{4}{subsection.2.2.3}
+\contentsline {chapter}{总结}{5}{chapter*.2}
+\contentsline {chapter}{\numberline {附录\nobreakspace {}A\hspace {0.3em}}***}{6}{appendix.A}
+\contentsline {chapter}{参考文献}{7}{appendix*.3}
+\contentsline {chapter}{攻读学位期间发表论文与研究成果清单}{8}{appendix*.4}
+\contentsline {chapter}{致\CTEX@spaceChar \CTEX@spaceChar 谢}{9}{appendix*.5}
+\contentsline {chapter}{作者简介}{10}{appendix*.6}
+\contentsfinish 

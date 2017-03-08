@@ -1,0 +1,137 @@
+%%==================================================
+%% demo.tex for BIT Master Thesis
+%% modified by yang yating
+%% version: 0.2
+%% last update: Feb 16th, 2017
+%%==================================================
+
+% 字号选项: cs4size 小四
+% 双面打印（注意字号设置）
+
+%\documentclass[cs4size, a4paper, cs4size, twoside]{bitmaster-xetex}
+% 单面打印（注意字号设置）
+\documentclass[cs4size, a4paer, cs4size, oneside, openany]{bitmaster-xetex}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 中文封面内容(关注内容而不是形式)
+\classification{*****.*}
+\UDC{***}
+
+\title{BIT-thesis使用指南}
+\vtitle{\rotatebox{270}{BIT-thesis} \\使用指南}
+\author{杨雅婷}
+\institute{计算机学院}
+\advisor{**教授}
+\chairman{**教授}
+\degree{****}
+\major{*****}
+\school{北京理工大学}
+\defenddate{2017年2月}
+%\studentnumber{**********}
+
+
+% 英文封面内容(关注内容而不是表现形式)
+\englishtitle{How to Use BIT-thesis}
+\englishauthor{Yang Yating}
+\englishadvisor{Prof. **}
+\englishchairman{Prof. **}
+\englishschool{Beijing Insititute of Technology}
+\englishinstitute{****}
+\englishdegree{****}
+\englishmajor{****}
+\englishdate{*，****}
+
+% 封面,这个命令实现了形式，具体见.cls
+\maketitle
+
+
+% 英文封面
+\makeenglishtitle
+
+%打印竖排论文题目
+%\makeVerticalTitle
+
+% 论文原创性声明和使用授权
+%\makeDeclareOriginal
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+\pagenumbering{Roman}
+
+\fancypagestyle{plain}{% 设置开章页页眉页脚风格
+  \fancyhf{}%
+  \fancyhead[C]{\zihao{5} {\songti BIT-thesis使用指南}} 
+  \fancyfoot[C]{\zihao{5} {\songti \thepage}} %页脚格式
+}
+
+% 摘要
+\include{chapters/abstract}
+
+% 目录
+\tableofcontents
+% 表格索引
+%\listoftables
+% 插图索引
+%\listoffigures
+
+%\addcontentsline{toc}{chapter}{\listfigurename} %将表格索引加入全文目录
+%\addcontentsline{toc}{chapter}{\listtablename}  %将图索引加入全文目录
+
+% 主要符号、缩略词对照表
+% \include{body/symbol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+
+%% 各章正文内容
+\include{chapters/ch1-introduction}
+\include{chapters/ch2-structure}
+\include{chapters/ch3-eqnFigAndTab}
+\include{chapters/ch4-format}
+\include{chapters/ch5-question}
+
+\include{chapters/conclusion} %% 全文总结
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附录(章节编号重新计算，使用字母进行编号)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+% 附录中编号形式是"A-1"的样子
+\renewcommand\theequation{\Alph{chapter}--\arabic{equation}}
+\renewcommand\thefigure{\Alph{chapter}--\arabic{figure}}
+\renewcommand\thetable{\Alph{chapter}--\arabic{table}}
+\include{chapters/app1-content}
+\include{chapters/app2-log} % 更新记录
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 文后(无章节编号)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+% 参考文献
+% 使用 BibTeX
+% 包含参考文献文件.bib
+{
+\zihao{5}
+\bibliography{reference/chap1,reference/chap2} %多个章节的参考文献
+%\bibliography{reference/chap1}
+}
+% 发表文章目录
+\include{chapters/pub}
+% 致谢
+\include{chapters/thanks}
+
+\end{document}

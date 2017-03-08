@@ -1,0 +1,83 @@
+%%==================================================
+%% ch1.tex for BIT Master Thesis
+%% modified by yang yating
+%% version: 0.2
+%% last update: Feb 16th, 2017
+%%==================================================
+
+\chapter{使用简介}
+\label{chap:what}
+
+这是北京理工大学硕士（博士）学位学位论文~\LaTeX~ 模板。目前网上有两个版本的北理工~\LaTeX~ 模板“2012大眼小蚂蚁版”和“2016汪卫版”，均以上海交通大学的模为基础。本模板在此两个模板的基础上依据《北京理工大学博士、硕士学位论文撰写规范》修改，进一步完善成熟，使得模板能够被北理工硕士博士广泛使用。
+
+\section{模板说明}
+\label{sec:features}
+
+这个模板的中文解决方案是~\XeTeX/\LaTeX~ 。参考
+文献建议使用~BibTeX~管理，可以生成符合国标~GBT7714~风格的参考文献列表。模
+板在~Windows~和~Linux~下测试通过，更详细的系统要求请参考
+\ref{sec:requirements}。
+
+模板的外观表现和功能都放
+在~bitmaster-xetex.cls~和~bitmaster-xetex.cfg~中，在对外观进行细微调整
+时，只需要更新这两个文件，不需要对.tex源文件做修改。这也给模板更新带来了
+极大方便。
+
+该模板的主要功能说明如下：
+
+\begin{itemize}
+\item \inv 依据《北京理工大学博士、硕士学位论文撰写规范》修改，按照本文档说明使用，即可撰写符合《北京理工大学博士、硕士学位论文撰写规范》的学位论文；
+\item \inv 使用~\XeTeX~ 引擎处理中文；
+\item \inv 包含中文字符的源文件(.tex, .bib, .cfg)，编码都使用UTF-8；
+\item \inv 使用~BibTeX~管理参考文献。参考文献表现形式(格式)受~.bst~控制，方便
+  在不同风格间切换，目前生成的列表符合国标GBT7714要求；
+\item \inv 可以直接插入EPS/PDF/JPG/PNG格式的图像。
+\item \inv 硕士模板的格式受~bitmater-xetex.cls~和~bitmaster-xetex.cfg~控制，博士模板的格式受~bitdoctor-xetex.cls~和~bitdoctor-xetex.cfg~控制方便模
+  板更新和模板修改。
+\end{itemize}
+
+\section{安装配置环境}
+\label{sec:requirements}
+
+~XeLaTeX~ 对应的XeTeX对中文字体的支持更好，允许用户使用操作系统字体来代替TeX的标准字体。所以本模板使用~XeLaTeX~ 引擎处理中文。要使用这个模板协助你完成研究生学位论文的创作，下面的条件必须满足：
+
+\begin{itemize}
+\item \inv 操作系统字体目录中有中文字体（adobe或windows字体均可）；
+\item \inv \TeX~系统有~\XeTeX~引擎；
+\item \inv \TeX~系统有~ctex~宏包；
+\item \inv \TeX~系统的fontspec宏包(fontspec.sty)足够新；
+\item \inv 你有使用~\LaTeX~的经验。
+\end{itemize}
+
+为了安装便捷，推荐安装Ctex套装。
+
+Ctex套装下载地址 (http://www.ctex.org/CTeXDownload)
+
+
+安装完成后运行Winedit,便可对tex进行编写。也可使用texmaker等其他的编辑器进行编写。
+
+\section{快速使用}
+\label{sec:process}
+
+安装完ctex套装后，一般而言所需的环境就配置好了。
+模板使用~\XeTeX~ 引擎提供的~xelatex~的命令处理，作用于“主控文档”demo.tex。
+并且，可以省略扩展名。完整的处理流程是：
+
+{\color{blue}
+\begin{enumerate}
+\item[] ~\verb|xelatex -no-pdf -{}-interaction=nonstopmode demo|
+\item[] ~\verb|bibtex demo| 
+\item[] ~\verb|xelatex -no-pdf -{}-interaction=nonstopmode demo|
+\item[] ~\verb|xelatex -{}-interaction=nonstopmode demo|
+\end{enumerate}}
+
+运行bibtex的时候会提示一些错误，可能是~{{\sc Bib}\TeX}~对UTF-8支持不充
+分，一般不影响最终结果。留意因为拼写错误导致的``找不到文献错误''即可。
+
+加入~\verb|--interaction=nonstopmode|~参数是不让错误打断编译过程。
+\XeTeX~ 仍存在一些宏包兼容性问题，所以会产生一些莫名其妙的错误(通常是重定
+义错误)，而这些错误通常不会影响最终的编译结果。
+  
+为方便使用，处理过程已经写入BIT-thesis-run.sh(for Linux)和BIT-thesis-run.bat(for Windows)批处理文件中。编写完修改完tex文件后，直接运行对应.sh或者.bat文件即可。
+
+
