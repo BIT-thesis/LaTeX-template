@@ -1,3 +1,5 @@
+@echo off
+
 set BASE=manual
 
 
