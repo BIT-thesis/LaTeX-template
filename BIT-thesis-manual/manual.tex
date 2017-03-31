@@ -73,7 +73,7 @@
 }
 
 % 摘要
-\include{chapters/abstract}
+%\include{chapters/abstract}
 
 % 目录
 \tableofcontents
@@ -91,7 +91,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 正文
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\mainmatter
+\mainmatter  %处理正文编号
 
 %% 各章正文内容
 \include{chapters/ch1-introduction}
@@ -105,7 +105,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 附录(章节编号重新计算，使用字母进行编号)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix
+\appendix  %处理章节编号
 
 % 附录中编号形式是"A-1"的样子
 \renewcommand\theequation{\Alph{chapter}--\arabic{equation}}
