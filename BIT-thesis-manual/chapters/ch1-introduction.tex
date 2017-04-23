@@ -8,7 +8,7 @@
 \chapter{快速使用指南}
 \label{chap:what}
 
-本手册是针对北京理工大学硕士（博士）学位论文~\LaTeX~ 模板BIT-thesis的使用指南。旨在使同学们通过该使用指南的介绍，能快速使用BIT-thesis模板编辑符合学校格式要求的硕士（博士）学位，并能对~\LaTeX~ 有一定的了解。
+本手册是针对北京理工大学硕士（博士）学位论文~\LaTeX~ 模板BIT-thesis的使用指南。旨在使同学们通过该使用指南的介绍，能快速使用BIT-thesis模板编辑符合学校格式要求的硕士（博士）学位论文，并能对~\LaTeX~ 有一定的了解。
 
 \section{为什么要用BIT-Thesis}
 \label{sec:why}
@@ -20,11 +20,9 @@
 为了安装便捷，推荐安装Ctex套装。
 
 \begin{itemize}
-\item Ctex套装下载地址 
-(http://www.ctex.org/CTeXDownload)
+\item \textit{Ctex套装下载地址}  http://www.ctex.org/CTeXDownload
 
-\item 或者使用北京理工大学开源软件镜像服务
-(http://mirror.bit.edu.cn/CTAN)
+\item \textbf{或者使用北京理工大学开源软件镜像服务}  http://mirror.bit.edu.cn/CTAN
 
 \end{itemize}
 
@@ -36,7 +34,7 @@
 安装完ctex套装后，一般而言所需的环境就配置好了。
 
 下面以硕士学位论文模板\textbf{BIT-thesis-template-master}为例，进入BIT-thesis-template-master文件夹。
-windows系统点击运行BIT-thesis-run.bat脚本,linux系统以及mac系统请点击运行BIT-thesis-run.sh脚本。脚本会自动运行如图\ref{fig:run} 所示（第一次运行可能需要较长时间，请耐心等待）。打开生成的pdf文档demo.pdf查看模板生成内容。
+windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统请点击运行BIT-thesis-run.sh脚本。脚本会自动运行如图\ref{fig:run} 所示（第一次运行可能需要较长时间，请耐心等待）。打开生成的pdf文档demo.pdf查看模板生成内容。
  
 \begin{figure}[!htp]
   \centering
@@ -65,9 +63,7 @@ windows系统点击运行BIT-thesis-run.bat脚本,linux系统以及mac系统请�
 \end{enumerate}}
 
 运行bibtex的时候会提示一些错误，可能是~{{\sc Bib}\TeX}~对UTF-8支持不充
-分，一般不影响最终结果。留意因为拼写错误导致的``找不到文献错误''即可。
-
-加入~\verb|--interaction=nonstopmode|~参数是不让错误打断编译过程。
+分，一般不影响最终结果。加入~\verb|--interaction=nonstopmode|~参数是不让错误打断编译过程。
 \XeTeX~ 仍存在一些宏包兼容性问题，所以会产生一些莫名其妙的错误(通常是重定
 义错误)，而这些错误通常不会影响最终的编译结果。
   
@@ -93,8 +89,7 @@ windows系统点击运行BIT-thesis-run.bat脚本,linux系统以及mac系统请�
 
 \begin{itemize}
 \item \inv 依据《北京理工大学博士、硕士学位论文撰写规范》修改，按照本文档说明使用，即可撰写符合《北京理工大学博士、硕士学位论文撰写规范》的学位论文；
-\item \inv 使用~\XeTeX~ 引擎处理中文；
-\item \inv 包含中文字符的源文件(.tex, .bib, .cfg)，编码都使用UTF-8；
+\item \inv 使用~\XeTeX~ 引擎处理中文，编码都使用UTF-8；
 \item \inv 使用~BibTeX~管理参考文献。参考文献表现形式(格式)受~.bst~控制，方便
   在不同风格间切换，目前生成的列表符合国标GBT7714要求；
 \item \inv 可以直接插入EPS/PDF/JPG/PNG格式的图像。
