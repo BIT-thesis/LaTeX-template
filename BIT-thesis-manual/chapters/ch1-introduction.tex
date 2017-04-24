@@ -12,7 +12,7 @@
 
 \section{为什么要用BIT-Thesis}
 \label{sec:why}
-学位论文通常具有比较严格的格式要求，这是为了方便同行学术交流的起码要求，同时也是科学研究严谨性的体现。然而，由于市场各种排版软件混杂，使用者水平不一，学生对格式的重视程度不够，学生编写标准格式的学位论存在很多问题。BIT-Thesis可以为我校学生提供轻松撰写符合要求学位论文的环境。通过BIT-Thesis模板编写的论文能符合我校学位论文的要求，学生可将关注点更多地放在高质量的内容本身，而避免繁琐的论文格式调整。
+学位论文通常具有比较严格的格式要求，这是为了方便同行学术交流的起码要求，同时也是科学研究严谨性的体现。然而，由于市场各种排版软件混杂，使用者水平不一，学生对格式的重视程度不够，学生编写标准格式的学位论存在很多问题。BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的LaTex模板。通过BIT-Thesis模板可以轻松攥写符合学校格式要求的学位论文，学生可将关注点更多地放在高质量的内容本身，而避免繁琐的论文格式调整。
 
 \section{安装配置环境}
 \label{sec:requirements}
@@ -56,16 +56,15 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 
 {\color{blue}
 \begin{enumerate}
-\item[] ~\verb|xelatex -no-pdf -{}-interaction=nonstopmode demo|
+\item[] ~\verb|xelatex -no-pdf --interaction=nonstopmode demo|
 \item[] ~\verb|bibtex demo| 
-\item[] ~\verb|xelatex -no-pdf -{}-interaction=nonstopmode demo|
-\item[] ~\verb|xelatex -{}-interaction=nonstopmode demo|
+\item[] ~\verb|xelatex -no-pdf --interaction=nonstopmode demo|
+\item[] ~\verb|xelatex --interaction=nonstopmode demo|
 \end{enumerate}}
 
 运行bibtex的时候会提示一些错误，可能是~{{\sc Bib}\TeX}~对UTF-8支持不充
 分，一般不影响最终结果。加入~\verb|--interaction=nonstopmode|~参数是不让错误打断编译过程。
-\XeTeX~ 仍存在一些宏包兼容性问题，所以会产生一些莫名其妙的错误(通常是重定
-义错误)，而这些错误通常不会影响最终的编译结果。
+\XeTeX~ 仍存在一些宏包兼容性问题，而这些错误通常不会影响最终的编译结果。
   
 为方便使用，处理过程已经写入BIT-thesis-run.sh(for Linux)和BIT-thesis-run.bat(for Windows)批处理文件中。编写完修改完tex文件后，直接运行对应.sh或者.bat文件即可。
 
@@ -76,26 +75,14 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 目前网上有两个版本的北理工~\LaTeX~ 模板“2012大眼小蚂蚁版”和“2016汪卫版”，均以上海交通大学的模为基础。本模板在此两个模板的基础上依据《北京理工大学博士、硕士学位论文撰写规范》修改，进一步完善成熟，使得模板能够被北理工硕士博士广泛使用。希望使用者通过本模板的介绍对~\LaTeX~ 有一定了解。
 
 这个模板的中文解决方案是~\XeTeX/\LaTeX~ 。参考
-文献建议使用~BibTeX~管理，可以生成符合国标~GBT7714~风格的参考文献列表。模
-板在~Windows~和~Linux~下测试通过，更详细的系统要求请参考
+文献建议使用~BibTeX~管理，可以生成符合国标~GBT7714~风格的参考文献列表。
+可以直接插入EPS/PDF/JPG/PNG格式的图像。
+模板在~Windows~和~Linux~下测试通过，更详细的系统要求请参考
 \ref{sec:requirements}。
 
-模板的外观表现和功能都放
-在~bitmaster-xetex.cls~和~bitmaster-xetex.cfg~中，在对外观进行细微调整
-时，只需要更新这两个文件，不需要对.tex源文件做修改。这也给模板更新带来了
-极大方便。
-
-该模板的主要功能说明如下：
-
-\begin{itemize}
-\item \inv 依据《北京理工大学博士、硕士学位论文撰写规范》修改，按照本文档说明使用，即可撰写符合《北京理工大学博士、硕士学位论文撰写规范》的学位论文；
-\item \inv 使用~\XeTeX~ 引擎处理中文，编码都使用UTF-8；
-\item \inv 使用~BibTeX~管理参考文献。参考文献表现形式(格式)受~.bst~控制，方便
-  在不同风格间切换，目前生成的列表符合国标GBT7714要求；
-\item \inv 可以直接插入EPS/PDF/JPG/PNG格式的图像。
-\item \inv 硕士模板的格式受~bitmater-xetex.cls~和~bitmaster-xetex.cfg~控制，博士模板的格式受~bitdoctor-xetex.cls~和~bitdoctor-xetex.cfg~控制方便模
-  板更新和模板修改。
-\end{itemize}
+硕士模板的格式受~bitmater-xetex.cls~和~bitmaster-xetex.cfg~控制，博士模板的格式受~bitdoctor-xetex.cls~和~bitdoctor-xetex.cfg~控制方便模板更新和模板修改。依据《北京理工大学博士、硕士学位论文撰写规范》修改，按照本文档说明使用，即可撰写符合《北京理工大学博士、硕士学位论文撰写规范》的学位论文；
+在对外观进行细微调整时，只需要更新这两个文件，不需要对.tex源文件做修改。这也给模板更新带来了
+极大方便。\textbf{一般使用者不需要修改这两个文件。}
  
 ~XeLaTeX~ 对应的XeTeX对中文字体的支持更好，允许用户使用操作系统字体来代替TeX的标准字体。所以本模板使用~XeLaTeX~ 引擎处理中文。要使用这个模板协助你完成研究生学位论文的创作，下面的条件必须满足：
 
@@ -107,7 +94,7 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 \item \inv 你有使用~\LaTeX~的经验。
 \end{itemize}
 
-安装完成后运行Winedit,便可对tex进行编写。也可使用texmaker等其他的编辑器进行编写。
+安装完成后，便可对tex进行编写以生成相应论文,也可更具使用习惯使用texmaker、Winedit等其他的编辑器进行编写（推荐使用texmaker）。
 
 
 
