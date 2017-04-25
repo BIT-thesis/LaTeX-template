@@ -1,8 +1,8 @@
 %%==================================================
 %% ch2.tex for BIT Master Thesis
 %% modified by yang yating
-%% version: 0.2
-%% last update: Feb 16th, 2017
+%% version: 0.5
+%% last update: April 25th, 2017
 %%==================================================
 
 \chapter{模板使用}
@@ -10,7 +10,30 @@
 
 本章的目的是介绍\LaTeX{}的文本控制流程，即如何实现学位论文在各章节中的分布，以及章节内的交叉引用问题，用户可以根据自身对\LaTeX{}的熟悉程度适当地略过阅读。在了解了本章的内容后，用户即可快速实现文本内容的粘贴和复制，实现一个格式满足基本需求的文档。
 
+以硕士模板为例，文件布局如图\ref{layout-master}所示。
 
+\begin{lstlisting}[basicstyle=\small\ttfamily,caption={BIT-thesis-template-master 模板文件布局},label=layout-master,numbers=none]
+  ├── demo.tex                主控文件
+  ├── demo.pdf                生成pdf
+  ├── bitmaster-xetex.cfg     格式控制文件
+  ├── bitmaster-xetex.cls     格式控制文件
+  ├── GBT7714-2005NLang.bst   参考文献格式控制文件
+  ├── chapters                章节文件夹
+  │   ├── abstract.tex        摘要
+  │   ├── chapter01.tex       第一章
+  │   ├── conclusion.tex      总结
+  │   ├── app1.tex            附录A
+  │   ├── pub.tex             攻读学位期间发表论文与研究成果清单
+  │   └── thanks.tex          致谢
+  ├── figures                 图片文件夹
+  │   └── figure1.png   
+  ├── reference               参考文献文件夹
+  │   └── chap1.bib
+  ├── BIT-thesis-run.cmd      运行脚步cmd
+  └── BIT-thesis-run.sh       运行脚本sh
+  
+      
+\end{lstlisting}
 
 \section{认识模板组成}
 
@@ -41,6 +64,8 @@ bitmaster-xetex.cfg, bitmaster-xetex.cls~和~GBT7714-2005NLang.bst。
 献内容包含进来就可以了。需要注意，处理文档时所有的操作命令
 {}\cndash{}xelatex, bibtex等，都是作用在~demo.tex~上，而\emph{不是}后面这
 些``分散''的文件，请参考\ref{sec:process}小节。
+
+
 
 \subsection{论文主体文件夹chapters}
 \label{sec:thesisbody}
@@ -99,6 +124,8 @@ reference~文件夹放置的是各章``可能''会被引用的参考文献文件
 
 使用论文模板，怎么样一步一步开始我的论文写作？
 比如，修改标题、关键字、摘要…… 增加章节、编辑正文、插入图片、公式……致谢等等……
+\subsection{封面和标题}
+
 
 
 TO be added
