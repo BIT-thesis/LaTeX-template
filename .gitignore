@@ -18,7 +18,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # =========================
-# latex files
+# latex mid files
 # =========================
 *.aux
 *.bbl
@@ -27,6 +27,7 @@ $RECYCLE.BIN/
 *.out
 *.toc
 *.xdv
+*.synctex.gz
 
 # =========================
 # Operating System Files
@@ -56,4 +57,3 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-BIT-thesis-manual/manual.synctex.gz

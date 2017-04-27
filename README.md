@@ -2,7 +2,7 @@
 # BIT-thesis
 北京理工大学硕士（博士）学位论文LaTex模板
 
-![](https://github.com/y-yating/image/raw/master/image-school/BIT_small.jpg)
+![](https://github.com/y-yating/image/raw/master/image-school/BIT-small.png)
 ![](https://github.com/y-yating/image/raw/master/image-school/bit-student.jpg)
 
 
