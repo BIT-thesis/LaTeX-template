@@ -17,15 +17,14 @@
 \subsection{公式及术语表}
 \label{sec:eqn}
 
-公式定义的内容包含在\textbackslash begin\{equation\}和\textbackslash end\{equation\}之间。为方便，公式的编辑可以采用在线的\LaTeX{}公式编辑器。公式的编号格式可以在./sty文件夹下的格式文件中定义，公式中涉及的术语表也需要在公式后面进行对应标记。
+公式定义的内容包含在\textbackslash begin\{equation\}和\textbackslash end\{equation\}之间。为方便，公式的编辑可以采用在线的\LaTeX{}公式编辑器。公式的编号格式可以在./sty文件夹下的格式文件中定义，公式中涉及的术语表也需要在公式后面进行对应标记。一般的\LaTeX{}编辑器如Winedit、texmaker等都有公式编辑器。
 
-{\bf{推荐公式编辑器：}}http://www.codecogs.com/latex/eqneditor.php?lang=zh-cn 或者 winEdt
-
-{\bf{实例1：}} 以下是L-B非稳态流动升力模型，公式采用在线编辑器编辑，公式后附加有术语说明，公式引用格式为~\ref{eqn:LBmodel}，公式后附有术语列表，如\textbackslash nomenclature\{$t$\}\{时间\}。
+{\bf{实例1：}} 以下是L-B非稳态流动升力模型，公式引用为~\ref{eqn:LBmodel}。
 \begin{equation}
  \label{eqn:LBmodel}
    C_{L}=C_{L0}+C_{L\alpha }\left ( \frac{1+\sqrt{X}}{2} \right )\alpha 
 \end{equation}
+
 \nomenclature{$t$}{时间}%
 \nomenclature{$\alpha$}{攻角(AoA)}%
 \nomenclature{$\dot{\alpha}$}{攻角变化率}%
@@ -38,8 +37,7 @@
 
 \subsection{长公式排版}
 
-这里有举一个长公式排版的例子，来自《Math mode》
-%\footnote{《Math mode》中的例子实在太丰富了，而且每一个都很精彩实用。我本想抄几个例子上来做个``山寨版''，实在没有必要，大家还是去看``原著''吧。}：
+《Math mode》里有举一个长公式排版的例子如下。《Math mode》有十分丰富实用的例子，感兴趣的同学可以参考一下。
 
 \begin {multline}
   \frac {1}{2}\Delta (f_{ij}f^{ij})=
@@ -52,7 +50,7 @@
 
 \subsection{定理环境}
 
-在~CASthesis.cfg~中定义了丰富的定理环境
+在~bitmaster-xetex.cfg~中定义了丰富的定理环境
 algo(算法)，thm(定理)，lem(引理)，prop(命题)，cor(推论)，defn(定义)，conj(猜想)，exmp(例)，rem(注)，case(情形)，
 bthm(断言定理)，blem(断言引理)，bprop(断言命题)，bcor(断言推论)。
 amsmath还提供了一个proof(证明)的环境。
