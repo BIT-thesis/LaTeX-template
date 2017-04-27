@@ -14,9 +14,9 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{bitmaster-xetex}
   [2009/12/25 v0.2a bitmaster-xetex document class]
-\newif\ifCAST@typeinfo \BIT@typeinfotrue
+\newif\ifBIT@typeinfo \BIT@typeinfotrue
 \DeclareOption{notypeinfo}{\BIT@typeinfofalse}
-\newif\ifCAST@dvips \BIT@dvipsfalse
+\newif\ifBIT@dvips \BIT@dvipsfalse
 \DeclareOption{dvips}{\BIT@dvipstrue}
 \DeclareOption{dvipdfm}{\BIT@dvipsfalse}
 \DeclareOption{pdftex}{\BIT@dvipsfalse}
@@ -274,6 +274,8 @@ footskip=0.7cm% 页脚 1.8cm %
 \renewcommand\title[2][\BIT@value@title]{%
   \def\BIT@value@title{#2}
   \def\BIT@value@titlemark{\MakeUppercase{#1}}}
+
+\newcommand\vtitle[1]{\def\BIT@value@vtitle{#1}}
 \renewcommand\author[1]{\def\BIT@value@author{#1}}
 \newcommand\advisor[1]{\def\BIT@value@advisor{#1}}
 \newcommand\advisorinstitute[1]{\def\BIT@value@advisorinstitute{#1}}
@@ -300,7 +302,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \clearpage
   \if@twoside
     \thispagestyle{empty}
-    \ifCAST@typeinfo
+    \ifBIT@typeinfo
     \fi
     \cleardoublepage
   \fi
@@ -350,7 +352,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \clearpage
   \if@twoside
     \thispagestyle{empty}
-    \ifCAST@typeinfo
+    \ifBIT@typeinfo
     \fi
     \cleardoublepage
   \fi
@@ -423,7 +425,7 @@ footskip=0.7cm% 页脚 1.8cm %
    {
     \setstretch{1.1}   
     \begin{minipage}{em}
-        {\heiti\zihao{3}\BIT@value@title}
+        {\heiti\zihao{3}\BIT@value@vtitle}
         \vskip 2cm
         {\heiti\zihao{3}\BIT@value@school}
     \end{minipage}
@@ -632,7 +634,7 @@ footskip=0.7cm% 页脚 1.8cm %
    \item\relax}
    {\endlist}
    
-\newenvironment{resumelist}[1]
+\newenvironment{resumeli}[1]
   {{\noindent\normalfont\bfseries #1}
    \list{}{\labelwidth\z@
            \leftmargin 4\ccwd

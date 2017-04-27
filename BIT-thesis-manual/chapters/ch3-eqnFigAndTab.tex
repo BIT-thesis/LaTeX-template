@@ -19,21 +19,12 @@
 
 公式定义的内容包含在\textbackslash begin\{equation\}和\textbackslash end\{equation\}之间。为方便，公式的编辑可以采用在线的\LaTeX{}公式编辑器。公式的编号格式可以在./sty文件夹下的格式文件中定义，公式中涉及的术语表也需要在公式后面进行对应标记。一般的\LaTeX{}编辑器如Winedit、texmaker等都有公式编辑器。
 
-{\bf{实例1：}} 以下是L-B非稳态流动升力模型，公式引用为~\ref{eqn:LBmodel}。
+{\bf{实例1：}} 以下是L-B非稳态流动升力模型，公式引用为公式\ref{eqn:LBmodel}。该公式的术语列表见 表 \ref{tab:LB-parameters}。
 \begin{equation}
  \label{eqn:LBmodel}
    C_{L}=C_{L0}+C_{L\alpha }\left ( \frac{1+\sqrt{X}}{2} \right )\alpha 
 \end{equation}
 
-\nomenclature{$t$}{时间}%
-\nomenclature{$\alpha$}{攻角(AoA)}%
-\nomenclature{$\dot{\alpha}$}{攻角变化率}%
-\nomenclature{$C_{L\alpha}$}{升力线斜率}%
-\nomenclature{$C_{L0}$}{$\alpha=0^{\circ}$时当升力}%
-\nomenclature{$X$}{相对弦长的非稳态流动分离点}%
-\nomenclature{$a_{1}$}{流动分离方程的系数}%
-\nomenclature{$\alpha^{\star}$}{$X=0.5$时的攻角}%
-\nomenclature{$\tau _{1},\tau _{2}$}{流动分离方程的时间常数}%
 
 \subsection{长公式排版}
 
@@ -87,6 +78,7 @@ amsmath还提供了一个proof(证明)的环境。
 
     所以……
   \end{proof}
+  
 \end{thm}
 
 上面的公式例子中，有一些细节希望大家注意。微分号d应该使用``直立体''，也就是用mathrm包围起来。
@@ -112,7 +104,8 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
   \includegraphics[width=0.3\textwidth]{figures/BIT}
   \hspace{1cm}
   \includegraphics[width=0.3\textwidth]{figures/BIT-CS}
-  \bicaption[fig:SRR]{这里将出现在插图索引中}{中文题图}{Fig}{English caption}
+  \caption{中文名}
+  %\bicaption[fig:SRR]{图}{中文题图}{Fig}{English caption}
 \end{figure}
 
 \begin{lstlisting}[language={TeX}, caption={插入PNG/JPG}]
@@ -357,10 +350,10 @@ GBT7714-2005NLang.bst的作者充满谢意。{\color{red} 同时强调一下，�
 
 最后总结一些注意事项：
 \begin{itemize}
-\item  \inv 参考文献只有在正文中被引用了，才会在最后的参考文献列表中出现；
-\item \inv 参考文献``数据库文件''.bib是纯文本文件，请使用~UTF-8~编码，不要使用~GBK~编码；
-\item \inv 参考文献条目中通过~language~域是否为空判断是否是中文文献；
-\item \inv 参考文献条目同样有“内容”和“表现形式”之分，这种可控性是BibTeX带来的。
+\item   参考文献只有在正文中被引用了，才会在最后的参考文献列表中出现；
+\item  参考文献``数据库文件''.bib是纯文本文件，请使用~UTF-8~编码，不要使用~GBK~编码；
+\item  参考文献条目中通过~language~域是否为空判断是否是中文文献；
+\item  参考文献条目同样有“内容”和“表现形式”之分，这种可控性是BibTeX带来的。
 \end{itemize}
 
 

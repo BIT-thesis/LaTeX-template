@@ -274,7 +274,8 @@ footskip=0.7cm% 页脚 1.8cm %
 \renewcommand\title[2][\BIT@value@title]{%
   \def\BIT@value@title{#2}
   \def\BIT@value@titlemark{\MakeUppercase{#1}}}
-\renewcommand\vtitle[1]{\def\BIT@value@vtitle{#1}}
+
+\newcommand\vtitle[1]{\def\BIT@value@vtitle{#1}}
 \renewcommand\author[1]{\def\BIT@value@author{#1}}
 \newcommand\advisor[1]{\def\BIT@value@advisor{#1}}
 \newcommand\advisorinstitute[1]{\def\BIT@value@advisorinstitute{#1}}
@@ -633,7 +634,7 @@ footskip=0.7cm% 页脚 1.8cm %
    \item\relax}
    {\endlist}
    
-\newenvironment{resumelist}[1]
+\newenvironment{resumeli}[1]
   {{\noindent\normalfont\bfseries #1}
    \list{}{\labelwidth\z@
            \leftmargin 4\ccwd
