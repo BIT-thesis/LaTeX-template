@@ -13,24 +13,24 @@
 以硕士模板为例，文件布局如图\ref{layout-master}所示。
 
 \begin{lstlisting}[basicstyle=\small\ttfamily,caption={BIT-thesis-template-master 模板文件布局},label=layout-master,numbers=none]
-  ├── demo.tex                主控文件
-  ├── demo.pdf                生成pdf
-  ├── bitmaster-xetex.cfg     格式控制文件
-  ├── bitmaster-xetex.cls     格式控制文件
-  ├── GBT7714-2005NLang.bst   参考文献格式控制文件
-  ├── chapters                章节文件夹
-  │   ├── abstract.tex        摘要
-  │   ├── chapter01.tex       第一章
-  │   ├── conclusion.tex      总结
-  │   ├── app1.tex            附录A
-  │   ├── pub.tex             攻读学位期间发表论文与研究成果清单
-  │   └── thanks.tex          致谢
-  ├── figures                 图片文件夹
+  ├── demo.tex              主控文件
+  ├── demo.pdf              生成pdf
+  ├── bitmaster-xetex.cfg   格式控制文件
+  ├── bitmaster-xetex.cls   格式控制文件
+  ├── GBT7714-2005NLang.bst 参考文献格式控制文件
+  ├── chapters              章节文件夹
+  │   ├── abstract.tex      摘要
+  │   ├── chapter01.tex     第一章
+  │   ├── conclusion.tex    总结
+  │   ├── app1.tex          附录A
+  │   ├── pub.tex           攻读学位期间发表论文与研究成果清单
+  │   └── thanks.tex        致谢
+  ├── figures               图片文件夹
   │   └── figure1.png   
-  ├── reference               参考文献文件夹
+  ├── reference             参考文献文件夹
   │   └── chap1.bib
-  ├── BIT-thesis-run.cmd      运行脚步cmd
-  └── BIT-thesis-run.sh       运行脚本sh
+  ├── BIT-thesis-run.cmd    运行脚步cmd
+  └── BIT-thesis-run.sh     运行脚本sh
   
       
 \end{lstlisting}
@@ -56,6 +56,8 @@ bitmaster-xetex.cfg, bitmaster-xetex.cls~和~GBT7714-2005NLang.bst。
 譬如各章正文、各个附录、各章参考文献等等。
 在~demo.tex~中通过``include''命令将论文的各个部分包含进来，从而形成一篇结构完成的论文。
 封面页中的论文标题、作者等中英文信息，也是在~demo.tex~中填写。
+
+
 也可以在demo.tex中按照自己的需要引入一些的宏包
 \footnote{一般只有当你需要在文档中使用那个宏包时，才需要在导言区中用~usepackage~引入该宏包。如若不然，通过usepackage引入一大堆不被用到的宏包，必然是一场灾难。由于一开始没有一致的设计目标，\LaTeX~ 的各宏包几乎都是独立发展起来的，因重定义命令导致的宏包冲突屡见不鲜。}。
 
@@ -63,7 +65,6 @@ bitmaster-xetex.cfg, bitmaster-xetex.cls~和~GBT7714-2005NLang.bst。
 献内容。需要注意，处理文档时所有的操作命令
 {}\cndash{}xelatex, bibtex等，都是作用在~demo.tex~上，而\emph{不是}后面这
 些``分散''的文件，请参考\ref{sec:process}小节。
-
 
 
 \subsection{论文主体文件夹chapters}
@@ -81,25 +82,6 @@ bitmaster-xetex.cfg, bitmaster-xetex.cls~和~GBT7714-2005NLang.bst。
 表是``生成''的，也不作为一个单独的文件。另外，学校的硕士研究生学位论文模
 板中，也没有要求加入个人建立，所以我没有在~demo.tex~中引入resume.tex。
 
-章节的设置分别通过关键字完成，按照章节的级别依此如表~\ref{tab:setSection}所示，关于文档中具体章节的关键词设置可以参看原宏包中tex文件夹下的实例文件。
-
-
-\begin{table}[htb]
- \centering
-  \caption{章节设置关键字}     % title of Table
-  \label{tab:setSection}    % label of Table
-  \begin{tabular}{cl}
-    \hline
-    章节级别        & 关键字     \\
-    \hline
-    1 / 章        & \textbackslash chapter \\
-    2 / 节        & \textbackslash section \\
-    3 / 子节      & \textbackslash  subsection \\
-    表格名称       & \textbackslash caption\{章节设置关键字\} \\
-    引用标签       & \textbackslash label\{sec:labelName\} \\
-    \hline
-  \end{tabular}
-\end{table}
 
 \subsection{图片文件夹~figures}
 \label{sec:figuresdir}
@@ -121,13 +103,79 @@ reference~文件夹放置的是各章``可能''会被引用的参考文献文件
 \section{进行论文写作}
 \label{sec:format}
 
-使用论文模板，怎么样一步一步开始我的论文写作？
-比如，修改标题、关键字、摘要…… 增加章节、编辑正文、插入图片、公式……致谢等等……
+本节介绍使用论文模板，修改论文信息、摘要、关键字，以及编辑章节等。
+
 \subsection{封面和标题}
+在主控文件demo.txt中填写论文的相应信息。
+\begin{lstlisting}[language={TeX}, caption={插入表格}]
+% 中文封面内容
+\classification{TQ028.1}
+\UDC{540}
+
+\title{形状记忆聚氨酯的合成及其在织物中的应用}
+\author{***}
+\institute{**学院}
+\advisor{**教授}
+\chairman{**教授}
+\degree{工学硕士}
+\major{*****}
+\school{北京理工大学}
+\defenddate{****年*月}
+
+% 英文封面内容
+\englishtitle{Synthesis and Application on textile of the Shape\\Memory Polyurethane}
+\englishauthor{***}
+\englishadvisor{Prof. **}
+\englishchairman{Prof. **}
+\englishschool{Beijing Insititute of Technology}
+\englishinstitute{****}
+\englishdegree{****}
+\englishmajor{****}
+\englishdate{*，****}
+\end{lstlisting}
+
+\subsection{摘要和关键字}
+摘要内容，放置于chapters文件夹下的abstract.tex中，
+
+中文摘要于abstract环境编写；keywords为中文关键字。英文摘要于englishabstract环境编写；englishkeywords为中文关键字。
+
+\begin{lstlisting}[language={TeX}, caption={中英文摘要}]
+\begin{abstract}
+	本文 ...
+\keywords { 形状记忆；聚氨酯 }
+\end{abstract}
+
+\begin{englishabstract}
+   In order to exploit ...
+\englishkeywords{shape memory properties; polyurethane}
+\end{englishabstract}
+\end{lstlisting}
 
 
+\subsection{正文章节}
+章节的设置分别通过关键字完成，按照章节的级别依此如表~\ref{tab:setSection}所示，关于文档中具体章节的关键词设置可以参看原宏包中tex文件夹下的实例文件。
 
-TO be added
+\begin{table}[htb]
+ \centering
+  \caption{章节设置关键字}     % title of Table
+  \label{tab:setSection}    % label of Table
+  \begin{tabular}{cl}
+    \hline
+    章节级别        & 关键字     \\
+    \hline
+    1 / 章        & \textbackslash chapter \\
+    2 / 节        & \textbackslash section \\
+    3 / 子节      & \textbackslash  subsection \\
+    表格名称       & \textbackslash caption\{章节设置关键字\} \\
+    引用标签       & \textbackslash label\{sec:labelName\} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{其他部分}
+
+
+全文总结、攻读学位期间发表论文与研究成果清单、致谢的内容，均位于chapters文件夹下，分别为conclusion.tex，pub.tex，thanks.tex。
 
 \section{交叉引用}
 \subsection{公式、图表和插图引用}

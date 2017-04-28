@@ -227,7 +227,6 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
     Armadillo & frozen & 8.99 \\ \bottomrule
   \end{tabular}
 \end{table}
-\footnotetext[1]{这个例子来自\href{http://www.ctan.org/tex-archive/macros/latex/contrib/booktabs/booktabs.pdf}{《Publication quality tables in LATEX》}(booktabs宏包的文档)。这也是一个在表格中使用脚注的例子，请留意与threeparttable实现的效果有何不同。}
 
 下面一个是一个更复杂的表格，用threeparttable实现带有脚注的表格，如表\ref{tab:footnote}。
 
@@ -277,7 +276,7 @@ BibTeX读取.aux(第一次运行latex得到的)看看你引用了什么参考文
 .bib数据库中的参考文献条目可以手动编写，也可以在google的学术搜索中找到。
 各大数据库\footnote{应该说是国际知名数据库，譬如~SCOPUS, IEEE, OSA等，国内数据库在搜索、导出方面效果不佳。}也支持将参考文献信息导出为.bib，
 省时省力。
-以Google学术搜索为例：进入\url{http://scholar.google.cn}，在``学术搜索设置''中，将``文献管理软件''设为``显示导入BibTeX''的连接，保存退出。
+以Google学术搜索为例：在``学术搜索设置''中，将``文献管理软件''设为``显示导入BibTeX''的连接，保存退出。
 然后学术搜索找到文献下会有``导出到BibTeX''连接，点击后Firefox会打开新的标签页，出现类似代码\ref{googlescholar}所示的内容
 \footnote{展示这些.bib条目使用了listings宏包，因为listings宏包协调中文的能力很糟糕，所以读者在查看模板的这部分源代码时会看到一些非常麻烦的东西。并且，直接将源代码的这部分内容复制到.bib中可能还会出错。建议这部分内容留意PDF就足够了。}。
 请注意，这个条目离``规范''还有一些距离。
@@ -359,9 +358,7 @@ GBT7714-2005NLang.bst的作者充满谢意。{\color{red} 同时强调一下，�
 
 \section{用~listings~插入源代码}
 
-这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。
-另外，listings宏包真可谓博大精深，可以实现各种复杂、漂亮的效果，想要进一步学习的同学，可以参考
-\href{http://mirror.ctan.org/macros/latex/contrib/listings/listings.pdf}{listings宏包手册}。
+这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。另外，listings宏包可以实现各种复杂、漂亮的效果，想要进一步学习的同学，可以参考《The Listings Package》。
 
 \begin{lstlisting}[language={C}, caption={一段C源代码}]
 #include <stdio.h>
