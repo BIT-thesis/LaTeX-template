@@ -16,16 +16,20 @@
 中设定文档类的语句中进行相应修改：
 
 单面打印
-\begin{lstlisting}language={TeX}
+\begin{lstlisting}[language={TeX}]
 \documentclass[cs4size, a4paer, cs4size, oneside, openany]{bitmaster-xetex}
+
 \end{lstlisting}
 
 双面打印
-\begin{lstlisting}language={TeX}
+\begin{lstlisting}[language={TeX}]
 \documentclass[cs4size, a4paer, cs4size, twoside]{bitmaster-xetex}
+
 \end{lstlisting}
 
-关于页眉页脚，按照BIT要求：页眉为``北京理工大学XX学位论文''，XX表示博士或
+关于页眉页脚，按照BIT要求：
+
+页眉为``北京理工大学XX学位论文''，XX表示博士或
 硕士，宋体、5号，居中排列；页眉从中文摘要开始标注，论文页眉奇偶页相同。页
 码从第1章（绪论）开始按阿拉伯数字（1，2，3……）连续编排，之前的部分(中文摘
 要、Abstract、目录等)用大写罗马数字（Ⅰ，Ⅱ，Ⅲ……）单独编排。
@@ -34,19 +38,21 @@
 自己拍脑袋想出别的做法，应该算是谢天谢地了。使用这个模板，结合BibTeX，可
 以很方便地生成符合GB标准的参考文献列表。
 
-具体的格式参见《北京理工大学博士、硕士学位论文撰写规范》格式要求
+具体的格式参见《北京理工大学博士、硕士学位论文撰写规范》格式要求。
 
 论文模板主要在bit-master-thesis.cls文件中进行定义，现对其进行简单介绍。
 \section{页面设置}
 页边距设置如下:
-\begin{lstlisting}language={TeX}
+\begin{lstlisting}[language={TeX}]
 \usepackage[top=3.5cm,headheight=25mm,headsep=3mm,footskip=8mm,bottom=2.5cm,left=2.7cm,right=2.7cm]{geometry}
+
 \end{lstlisting}
 
 行距离设置，按照要求，应该为22榜，如下设置：
-\begin{lstlisting}language={TeX}
+\begin{lstlisting}[language={TeX}]
 \RequirePackage{setspace}
 \setstretch{1.4}
+
 \end{lstlisting}
 
 \section{章节格式与目录}
@@ -77,6 +83,7 @@
 \titlecontents{subsection}[4em]{\songti \zihao{-4}}
     {\thecontentslabel\quad}{}
     {\hspace{.5em}\titlerule*{.}\contentspage}
+    
 \end{lstlisting}
 
 \section{封面设计}
@@ -102,11 +109,12 @@
 \newcommand\defenddate[1]{\def\BIT@value@defenddate{#1}}
 \newcommand\institute[1]{\def\BIT@value@institute{#1}}
 \newcommand\chairman[1]{\def\BIT@value@chairman{#1}}
+
 \end{lstlisting}
 
 使用这些命令，即可在主控文件中设置自己的封面，例如本文档在demo.tex中如下
 设置：
-\begin{lstlisting}language={TeX}
+\begin{lstlisting}[language={TeX}]
 \classification{*****.*}
 \UDC{***}
 \title{BIT-thesis使用指南}

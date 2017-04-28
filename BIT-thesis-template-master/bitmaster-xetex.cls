@@ -438,6 +438,7 @@ footskip=0.7cm% 页脚 1.8cm %
     \fi
   
 }
+
 % 原创性声明
 \newcommand\makeDeclareOriginal{%
   \cleardoublepage

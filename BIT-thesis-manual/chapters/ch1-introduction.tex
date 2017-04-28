@@ -8,11 +8,11 @@
 \chapter{快速使用指南}
 \label{chap:what}
 
-本手册是针对北京理工大学硕士（博士）学位论文~\LaTeX~ 模板BIT-thesis的使用指南。旨在使同学们通过该使用指南的介绍，能快速使用BIT-thesis模板编辑符合学校格式要求的硕士（博士）学位论文，并能对~\LaTeX~ 有一定的了解。
+本手册是针对北京理工大学硕士（博士）学位论文~\LaTeX~ 模板BIT-thesis的使用指南。旨在使同学们通过该使用指南的介绍，能快速掌握使用BIT-thesis模板编辑符合学校格式要求的硕士（博士）学位论文，并能对~\LaTeX~ 有一定的了解。
 
 \section{为什么要用BIT-Thesis}
 \label{sec:why}
-学位论文通常具有比较严格的格式要求，这是为了方便同行学术交流的起码要求，同时也是科学研究严谨性的体现。然而，由于市场各种排版软件混杂，使用者水平不一，学生对格式的重视程度不够，学生编写标准格式的学位论存在很多问题。BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的LaTex模板。通过BIT-Thesis模板可以轻松攥写符合学校格式要求的学位论文，学生可将关注点更多地放在高质量的内容本身，而避免繁琐的论文格式调整。
+学位论文通常具有比较严格的格式要求，这是为了方便同行学术交流的起码要求，同时也是科学研究严谨性的体现。然而，由于市场各种排版软件混杂，使用者水平不一，学生对格式的重视程度不够，学生编写标准格式的学位论存在很多问题。BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的LaTex模板。通过BIT-Thesis模板可以轻松攥写符合学校格式要求的学位论文，学生可避免繁琐的论文格式调整，从而将关注点更多地放在高质量的内容本身。
 
 \section{安装配置环境}
 \label{sec:requirements}
@@ -20,9 +20,9 @@
 为了安装便捷，推荐安装Ctex套装。
 
 \begin{itemize}
-\item \textit{Ctex套装下载地址：}  http://www.ctex.org/CTeXDownload
+\item \textit{Ctex套装下载地址：}  \url{http://www.ctex.org/CTeXDownload}
 
-\item \textit{或者使用北京理工大学开源软件镜像服务：}  http://mirror.bit.edu.cn/CTAN
+\item \textit{或者使用北京理工大学开源软件镜像服务进行下载：}  \url{http://mirror.bit.edu.cn/CTAN}
 
 \end{itemize}
 
@@ -66,15 +66,15 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 分，一般不影响最终结果。加入~\verb|--interaction=nonstopmode|~参数是不让错误打断编译过程。
 \XeTeX~ 仍存在一些宏包兼容性问题，而这些错误通常不会影响最终的编译结果。
 
-为方便使用，处理过程已经写入BIT-thesis-run.sh(for Linux)和BIT-thesis-run.bat(for Windows)批处理文件中。编写完修改完tex文件后，直接运行对应.sh或者.bat文件即可。
+为方便使用，处理过程已经写入BIT-thesis-run.sh（for Linux）和BIT-thesis-run.bat（for Windows）批处理文件中。编写完修改完tex文件后，直接运行对应.sh或者.bat文件即可。
 
 如使用texmaker等编辑器，可使用自定义命令对文档快速构建：
 
 {\color{blue}
 \begin{enumerate}
-\item[] ~\verb|xelatex -interaction=nonstopmode %.tex ||
+\item[] ~\verb|xelatex -no-pdf -interaction=nonstopmode %.tex ||
 \item[] ~\verb|bibtex % || 
-\item[] ~\verb|xelatex -interaction=nonstopmode %.tex ||
+\item[] ~\verb|xelatex -no-pdf -interaction=nonstopmode %.tex ||
 \item[] ~\verb|xelatex -interaction=nonstopmode %.tex|
 \end{enumerate}}
 
@@ -94,17 +94,17 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 在对外观进行细微调整时，只需要更新这两个文件，不需要对.tex源文件做修改。这也给模板更新带来了
 极大方便。\textbf{一般使用者不需要修改这两个文件。}
  
-~XeLaTeX~ 对应的XeTeX对中文字体的支持更好，允许用户使用操作系统字体来代替TeX的标准字体。所以本模板使用~XeLaTeX~ 引擎处理中文。要使用这个模板协助你完成研究生学位论文的创作，下面的条件必须满足：
+~\XeLaTeX~ 对应的~\XeTeX~ 对中文字体的支持更好，允许用户使用操作系统字体来代替TeX的标准字体。所以本模板使用~\XeLaTeX~ 引擎处理中文。要使用这个模板协助你完成研究生学位论文的创作，下面的条件必须满足：
 
 \begin{itemize}
 \item  操作系统字体目录中有中文字体（adobe或windows字体均可）；
 \item  \TeX~系统有~\XeTeX~引擎；
-\item  \TeX~系统有~ctex~宏包；
+\item  \TeX~系统有~ \CTeX~宏包；
 \item  \TeX~系统的fontspec宏包(fontspec.sty)足够新；
 \item  你有使用~\LaTeX~的经验。
 \end{itemize}
 
-安装完成后，便可对tex进行编写以生成相应论文,也可更具使用习惯使用texmaker、Winedit等其他的编辑器进行编写（推荐使用texmaker）。
+安装完成后，便可对tex进行编写以生成相应论文,也可更具使用习惯使用Texmaker、Winedit等其他的编辑器进行编写（推荐使用Texmaker）。
 
 
 
