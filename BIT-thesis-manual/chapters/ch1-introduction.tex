@@ -51,8 +51,8 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
   \label{fig:demo_context}
 \end{figure}
 
-本模板使用~\XeTeX~ 引擎提供的~xelatex~的命令处理，作用于“主控文档”demo.tex。
-并且，可以省略扩展名。完整的处理流程是：
+本模板使用~\XeTeX~ 引擎提供的~\XeLaTeX~的命令处理，作用于“主控文档”demo.tex。
+由于该模板使用~{{\sc Bib}\TeX}~处理参考文献，构建流程为 \textbf{XeLaTeX$\rightarrow$ BibTeX $\rightarrow$ XeLaTeX$\rightarrow$ XeLaTeX}。完整的处理流程是：
 
 {\color{blue}
 \begin{enumerate}
@@ -65,8 +65,18 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 运行bibtex的时候会提示一些错误，可能是~{{\sc Bib}\TeX}~对UTF-8支持不充
 分，一般不影响最终结果。加入~\verb|--interaction=nonstopmode|~参数是不让错误打断编译过程。
 \XeTeX~ 仍存在一些宏包兼容性问题，而这些错误通常不会影响最终的编译结果。
-  
+
 为方便使用，处理过程已经写入BIT-thesis-run.sh(for Linux)和BIT-thesis-run.bat(for Windows)批处理文件中。编写完修改完tex文件后，直接运行对应.sh或者.bat文件即可。
+
+如使用texmaker等编辑器，可使用自定义命令对文档快速构建：
+
+{\color{blue}
+\begin{enumerate}
+\item[] ~\verb|xelatex -interaction=nonstopmode %.tex ||
+\item[] ~\verb|bibtex % || 
+\item[] ~\verb|xelatex -interaction=nonstopmode %.tex ||
+\item[] ~\verb|xelatex -interaction=nonstopmode %.tex|
+\end{enumerate}}
 
 
 \section{模板说明与Tex介绍}
