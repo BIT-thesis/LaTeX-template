@@ -311,51 +311,52 @@ footskip=0.7cm% 页脚 1.8cm %
   \cleardoublepage
   \thispagestyle{empty}
 
-%udc ltz
-{
-  {\heiti \zihao{5} \noindent \BIT@label@classification} \BIT@value@classification \\ 
-  {\heiti \zihao{5} \BIT@label@UDC}  \BIT@value@UDC 
-}
-  
-   \begin{center}
 
-    \vskip \stretch{1}
-       {\heiti\zihao{-2} \BIT@value@title}
-    \vskip \stretch{1}
-
-    {\fangsong\zihao{4}}      
-    \def\tabcolsep{1pt}
-    \def\arraystretch{1.5}
-
-    {\heiti\zihao{-3}
-     \begin{tabular}{lc}
-      \BIT@label@author & \BITunderline[150pt]{\BIT@value@author}
-    \\
-      \BIT@label@institute &  \BITunderline[150pt]{\BIT@value@institute}
-    \\
-      \BIT@label@advisor &  \BITunderline[150pt]{\BIT@value@advisor}
-    \\  
-      \BIT@label@chairman &   \BITunderline[150pt]{\BIT@value@chairman}
-    \\  
-      \BIT@label@degree &    \BITunderline[150pt]{\BIT@value@degree}
-    \\  
-      \BIT@label@major &     \BITunderline[150pt]{\BIT@value@major}
-    \\  
-      \BIT@label@school &     \BITunderline[150pt]{\BIT@value@school}
-    \\  
-      \BIT@label@defenddate &   \BITunderline[150pt]{\BIT@value@defenddate}
-    \end{tabular}}
-
-  \end{center} 
-
-  \vskip \stretch{0.5}
-  \clearpage
-  \if@twoside
-    \thispagestyle{empty}
-    \ifBIT@typeinfo
-    \fi
-    \cleardoublepage
-  \fi
+%%封面其他内容
+%{
+%  {\heiti \zihao{5} \noindent \BIT@label@classification} \BIT@value@classification \\ 
+%  {\heiti \zihao{5} \BIT@label@UDC}  \BIT@value@UDC 
+%}
+%  
+%   \begin{center}
+%
+%    \vskip \stretch{1}
+%       {\heiti\zihao{-2} \BIT@value@title}
+%    \vskip \stretch{1}
+%
+%    {\fangsong\zihao{4}}      
+%    \def\tabcolsep{1pt}
+%    \def\arraystretch{1.5}
+%
+%    {\heiti\zihao{-3}
+%     \begin{tabular}{lc}
+%      \BIT@label@author & \BITunderline[150pt]{\BIT@value@author}
+%    \\
+%      \BIT@label@institute &  \BITunderline[150pt]{\BIT@value@institute}
+%    \\
+%      \BIT@label@advisor &  \BITunderline[150pt]{\BIT@value@advisor}
+%    \\  
+%      \BIT@label@chairman &   \BITunderline[150pt]{\BIT@value@chairman}
+%    \\  
+%      \BIT@label@degree &    \BITunderline[150pt]{\BIT@value@degree}
+%    \\  
+%      \BIT@label@major &     \BITunderline[150pt]{\BIT@value@major}
+%    \\  
+%      \BIT@label@school &     \BITunderline[150pt]{\BIT@value@school}
+%    \\  
+%      \BIT@label@defenddate &   \BITunderline[150pt]{\BIT@value@defenddate}
+%    \end{tabular}}
+%
+%  \end{center} 
+%
+%  \vskip \stretch{0.5}
+%  \clearpage
+%  \if@twoside
+%    \thispagestyle{empty}
+%    \ifBIT@typeinfo
+%    \fi
+%    \cleardoublepage
+%  \fi
 }
 
 

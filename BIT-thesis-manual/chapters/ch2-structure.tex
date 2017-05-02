@@ -15,8 +15,8 @@
 \begin{lstlisting}[basicstyle=\small\ttfamily,caption={BIT-thesis-template-master 模板文件布局},label=layout-master,numbers=none]
   ├── demo.tex              主控文件
   ├── demo.pdf              生成的论文pdf
-  ├── bitmaster-xetex.cfg   格式控制文件
-  ├── bitmaster-xetex.cls   格式控制文件
+  ├── bitmaster-xetex.cfg   格式控制文件（布局设置文件）
+  ├── bitmaster-xetex.cls   格式控制文件（文档类文件）
   ├── GBT7714-2005NLang.bst 参考文献格式控制文件
   ├── chapters              章节文件夹
   │   ├── abstract.tex       摘要
@@ -55,14 +55,11 @@ bitmaster-xetex.cfg, bitmaster-xetex.cls~和~GBT7714-2005NLang.bst。
 使用这个模板撰写学位论文时，学位论文内容和素材会被``拆散''到各个文件中：
 譬如各章正文、各个附录、各章参考文献等等。
 在~demo.tex~中通过``include''命令将论文的各个部分包含进来，从而形成一篇结构完成的论文。
-封面页中的论文标题、作者等中英文信息，也是在~demo.tex~中填写。
-
-
-也可以在demo.tex中按照自己的需要引入一些的宏包
+封面页中的论文标题、作者等中英文信息，也是在~demo.tex~中填写。也可以在demo.tex中按照自己的需要引入一些的宏包
 \footnote{一般只有当你需要在文档中使用那个宏包时，才需要在导言区中用~usepackage~引入该宏包。如若不然，通过usepackage引入一大堆不被用到的宏包，必然是一场灾难。由于一开始没有一致的设计目标，\LaTeX~ 的各宏包几乎都是独立发展起来的，因重定义命令导致的宏包冲突屡见不鲜。}。
 
-大致而言，在~demo.tex~中，只要留意把``章''一级的内容，以及各章参考文
-献内容。需要注意，处理文档时所有的操作命令
+大致而言，在主控文件~demo.tex~中，只需要留意文章有哪些章节以及各章参考文
+献内容，不需要具体关注每一章里面的具体内容。需要注意，处理文档时所有的操作命令
 {}\cndash{}xelatex, bibtex等，都是作用在~demo.tex~上，而\emph{不是}后面这
 些``分散''的文件，请参考\ref{sec:process}小节。
 
@@ -106,46 +103,43 @@ reference~文件夹放置的是各章``可能''会被引用的参考文献文件
 本节介绍使用论文模板，修改论文信息、摘要、关键字，以及编辑章节等。
 
 \subsection{封面和标题}
-在主控文件demo.txt中填写论文的相应信息。
+在主控文件demo.tex中填写论文的相应信息。
+
+中文封面信息：
+\begin{itemize}
+\item 中图分类号(\verb|\classification{TQ028.1}|)
+\item UDC分类号(\verb|\UDC{540}|)
+\item 论文标题(\verb|\title{论文标题}|)
+\item 作者姓名(\verb|\author{姓名}|)
+\item 学院名称(\verb|\institute{学院名称}|)
+\item 指导教师(\verb|\advisor{教授姓名}|)
+\item 答辩委员会主席(\verb|\chairman{教授姓名}|)
+\item 申请学位(\verb|\degree{学位名称}|)
+\item 学科专业(\verb|\major{专业名称}|)
+\item 学位授予单位(\verb|\school{北京理工大学}|)
+\item 论文答辩日期(\verb|\defenddate{答辩日期}|)
+\end{itemize}
 
 
-中文封面信息：论文标题、作者姓名、学院名称、指导教师、答辩委员会主席、申请学位、学科专业、学位授予单位以及论文答辩日期。
-
-英语封面信息：English Title， Candidate Name， School or Department，Faculty Mentor，Chair, Thesis Committee，Degree Applied，Major，Degree by，The Data of Defence
-
-\begin{lstlisting}[language={TeX}, caption={封面内容}]
-% 中文封面内容
-\classification{TQ028.1}
-\UDC{540}
-
-\title{形状记忆聚氨酯的合成及其在织物中的应用}
-\author{***}
-\institute{**学院}
-\advisor{**教授}
-\chairman{**教授}
-\degree{工学硕士}
-\major{*****}
-\school{北京理工大学}
-\defenddate{****年*月}
-
-% 英文封面内容
-\englishtitle{Synthesis and Application on textile of the Shape\\Memory Polyurethane}
-\englishauthor{***}
-\englishadvisor{Prof. **}
-\englishchairman{Prof. **}
-\englishschool{Beijing Insititute of Technology}
-\englishinstitute{****}
-\englishdegree{****}
-\englishmajor{****}
-\englishdate{*，****}
-\end{lstlisting}
+英语封面信息：
+\begin{itemize}
+\item English Title(\verb|\englishtitle{论文标题}|)
+\item Candidate Name(\verb|\englishauthor{姓名}|)
+\item School or Department(\verb|\englishinstitute{学院名称}|)
+\item Faculty Mentor(\verb|\englishadvisor{教授姓名}|)
+\item Chair,Thesis Committee(\verb|\englishchairman{教授姓名}|)
+\item Degree Applied(\verb|\englishdegree{学位名称}|)
+\item Major(\verb|\englishmajor{专业名称}|)
+\item Degree by(\verb|\englishschool{Beijing Insititute of Technology}|)
+\item The Data of Defence(\verb|\englishdate{答辩日期}|)
+\end{itemize}
 
 \subsection{摘要和关键字}
 摘要内容，放置于chapters文件夹下的abstract.tex中，
 
 中文摘要于\verb|abstract|环境编写；\verb|\keywords|为中文关键字。英文摘要于\verb|englishabstract|环境编写；\verb|\englishkeywords|为中文关键字。
 
-\begin{lstlisting}[language={TeX}, caption={中英文摘要}]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={中英文摘要}]
 \begin{abstract}
 	本文 ...
 \keywords { 形状记忆；聚氨酯 }
@@ -212,7 +206,7 @@ reference~文件夹放置的是各章``可能''会被引用的参考文献文件
 \subsection{文献引用}
 \label{sec:citeRefs}
 
-{\bf{实例2：}}这里是对文献《{\it{State-Space Representation of Aerodynamic Characteristics of an Aircraft at High Angles of Attack}}》的引用——文献\cite{Goman:state_aerodynamics}。这里文献采用bibTex格式。对于中文文献的引用也是如此\cite{BUAA:2002-CFD-missile}。
+{\bf{实例2：}}这里是对文献《{\it{State-Space Representation of Aerodynamic Characteristics of an Aircraft at High Angles of Attack}}》的引用——文献\cite{Goman:state_aerodynamics}。这里文献采用BibTeX格式。对于中文文献的引用也是如此\cite{BUAA:2002-CFD-missile}。
 
 同样，在编译的过程中首次编译全文后需要对参考文献进行索引编译，
 

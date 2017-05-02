@@ -17,7 +17,7 @@
 \subsection{公式及术语表}
 \label{sec:eqn}
 
-公式定义的内容包含在\verb|\begin{equation}|\verb|\end{equation}|之间。为方便，公式的编辑可以采用在线的\LaTeX{}公式编辑器。公式的编号格式可以在./sty文件夹下的格式文件中定义，公式中涉及的术语表也需要在公式后面进行对应标记。一般的\LaTeX{}编辑器如Winedit、texmaker等都有公式编辑器。
+公式定义的内容包含在\verb|\begin{equation}|\verb|\end{equation}|之间。为方便，公式的编辑可以采用在线的\LaTeX{}公式编辑器。公式的编号格式可以在.sty文件夹下的格式文件中定义，公式中涉及的术语表也需要在公式后面进行对应标记。一般的\LaTeX{}编辑器如Winedit、texmaker等都有公式编辑器。
 
 {\bf{实例1：}} 以下是L-B非稳态流动升力模型，公式引用为公式\ref{eqn:LBmodel}。该公式的术语列表见 表 \ref{tab:LB-parameters}。
 \begin{equation}
@@ -25,7 +25,7 @@
    C_{L}=C_{L0}+C_{L\alpha }\left ( \frac{1+\sqrt{X}}{2} \right )\alpha 
 \end{equation}
 
-\begin{lstlisting}[language={TeX}, caption={L-B非稳态流动升力模型}]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={L-B非稳态流动升力模型}]
 \begin{equation}
  \label{eqn:LBmodel}
    C_{L}=C_{L0}+C_{L\alpha }\left ( \frac{1+\sqrt{X}}{2} \right )\alpha 
@@ -46,7 +46,7 @@
       \nabla _{k}R_{ij}\right ]\vphantom {\sum _{i<j}}\right )
 \end{multline}
 
-\begin{lstlisting}[language={TeX}, caption={长公式排版}]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={长公式排版}]
 \begin {multline}
   \frac {1}{2}\Delta (f_{ij}f^{ij})=
   2\left (\sum _{i<j}\chi _{ij}(\sigma _{i}-
@@ -112,32 +112,36 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 \subsection{支持的图片格式}
 \label{sec:imageformat}
 
-\XeTeX~ 可以很方便地插入~PDF、EPS、PNG、JPG~格式的图片。在学位论文中，插图地使用简单地分为两类：单列图片和多列图片。图片地格式包含*.jpg、*.eps、*.pdf，既可以是位图也可以是矢量图，在插入图片是可以定义其高度和宽度。
+\XeTeX~ 可以很方便地插入~PDF、EPS、PNG、JPG~格式的图片。
 
-插入PNG/JPG的例子如\ref{fig:SRR}所示。
+在学位论文中，插图地使用简单地分为两类：单列图片和多列图片。图片地格式包含*.jpg、*.eps、*.pdf，既可以是位图也可以是矢量图，在插入图片是可以定义其高度和宽度。
+
+插入PNG/JPG的例子如\ref{fig:png-jpg}所示。
 这两个水平并列放置的图共享一个``图标题''(table caption)，没有各自的小标题。
 
 \begin{figure}[!htp]
   \centering
-  \includegraphics[width=0.3\textwidth]{figures/BIT}
+  \includegraphics[width=0.35\textwidth]{figures/BIT}
   \hspace{1cm}
-  \includegraphics[width=0.3\textwidth]{figures/BIT-CS}
+  \includegraphics[width=0.35\textwidth]{figures/BIT-CS}
   \caption{校徽以及计算机学院LOGO}
+  \label{fig:png-jpg}
 \end{figure}
 
-\begin{lstlisting}[language={TeX}, caption={插入PNG/JPG}]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={插入PNG/JPG}]
 \begin{figure}[!htp]
   \centering
   \includegraphics[width=0.3\textwidth]{figures/BIT}
   \hspace{1cm}
   \includegraphics[width=0.3\textwidth]{figures/BIT-CS}
   \caption{校徽以及计算机学院LOGO}
+  \label{fig:png-jpg}
 \end{figure}
 \end{lstlisting}
 
 这里还有插入eps图像和pdf图像的例子，如图\ref{fig:pdfeps}。这里将EPS和PDF图片作为子图插入，每个子图有自己的小标题。并列子图的功能是使用~subfigure~宏包提供的。
 
-\begin{figure}
+\begin{figure}[!b]
   \centering
   \subfigure[EPS Figure]{
     \label{fig:epspdf:a} %% label for first subfigure
@@ -149,7 +153,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
   \label{fig:pdfeps}
 \end{figure}
 
-\begin{lstlisting}[language={TeX}, caption={插入eps图像和pdf图像}][!htp]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={插入eps图像和pdf图像}][!htp]
 \begin{figure}
   \centering
   \subfigure[EPS Figure]{
@@ -186,7 +190,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
    \end{minipage}     
 \end{figure}
 
-\begin{lstlisting}[language={TeX}, caption={长标题的换行}]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={长标题的换行}]
 \begin{figure}[!htp]
  \centering
  \includegraphics[width=10cm]{figures/pic1}
@@ -230,7 +234,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
  \end{center}
 \end{table}
 
-\begin{lstlisting}[language={TeX}, caption={插入表格}]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={插入表格}]
 \begin{table}[htb]
 \centering
  \begin{center}
