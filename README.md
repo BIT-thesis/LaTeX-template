@@ -1,4 +1,4 @@
-# BIT-Thesis 北京理工大学硕士（博士）学位论文LaTex模板
+# BIT-Thesis 北京理工大学硕士（博士）学位论文LaTeX模板
 
 ![Beijing Institude of Technology](https://github.com/y-yating/image/raw/master/image-school/BIT-small.png)
 
