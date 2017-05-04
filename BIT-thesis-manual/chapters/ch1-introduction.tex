@@ -8,7 +8,7 @@
 \chapter{快速使用指南}
 \label{chap:what}
 
-本手册是针对北京理工大学硕士（博士）学位论文~\LaTeX~ 模板BIT-thesis的使用指南。旨在使同学们通过该使用指南的介绍，能快速掌握使用BIT-thesis模板编辑符合学校格式要求的硕士（博士）学位论文，并能对~\LaTeX~ 有一定的了解。
+本手册是针对北京理工大学硕士（博士）学位论文~\LaTeX~ 模板BIT-Thesis的使用指南。旨在使同学们通过该使用指南的介绍，能快速掌握使用BIT-Thesis模板编辑符合学校格式要求的硕士（博士）学位论文，并能对~\LaTeX~ 有一定的了解。
 
 \section{为什么要用BIT-Thesis}
 \label{sec:why}
@@ -17,14 +17,15 @@
 \section{安装配置环境}
 \label{sec:requirements}
 
-为了安装便捷，推荐安装\CTeX 套装。\textbf{[!!!!!!!!!!!to be added]}
-
+\TeX 发展至今日，拥有了众多的发行版。发行版软件合集中包括了各种引擎的可执行程序，以及一些文档类、模板、字体文件、辅助程序等等。
 \begin{itemize}
-\item \textit{\CTeX 套装下载地址：}  \url{http://www.ctex.org/CTeXDownload}
-
-\item \textit{或者使用北京理工大学开源软件镜像服务进行下载：}  \url{http://mirror.bit.edu.cn/CTAN}
-
+\item windows用户推荐安装CTeX套装，官网 \url{http://www.ctex.org}
+\item linux用户推荐安装TeX Live，官网 \url{http://tug.org/texlive}
+\item OSX用户推荐安装MacTeX，官网 \url{http://www.tug.org/mactex}
 \end{itemize}
+
+可在对应官方网站上下载安装，也可以使用\textbf{北京理工大学开源软件镜像服务}进行下载: \url{http://mirror.bit.edu.cn/CTAN}
+
 
 
 
@@ -38,7 +39,7 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
  
 \begin{figure}[!htp]
   \centering
-  \includegraphics[width=0.8\textwidth]{figures/BIT-thesis-run}
+  \includegraphics[width=0.85\textwidth]{figures/BIT-thesis-run}
   \caption{BIT-thesis-run.bat脚本运行}
   \label{fig:run}
 \end{figure}
@@ -46,7 +47,7 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 
 \begin{figure}[!htp]
   \centering
-  {\includegraphics[width=0.8\textwidth]{figures/demo_context}}
+  {\includegraphics[width=0.85\textwidth]{figures/demo_context}}
   \caption{生成文档demo.pdf的目录}
   \label{fig:demo_context}
 \end{figure}
@@ -97,14 +98,13 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 ~\XeLaTeX~ 对应的~\XeTeX~ 对中文字体的支持更好，允许用户使用操作系统字体来代替TeX的标准字体。所以本模板使用~\XeLaTeX~ 引擎处理中文。要使用这个模板协助你完成研究生学位论文的创作，下面的条件必须满足：
 
 \begin{itemize}
-\item  操作系统字体目录中有中文字体（adobe或windows字体均可）；
+\item  操作系统字体目录中有中文字体；
 \item  \TeX~系统有~\XeTeX~引擎；
 \item  \TeX~系统有~ \CTeX~宏包；
-\item  \TeX~系统的fontspec宏包(fontspec.sty)足够新；
 \item  你有使用~\LaTeX~的经验。
 \end{itemize}
 
-安装完成后，便可对\TeX 进行编写以生成相应论文,也可更具使用习惯使用Texmaker、Winedit等其他的编辑器进行编写（推荐使用Texmaker）。
+安装完成后，便可对\TeX 进行编写以生成相应论文,也可根据使用习惯使用Texmaker、TeXstudio Winedit等其他的编辑器进行编写（推荐使用Texmaker）。
 
 
 
