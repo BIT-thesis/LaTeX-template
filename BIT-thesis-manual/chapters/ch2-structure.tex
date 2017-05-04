@@ -206,14 +206,12 @@ reference~文件夹放置的是各章``可能''会被引用的参考文献文件
 \subsection{文献引用}
 \label{sec:citeRefs}
 
-{\bf{实例2：}}这里是对文献《{\it{State-Space Representation of Aerodynamic Characteristics of an Aircraft at High Angles of Attack}}》的引用——文献\cite{Goman:state_aerodynamics}。这里文献采用BibTeX格式。对于中文文献的引用也是如此\cite{BUAA:2002-CFD-missile}。
+BIT-Thesis论文模板使用BibTeX处理参考文献。
 
-同样，在编译的过程中首次编译全文后需要对参考文献进行索引编译，
+参考文献的具体内容就是reference文件夹下的chap\textit{xx}.bib，参考文献的元数据(名称、作者、出处等)以一定的格式保存在这些纯文本文件中。
+.bib文件也可以理解为参考文献的``数据库''，正文中所有引用的参考文件条目都会从这些文件中``析出''。
 
-\begin{center}
-  {\color{blue}bibtex \%.aux}
-\end{center}
+正文中引用参考文献时，用\verb+\upcite{...}+可以产生“上标引用的参考文献”，
+如\upcite{chen2007act},\upcite{Meta_CN,chen2007act,DPMG}。
 
-再进行第二次编译后才能更新全文中的文献引用项。
-
-特别针对《中华人民共和国国家标准 GBT 7714-2005 文后参考文献著录规则》的要求，需要首先配置编译环境的文献模版，方法参考~bib~子目录下的GBT7714-2005NLang压缩包。
+具体使用方法参见第\ref{sec:reference}节。

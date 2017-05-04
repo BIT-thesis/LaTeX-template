@@ -13,7 +13,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{bitmaster-xetex}
-  [2009/12/25 v0.2a bitmaster-xetex document class]
+  [2016/12/25 v0.1 bitmaster-xetex document class]
 \newif\ifBIT@typeinfo \BIT@typeinfotrue
 \DeclareOption{notypeinfo}{\BIT@typeinfofalse}
 \newif\ifBIT@dvips \BIT@dvipsfalse
@@ -419,17 +419,14 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand\makeVerticalTitle{
    \cleardoublepage
    \thispagestyle{empty}
-   %\vspace*{5cm}
    \vskip 5cm
    \begin{center}
-   {
     \setstretch{1.1}   
-    \begin{minipage}{em}
+    \begin{minipage}{1em}
         {\heiti\zihao{3}\BIT@value@vtitle}
         \vskip 2cm
         {\heiti\zihao{3}\BIT@value@school}
     \end{minipage}
-   }
    \end{center}
     \clearpage
     \if@twoside

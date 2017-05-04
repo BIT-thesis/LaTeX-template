@@ -13,7 +13,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{bitmaster-xetex}
-  [2009/12/25 v0.2a bitmaster-xetex document class]
+  [2016/12/25 v0.1 bitmaster-xetex document class]
 \newif\ifBIT@typeinfo \BIT@typeinfotrue
 \DeclareOption{notypeinfo}{\BIT@typeinfofalse}
 \newif\ifBIT@dvips \BIT@dvipsfalse

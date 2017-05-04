@@ -297,16 +297,16 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 
 
 \section{参考文献管理}
-
+\label{sec:reference}
 \subsection{将参考文献的内容与表现分离}
 
-这个论文模板使用BibTeX处理参考文献，
+BIT-Thesis论文模板使用BibTeX处理参考文献，
 BibTeX是最为流行的参考文献数据组织格式之一。它的出现让我们摆脱手写参考文献条目
 的麻烦。
 当然，使用者也可以手动编参考文献item，直接插入文档中。但是，有BibTeX帮助，处理起参考文献更为简单。我们还可以通过参考文献格式的支持，让同一份BibTeX数据库生成不同格式的参考文
 献列表。
 
-参考文献的``内容''就是reference文件夹下的chap\textit{xx}.bib，参考文献的元数据(名称、作者、出处等)以一定的格式保存在这些纯文本文件中。
+参考文献的具体内容就是reference文件夹下的chap\textit{xx}.bib，参考文献的元数据(名称、作者、出处等)以一定的格式保存在这些纯文本文件中。
 .bib文件也可以理解为参考文献的``数据库''，正文中所有引用的参考文件条目都会从这些文件中``析出''。
 控制参考文献条目``表现形式''(格式)的是.bst文件。.bst文件定义了参考文献风格，使用不同的参考文献风格能将同一个参考文献条目输出成不同的格式。
 当然，一个文档只能使用一个参考文献风格。
@@ -322,8 +322,7 @@ BibTeX读取.aux(第一次运行latex得到的)查看参考文献条目，
 .bib数据库中的参考文献条目可以手动编写，也可以在google的学术搜索中找到。
 各大数据库也支持将参考文献信息导出为.bib，省时省力。
 以Google学术搜索为例：在``学术搜索设置''中，将``文献管理软件''设为``显示导入BibTeX''的连接，保存退出。
-然后学术搜索找到文献下会有``导出到BibTeX''连接，点击后Firefox会打开新的标签页，出现类似代码\ref{googlescholar}所示的内容
-\footnote{展示这些.bib条目使用了listings宏包，因为listings宏包协调中文的能力很糟糕，所以读者在查看模板的这部分源代码时会看到一些非常麻烦的东西。并且，直接将源代码的这部分内容复制到.bib中可能还会出错。建议这部分内容留意PDF就足够了。}。
+然后学术搜索找到文献下会有``导出到BibTeX''连接，点击后Firefox会打开新的标签页，出现类似代码\ref{googlescholar}所示的内容。
 请注意，这个条目离``规范''还有一些距离。
 
   \begin{lstlisting}[caption={从Google Scholar找到的，但并不规范的.bib条目}, label=googlescholar, float, escapeinside="", numbers=none]
@@ -371,13 +370,13 @@ GBT7714-2005NLang.bst中规定：.bib中的条目，如果条目的``language''�
 .bst文件书写起来非常繁杂\footnote{可以参考《Tame The BeaST》。}，书写符合GBT7714标准的.bst文件更是一项浩大的工程。
 因此，当大家为漂亮、标准的参考文献列表感到满意时，应该对
 GBT7714-2005NLang.bst的作者充满谢意。{\color{red} 同时强调一下，由于学校
-  规定参考文献采用5号字体，所以在使用此规范时，需要在前面加上字号限制：
+  规定参考文献采用5号字体，所以在使用此规范时，需要在前面加上字号限制：}
 \begin{lstlisting}
 {
 \zihao{5}
 \bibliography{reference/chap1,reference/figures/chap2}
 }
-\end{lstlisting}}
+\end{lstlisting}
 
 另外，.bib是“参考文献的内容”，而控制参考文献表现(格式)的是.bst文件，本模板附带的是GBT7714-2005NLang.bst。
 

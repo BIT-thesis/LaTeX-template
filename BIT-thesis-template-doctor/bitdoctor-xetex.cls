@@ -1,5 +1,5 @@
 %==================================================
-%% bitmaster-xetex.cls for BIT Master Thesis
+%% bitdoctor-xetex.cls for BIT doctor Thesis
 %% based on CASthesis.cfg -- http://www.ctex.org/PackageCASthesis
 %% modified by yang yating
 %% version: 0.1
@@ -12,8 +12,8 @@
 \RequirePackage{upgreek}
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{bitmaster-xetex}
-  [2009/12/25 v0.2a bitmaster-xetex document class]
+\ProvidesClass{bitdoctor-xetex}
+  [2016/12/25 v0.1 bitdoctor-xetex document class]
 \newif\ifBIT@typeinfo \BIT@typeinfotrue
 \DeclareOption{notypeinfo}{\BIT@typeinfofalse}
 \newif\ifBIT@dvips \BIT@dvipsfalse
@@ -24,8 +24,8 @@
 \ProcessOptions
 %\LoadClass[fancyhdr,fntef,UTF8,adobefonts]{ctexbook}[2005/11/25]
 \LoadClass[fancyhdr,fntef,UTF8]{ctexbook}[2005/11/25]
-%% 导入 bitmaster-xetex.cfg 文件
-\AtEndOfPackage{\makeatletter\input{bitmaster-xetex.cfg}\makeatother}
+%% 导入 bitdoctor-xetex.cfg 文件
+\AtEndOfPackage{\makeatletter\input{bitdoctor-xetex.cfg}\makeatother}
 
 %% 当前模板的版本
 \newcommand{\version}{\BIT@value@templateversion}
@@ -244,7 +244,7 @@ footskip=0.7cm% 页脚 1.8cm %
 \bibliographystyle{GBT7714-2005NLang}
 % \bibliographystyle{thubib}
 % \newcommand\thudot{\unskip.}
-% \newcommand\thumasterbib{[Master Thesis]}
+% \newcommand\thudoctorbib{[doctor Thesis]}
 % \newcommand\thuphdbib{[Doctor Thesis]}
 
 %_ BITspace
@@ -253,10 +253,10 @@ footskip=0.7cm% 页脚 1.8cm %
   \def\BITfiledate{#1}%
   \def\BITfileversion{#2}%
   \def\BITfileinfo{#3}}%
-\expandafter\ifx\csname ver@bitmaster-xetex.cls\endcsname\relax
-  \edef\reserved@a{\csname ver@ctextemp_bitmaster-xetex.cls\endcsname}
+\expandafter\ifx\csname ver@bitdoctor-xetex.cls\endcsname\relax
+  \edef\reserved@a{\csname ver@ctextemp_bitdoctor-xetex.cls\endcsname}
 \else
-  \edef\reserved@a{\csname ver@bitmaster-xetex.cls\endcsname}
+  \edef\reserved@a{\csname ver@bitdoctor-xetex.cls\endcsname}
 \fi
 \expandafter\BIT@getfileinfo\reserved@a\relax? ? \relax\relax
 \def\BIT@underline[#1]#2{%
@@ -419,17 +419,14 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand\makeVerticalTitle{
    \cleardoublepage
    \thispagestyle{empty}
-   %\vspace*{5cm}
    \vskip 5cm
    \begin{center}
-   {
     \setstretch{1.1}   
-    \begin{minipage}{em}
+    \begin{minipage}{1em}
         {\heiti\zihao{3}\BIT@value@vtitle}
         \vskip 2cm
         {\heiti\zihao{3}\BIT@value@school}
     \end{minipage}
-   }
    \end{center}
     \clearpage
     \if@twoside
@@ -438,6 +435,7 @@ footskip=0.7cm% 页脚 1.8cm %
     \fi
   
 }
+
 % 原创性声明
 \newcommand\makeDeclareOriginal{%
   \cleardoublepage
@@ -667,6 +665,6 @@ footskip=0.7cm% 页脚 1.8cm %
   {}%         Thm head spec
 \endinput
 %%
-%% End of file `bitmaster-xetex.cls'.
+%% End of file `bitdoctor-xetex.cls'.
 
 
