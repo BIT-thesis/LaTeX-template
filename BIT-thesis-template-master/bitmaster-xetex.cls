@@ -260,8 +260,8 @@ footskip=0.7cm% 页脚 1.8cm %
 \fi
 \expandafter\BIT@getfileinfo\reserved@a\relax? ? \relax\relax
 \def\BIT@underline[#1]#2{%
-  \CTEXunderline{\hbox to #1{\hfill#2\hfill}}}
-\def\BITunderline{\@ifnextchar[\BIT@underline\CTEXunderline}
+  \underline{\hbox to #1{\hfill#2\hfill}}}
+\def\BITunderline{\@ifnextchar[\BIT@underline\underline}
 
 %%%%中文标题页的可用命令
 \newcommand\classification[1]{\def\BIT@value@classification{#1}}
