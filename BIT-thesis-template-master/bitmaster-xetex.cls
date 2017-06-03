@@ -441,8 +441,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \vskip 10pt
   {\zihao{4}\BIT@label@originalcontent}
   \vskip 10pt
-  \hspace{11em}{\zihao{4}\BIT@label@authorsign}
-  \hspace{6em}{\zihao{4}\BIT@label@originalDate}
+  \hspace{8em}{\zihao{4}\BIT@label@authorsign} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{}
 
   \vskip 30mm
 
@@ -453,9 +452,9 @@ footskip=0.7cm% 页脚 1.8cm %
   {\zihao{4} \BIT@label@authorizationcontent}
   \vskip 40pt
   
-  \hspace{11em}{\zihao{4}\BIT@label@authorsign}\hspace{6em}{\zihao{4}\BIT@label@originalDate}
+  \hspace{8em}{\zihao{4}\BIT@label@authorsign} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@Supervisorsign} \BITunderline[6em]{}
   \vskip 15pt
-  \hspace{11em}{\zihao{4}\BIT@label@Supervisorsign}\hspace{6em}{\zihao{4}\BIT@label@originalDate}
+  \hspace{8em}{\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{}
   \clearpage
   \if@twoside
     \thispagestyle{empty}
