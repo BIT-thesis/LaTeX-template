@@ -114,10 +114,6 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand\myLongEqual[2][]{\ExtendSymbol{=}{=}{=}{#1}{#2}}
 
 
-%% Ref: http://bbs.ctex.org/viewthread.php?tid=60079&page=2&fromuid=56635#pid390199
-% Step 1. Import fontspec and xltxtra
-% Step 2. Import old font package
-% Step 3. Use fontenc to set encoding to T1
 %% 英文字体使用 Times New Roman
 \RequirePackage{fontspec}
 \RequirePackage{xltxtra} % \XeTeX Logo
@@ -220,8 +216,8 @@ footskip=0.7cm% 页脚 1.8cm %
 \hypersetup{
   bookmarksnumbered,%
   colorlinks,%
-  linkcolor=blue,%
-  citecolor=blue,%
+  linkcolor=black,%
+  citecolor=black,%
   plainpages=false,%
   pdfstartview=FitH
 }
@@ -234,7 +230,6 @@ footskip=0.7cm% 页脚 1.8cm %
 \fi
 
 %% enumerate 列表环境间距调节
-% Ref: http://bbs.ctex.org/viewthread.php?tid=52331&page=1
 \usepackage{enumitem}
 % \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
 % \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
@@ -260,8 +255,8 @@ footskip=0.7cm% 页脚 1.8cm %
 \fi
 \expandafter\BIT@getfileinfo\reserved@a\relax? ? \relax\relax
 \def\BIT@underline[#1]#2{%
-  \CTEXunderline{\hbox to #1{\hfill#2\hfill}}}
-\def\BITunderline{\@ifnextchar[\BIT@underline\CTEXunderline}
+  \underline{\hbox to #1{\hfill#2\hfill}}}
+\def\BITunderline{\@ifnextchar[\BIT@underline\underline}
 
 %%%%中文标题页的可用命令
 \newcommand\classification[1]{\def\BIT@value@classification{#1}}
@@ -328,22 +323,22 @@ footskip=0.7cm% 页脚 1.8cm %
     \def\arraystretch{1.5}
 
     {\heiti\zihao{-3}
-     \begin{tabular}{lc}
-      \BIT@label@author & \BITunderline[150pt]{\BIT@value@author}
+     \begin{tabular}{l p{3mm} c}
+      \BIT@label@author & &\BITunderline[180pt]{\BIT@value@author}
     \\
-      \BIT@label@institute &  \BITunderline[150pt]{\BIT@value@institute}
+      \BIT@label@institute & & \BITunderline[180pt]{\BIT@value@institute}
     \\
-      \BIT@label@advisor &  \BITunderline[150pt]{\BIT@value@advisor}
+      \BIT@label@advisor & &  \BITunderline[180pt]{\BIT@value@advisor}
     \\  
-      \BIT@label@chairman &   \BITunderline[150pt]{\BIT@value@chairman}
+      \BIT@label@chairman & &   \BITunderline[180pt]{\BIT@value@chairman}
     \\  
-      \BIT@label@degree &    \BITunderline[150pt]{\BIT@value@degree}
+      \BIT@label@degree & &    \BITunderline[180pt]{\BIT@value@degree}
     \\  
-      \BIT@label@major &     \BITunderline[150pt]{\BIT@value@major}
+      \BIT@label@major & &    \BITunderline[180pt]{\BIT@value@major}
     \\  
-      \BIT@label@school &     \BITunderline[150pt]{\BIT@value@school}
+      \BIT@label@school & &   \BITunderline[180pt]{\BIT@value@school}
     \\  
-      \BIT@label@defenddate &   \BITunderline[150pt]{\BIT@value@defenddate}
+      \BIT@label@defenddate & &  \BITunderline[180pt]{\BIT@value@defenddate}
     \end{tabular}}
 
   \end{center} 
@@ -446,8 +441,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \vskip 10pt
   {\zihao{4}\BIT@label@originalcontent}
   \vskip 10pt
-  \hspace{11em}{\zihao{4}\BIT@label@authorsign}
-  \hspace{6em}{\zihao{4}\BIT@label@originalDate}
+  \hspace{8em}{\zihao{4}\BIT@label@authorsign} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{}
 
   \vskip 30mm
 
@@ -458,9 +452,9 @@ footskip=0.7cm% 页脚 1.8cm %
   {\zihao{4} \BIT@label@authorizationcontent}
   \vskip 40pt
   
-  \hspace{11em}{\zihao{4}\BIT@label@authorsign}\hspace{6em}{\zihao{4}\BIT@label@originalDate}
+  \hspace{8em}{\zihao{4}\BIT@label@authorsign} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@Supervisorsign} \BITunderline[6em]{}
   \vskip 15pt
-  \hspace{11em}{\zihao{4}\BIT@label@Supervisorsign}\hspace{6em}{\zihao{4}\BIT@label@originalDate}
+  \hspace{8em}{\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{}
   \clearpage
   \if@twoside
     \thispagestyle{empty}
