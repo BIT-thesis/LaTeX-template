@@ -1,14 +1,12 @@
 # BIT-Thesis 北京理工大学硕士（博士）学位论文LaTeX模板
 
-![logo](https://github.com/qiuzhu/BITthesis/blob/master/bitlatex.png)
+![Beijing Institude of Technology](https://github.com/y-yating/image/raw/master/image-school/bit-thesis.png)
 
 学位论文通常具有比较严格的格式要求，这是为了方便同行学术交流的起码要求，同时也是科学研究严谨性的体现。然而，由于市场各种排版软件混杂，使用者水平不一，学生对格式的重视程度不够，学生编写标准格式的学位论存在很多问题。
 
 BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX 模板。通过 BIT-Thesis 模板可以轻松撰写符合学校格式要求的学位论文，学生可将关注点更多地放在高质量的内容本身，而避免繁琐的论文格式调整。
 
 目前本模板还处于不断修改与更新阶段，可能存在诸多错误与问题，请提出宝贵意见,可直接在 GitHub 中提交Issues 或 Pull Request。
-
-本项目得到了北京理工大学学生事务中心的资助。
 
 ## 作者
 
@@ -30,3 +28,8 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
     xelatex -no-pdf --interaction=nonstopmode demo
     xelatex --interaction=nonstopmode demo
 ```
+
+##  致谢
+本项目得到了北京理工大学学生事务中心的资助。
+
+感谢大家宝贵的修改意见！！！欢迎大家一同努力完善BIT-Thesis模板！

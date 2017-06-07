@@ -2,7 +2,7 @@
 %% bitdoctor-xetex.cls for BIT doctor Thesis
 %% based on CASthesis.cfg -- http://www.ctex.org/PackageCASthesis
 %% modified by yang yating
-%% version: 0.1
+%% version: 1.0
 %% last update: Dec 25th, 2016
 %%==================================================
 
@@ -50,7 +50,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 %设置行距，大概为22榜，较麻烦
 \RequirePackage{setspace}
-\setstretch{1.4}
+\setstretch{1.52} 
 
 %% 设置章节格式
 \CTEXsetup[number={\arabic{chapter}},name={第,章},
@@ -64,7 +64,7 @@ footskip=0.7cm% 页脚 1.8cm %
 \CTEXsetup[nameformat={\bfseries\zihao{-4}},
             titleformat={\bfseries\zihao{-4}}]{subsubsection}
 \CTEXsetup[format={\Large\bfseries}]{section}
-\CTEXsetup[beforeskip={10pt}]{chapter}
+%\CTEXsetup[beforeskip={10pt}]{chapter}
 
 %% 用\textsf{titletoc}设定目录格式。
 \RequirePackage{titletoc}
@@ -475,8 +475,6 @@ footskip=0.7cm% 页脚 1.8cm %
   \fancyhf{}%
   \fancyfoot[C]{\songti \zihao{5} \BIT@label@headschoolname}
   \fancyfoot[C]{\songti \zihao{5} ~---~{\thepage}~---~} %%首页页脚格式
-  %\renewcommand{\headrulewidth}{0pt}%
-  %\renewcommand{\footrulewidth}{0pt}%
 }
 
 % 每一章的首页也使用fancyhdr的页眉页脚设置
@@ -488,17 +486,9 @@ footskip=0.7cm% 页脚 1.8cm %
 
  %_ 中文摘要
  \newenvironment{abstract}
- %{\chapter[\heiti 摘要]{\BIT@value@title\vskip 20pt\BIT@label@abstract}}
- % 不显示论文题目
  {
   \cleardoublepage
-  %\thispagestyle{empty}
-  \vspace*{3mm}
-  \begin{center}
-    { \heiti\zihao{3} \BIT@label@abstract}
-  \end{center}
-  
-   %\chapter{\BIT@label@abstract}
+  \chapter{\BIT@label@abstract}
  }
  {}
 %下一页从偶数页开始
@@ -515,14 +505,9 @@ footskip=0.7cm% 页脚 1.8cm %
 
  %_ 英文摘要
  \newenvironment{englishabstract}
- %{\chapter[\heiti ABSTRACT]{\BIT@value@englishtitle\vskip 20pt\bfseries \BIT@label@englishabstract}}
  {
   \clearpage
-  \vspace*{3mm}
-  \begin{center}
-    { \bf\zihao{3} \BIT@label@englishabstract}
-  \end{center}
-%\chapter{\BIT@label@englishabstract}
+  \chapter{\BIT@label@englishabstract}
  }
  {}
 
@@ -558,6 +543,12 @@ footskip=0.7cm% 页脚 1.8cm %
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
             \advance\leftmargin\labelsep
+            \setlength{\parsep}{1mm} 
+            \setlength{\labelsep}{0.5em} 
+            \setlength{\itemsep}{0.05pc} 
+            \setlength{\listparindent}{0in} 
+            \setlength{\itemindent}{0in} 
+            \setlength{\rightmargin}{0in} 
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
@@ -580,6 +571,12 @@ footskip=0.7cm% 页脚 1.8cm %
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
             \advance\leftmargin\labelsep
+            \setlength{\parsep}{1mm} 
+            \setlength{\labelsep}{0.5em} 
+            \setlength{\itemsep}{0.05pc} 
+            \setlength{\listparindent}{0in} 
+            \setlength{\itemindent}{0in} 
+            \setlength{\rightmargin}{0in} 
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
@@ -640,7 +637,8 @@ footskip=0.7cm% 页脚 1.8cm %
   {}
   
 \newenvironment{symbolnote}
-  {\chapter{\BIT@label@symbolnote}}
+  {\chapter{\BIT@label@symbolnote}
+  \fangsong} 
   {} 
 
 
