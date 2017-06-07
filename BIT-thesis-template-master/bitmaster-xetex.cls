@@ -50,21 +50,42 @@ footskip=0.7cm% 页脚 1.8cm %
   \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 %设置行距，大概为22榜，较麻烦
 \RequirePackage{setspace}
-\setstretch{1.4}
+\setstretch{1.52}
 
 %% 设置章节格式
-\CTEXsetup[number={\arabic{chapter}},name={第,章},
-            nameformat={\bfseries\heiti\centering\zihao{3}},
-            titleformat={\bfseries\heiti\zihao{3}},
-            afterskip={30pt}]{chapter}
-\CTEXsetup[nameformat={\bfseries\heiti\zihao{4}},
-            titleformat={\bfseries\heiti\zihao{4}}]{section}
-\CTEXsetup[nameformat={\bfseries\heiti\zihao{-4}},
-            titleformat={\bfseries\heiti\zihao{-4}}]{subsection}
-\CTEXsetup[nameformat={\bfseries\zihao{-4}},
-            titleformat={\bfseries\zihao{-4}}]{subsubsection}
-\CTEXsetup[format={\Large\bfseries}]{section}
-\CTEXsetup[beforeskip={10pt}]{chapter}
+\ctexset{chapter={
+      name = {第,章},
+      number = {\arabic{chapter}},
+      format = {\bfseries \heiti \centering \zihao{3}},
+      beforeskip = 28bp,
+      afterskip = 32bp,
+      fixskip = true,
+  }
+}
+ \ctexset{section={
+	format={\raggedright \bfseries \heiti \zihao{4}},
+	beforeskip = 28bp plus 1ex minus .2ex,
+	afterskip = 24bp plus .2ex,
+  fixskip = true,
+	}
+}
+% ==========设置二节标题格式========================================
+%黑体小四加粗顶左，单倍行距，序号与题目间空一个汉字符
+\ctexset{subsection={
+   format = {\bfseries \heiti \raggedright \zihao{-4}},
+   beforeskip =28bp plus 1ex minus .2ex,
+   afterskip = 24bp plus .2ex,
+   fixskip = true,
+	}
+}
+% 设置三节标题格式：黑体小四居左书写，单倍行距，序号与题目间空一个汉字符
+\ctexset{subsubsection={
+      format={\heiti \raggedright \zihao{-4}},
+      beforeskip=28bp plus 1ex minus .2ex,
+      afterskip=24bp plus .2ex,
+      fixskip=true,
+	}
+}
 
 %% 用\textsf{titletoc}设定目录格式。
 \RequirePackage{titletoc}
@@ -551,25 +572,41 @@ footskip=0.7cm% 页脚 1.8cm %
 \addtocontents{toc}{\let\string\CTEX@spaceChar\relax}
 
 %_ 参考文献环境
+\RequirePackage{etoolbox}  %打补丁用到
+\pretocmd{\bibliography}{%
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{参考文献}}{}{}
+%==参考文献使用五号字，同时优化参考文献占用的空间
+\AtBeginDocument{%
+	\pretocmd{\bibliography}{\begingroup\zihao{5}}{}{}
+	\apptocmd{\bibliography}{\endgroup}{}{}
+	}%AtBeginDocument
+ \renewcommand\@biblabel[1]{\zihao{5}[#1]}
 \renewenvironment{thebibliography}[1]
-     {\chapter{\bibname}%
-      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
+{\chapter*{\bit@bib@name
+	 \@mkboth{\bit@bib@name}{}}%
+	 \list{\@biblabel{\@arabic\c@enumiv}}%
+{\settowidth\labelwidth{\@biblabel{#1}}%
+ \leftmargin\labelwidth
+\advance\leftmargin\labelsep
+ \setlength{\parsep}{1mm}
+\setlength{\labelsep}{0.5em}
+ \setlength{\itemsep}{0.05pc}
+ \setlength{\listparindent}{0in}
+\setlength{\itemindent}{0in}
+\setlength{\rightmargin}{0in}
+\@openbib@code
+\usecounter{enumiv}%
+\let\p@enumiv\@empty
+\renewcommand\theenumiv{\@arabic\c@enumiv}}%
+ \sloppy
+ \clubpenalty4000
+ \@clubpenalty\clubpenalty
+\widowpenalty4000%
+\sfcode`\.\@m
+ }{%
+\def\@noitemerr
+ {\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist \vskip.2in}
 
     
 \newenvironment{publications}[1]
@@ -640,7 +677,8 @@ footskip=0.7cm% 页脚 1.8cm %
   {}
   
 \newenvironment{symbolnote}
-  {\chapter{\BIT@label@symbolnote}}
+  {\chapter{\BIT@label@symbolnote}
+  \fangsong}
   {} 
 
 
