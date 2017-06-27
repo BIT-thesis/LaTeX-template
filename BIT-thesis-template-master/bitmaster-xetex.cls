@@ -23,7 +23,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \ProcessOptions
 %\LoadClass[fancyhdr,fntef,UTF8,adobefonts]{ctexbook}[2005/11/25]
-\LoadClass[fancyhdr,fntef,UTF8]{ctexbook}[2005/11/25]
+\LoadClass[fancyhdr,fntef,UTF8,zihao =-4]{ctexbook}[2005/11/25]
 %% 导入 bitmaster-xetex.cfg 文件
 \AtEndOfPackage{\makeatletter\input{bitmaster-xetex.cfg}\makeatother}
 
@@ -52,7 +52,7 @@ footskip=0.7cm% 页脚 1.8cm %
 \RequirePackage{setspace}
 \setstretch{1.52} 
 
-%% 设置章节格式
+%% 设置章节格式   %%% 上次用\ctexset设置过一次，不知道为啥又恢复到现在的状态了
 \CTEXsetup[number={\arabic{chapter}},name={第,章},
             nameformat={\bfseries\heiti\centering\zihao{3}},
             titleformat={\bfseries\heiti\zihao{3}},
