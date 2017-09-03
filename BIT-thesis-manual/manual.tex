@@ -5,13 +5,7 @@
 %% last update: April 25th, 2017
 %%==================================================
 
-% 字号选项: cs4size 小四
-
-% 双面打印（注意字号设置）
-%\documentclass[cs4size, a4paper, cs4size, twoside]{bitmaster-xetex}
-
-% 单面打印（注意字号设置）
-\documentclass[cs4size, a4paper, oneside, openany]{bitmaster-xetex}
+\documentclass[oneside, master]{BIT-thesis-grd}
 
 \begin{document}
 
@@ -20,37 +14,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % 中文封面内容(关注内容而不是形式)
-\title{BIT-Thesis使用指南}
-\author{北京理工大学\\研究生院}
-\defenddate{2017年5月}
+\title{BIT-Thesis使用指南\\ v1.0}
+\author{北京理工大学~~研究生院}
+\defenddate{2017年9月}
 
 % 封面,这个命令实现了形式，具体见.cls
 \maketitle
-
-
-% 英文封面
-%\makeenglishtitle
-
-%打印竖排论文题目
-%\makeVerticalTitle
-
-% 论文原创性声明和使用授权
-%\makeDeclareOriginal
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 前言
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frontmatter
-\pagenumbering{Roman}
-
-\fancypagestyle{plain}{% 设置开章页页眉页脚风格
-  \fancyhf{}%
-  \fancyhead[C]{\zihao{5} {\songti BIT-Thesis使用指南}} 
-  \fancyfoot[C]{\zihao{5} {\songti \thepage}} %页脚格式
-}
-
-% 摘要
-%\include{chapters/abstract}
 
 % 目录
 \tableofcontents
@@ -79,25 +53,6 @@
 
 \include{chapters/conclusion} %% 全文总结
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 附录(章节编号重新计算，使用字母进行编号)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\appendix  %处理章节编号
-
-% 附录中编号形式是"A-1"的样子
-\renewcommand\theequation{\Alph{chapter}--\arabic{equation}}
-\renewcommand\thefigure{\Alph{chapter}--\arabic{figure}}
-\renewcommand\thetable{\Alph{chapter}--\arabic{table}}
-\include{chapters/app1-content}
-\include{chapters/app2-material} % 更新记录
-\include{chapters/app3-log} % 更新记录
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 文后(无章节编号)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\backmatter
-
 % 参考文献
 % 使用 BibTeX
 % 包含参考文献文件.bib
@@ -106,6 +61,24 @@
 \bibliography{reference/chap1,reference/chap2} %多个章节的参考文献
 %\bibliography{reference/chap1}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附录(章节编号重新计算，使用字母进行编号)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%处理章节编号
+\appendix
+
+\include{chapters/app1-content}
+\include{chapters/app2-material} % 更新记录
+\include{chapters/app3-log} % 更新记录
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 文后(无章节编号)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter 
+
 % 发表文章目录
 %\include{chapters/pub}
 % 致谢

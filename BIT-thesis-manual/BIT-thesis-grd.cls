@@ -1,9 +1,8 @@
 %==================================================
-%% bitdoctor-xetex.cls for BIT doctor Thesis
-%% based on CASthesis.cfg -- http://www.ctex.org/PackageCASthesis
+%% BIT-thesis-grd.cls for BIT Thesis
 %% modified by yang yating
 %% version: 1.0
-%% last update: Dec 25th, 2016
+%% last update: Sep 1st, 2016
 %%==================================================
 
 %% math packages -- conflict with xunicode
@@ -11,21 +10,142 @@
 % 直立希腊字母字体
 \RequirePackage{upgreek}
 
-\NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{bitdoctor-xetex}
-  [2016/12/25 v0.1 bitdoctor-xetex document class]
-\newif\ifBIT@typeinfo \BIT@typeinfotrue
-\DeclareOption{notypeinfo}{\BIT@typeinfofalse}
-\newif\ifBIT@dvips \BIT@dvipsfalse
-\DeclareOption{dvips}{\BIT@dvipstrue}
-\DeclareOption{dvipdfm}{\BIT@dvipsfalse}
-\DeclareOption{pdftex}{\BIT@dvipsfalse}
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesClass{BIT-thesis-grd}
+  [2017/09/01 v1.0 BIT-thesis-grd document class]
+
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-\ProcessOptions
-%\LoadClass[fancyhdr,fntef,UTF8,adobefonts]{ctexbook}[2005/11/25]
-\LoadClass[fancyhdr,fntef,UTF8]{ctexbook}[2005/11/25]
-%% 导入 bitdoctor-xetex.cfg 文件
-\AtEndOfPackage{\makeatletter\input{bitdoctor-xetex.cfg}\makeatother}
+\newif\ifBIT@master\BIT@masterfalse
+\newif\ifBIT@doctor\BIT@doctorfalse
+\newif\ifBIT@istwoside\BIT@istwosidefalse
+\DeclareOption{twoside}{\BIT@istwosidetrue}
+\DeclareOption{master}{\BIT@mastertrue}
+\DeclareOption{doctor}{\BIT@doctortrue}
+
+\ProcessOptions\relax
+\ifBIT@istwoside
+\LoadClass[zihao=-4,a4paper,twoside,openright,UTF8,space=auto]{ctexbook}
+\else
+\LoadClass[zihao=-4,a4paper,oneside,openany,UTF8,space=auto]{ctexbook}
+\fi
+
+%%
+%% the setup of ctex package
+%%
+\def\CTEX@contentsname{目录}
+\def\CTEX@listfigurename{插图索引}
+\def\CTEX@listtablename{表格索引}
+
+%%
+%% 封面标题
+%%
+\def\BIT@label@major{学~~~~科~~~~专~~~~业}
+\def\BIT@label@title{论文题目}
+\def\BIT@label@author{作~~~~者~~~~姓~~~~名}
+\def\BIT@label@classification{中图分类号}
+\def\BIT@label@confidential{密级}
+\def\BIT@label@UDC{UDC\!分类号：}
+\def\BIT@label@serialnumber{编号}
+\def\BIT@label@thesis{学位论文}
+\def\BIT@label@advisor{指~~~~导~~~~教~~~~师}
+\def\BIT@label@degree{申~~~~请~~~~学~~~~位}
+\def\BIT@label@submitdate{论文提交日期}
+\def\BIT@label@defenddate{论~文~答~辩~日~期}
+\def\BIT@label@institute{学~~~~院~~~~名~~~~称}
+\def\BIT@label@school{学~位~授~予~单~位}
+\def\BIT@label@chairman{答辩委员会主席}
+
+%%
+%% 封面内容
+%%
+
+\def\BIT@value@classification{}
+\def\BIT@value@confidential{}
+\def\BIT@value@UDC{}
+\def\BIT@value@serialnumber{}
+\def\BIT@value@school{}
+\def\BIT@value@degree{}
+\def\BIT@value@title{~~~~~（论~文~题~目）~~~~~}
+\def\BIT@value@vtitle{竖排论文题目}
+\def\BIT@value@titlemark{\BIT@value@title}
+\def\BIT@value@author{（作~者~姓~名）}
+\def\BIT@value@advisor{（姓名、专业技术职务、学位）}
+\def\BIT@value@advisorinstitute{（单位）}
+\def\BIT@value@major{}
+\def\BIT@value@studentnumber{} %_ added by wei.jianwen@gmail.com
+\def\BIT@value@submitdate{}
+\def\BIT@value@defenddate{}
+\def\BIT@value@institute{}
+\def\BIT@value@chairman{}
+\def\BIT@label@statement{}
+
+
+%% 设置圆圈的格式 或使用\textcircled
+\usepackage{tikz}
+\usepackage{etoolbox}
+\newcommand{\circled}[2][]{\tikz[baseline=(char.base)]
+    {\node[shape = circle, draw, inner sep = 1pt]
+    (char) {\phantom{\ifblank{#1}{#2}{#1}}};
+    \node at (char.center) {\makebox[0pt][c]{#2}};}}
+\robustify{\circled}
+
+%% 论文原创性声明
+\def\BIT@label@original{研究成果声明}
+\def\BIT@label@authorization{关于学位论文使用权的说明}
+\def\BIT@label@authorsign{作者签名：}
+\def\BIT@label@Supervisorsign{导师签名：}
+\def\BIT@label@originalDate{签字日期：}
+\def\BIT@label@originalcontent{\BITspace\BITspace 本人郑重声明：所提交的学位论文是我本人在指导教师的指导下进行的研究工作获得的研究成果。尽我所知，文中除特别标注和致谢的地方外，学位论文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得北京理工大学或其它教育机构的学位或证书所使用过的材料。与我一同工作的合作者对此研究工作所做的任何贡献均已在学位论文中作了明确的说明并表示了谢意。\par 特此申明。}
+\def\BIT@label@authorizationcontent{\BITspace\BITspace 本人完全了解北京理工大学有关保管、使用学位论文的规定，其中包括：\circled{1} 学校有权保管、并向有关部门送交学位论文的原件与复印件；\circled{2} 学校可以采用影印、缩印或其它复制手段复制并保存学位论文；\circled{3} 学校可允许学位论文被查阅或借阅；\circled{4} 学校可以学术交流为目的,复制赠送和交换学位论文；\circled{5} 学校可以公布学位论文的全部或部分内容（保密学位论文在解密后遵守此规定）。}
+
+
+%%
+%% 英语封面标题
+%%
+\def\BIT@label@englishadvisor{Supervisor:}
+\def\BIT@label@englishstatement{Submitted in total fulfilment
+  of the requirements for the degree of \BIT@value@englishdegree \\
+  in \BIT@value@englishmajor}
+\def\BIT@label@englishauthor{Candidate Name:}
+\def\BIT@label@englishadvisor{Faculty Mentor:}
+\def\BIT@label@englishchairman{Chair, Thesis Committee:}
+\def\BIT@label@englishinstitute{School or Department:}
+\def\BIT@label@englishdegree{Degree Applied:}
+\def\BIT@label@englishmajor{Major:}
+\def\BIT@label@englishschool{Degree by:}
+\def\BIT@label@englishdate{The Data of Defence:}
+
+  
+%%
+%% 英语封面内容
+%%
+\def\BIT@value@englishtitle{(English Title of Thesis)}
+\def\BIT@value@englishauthor{(Author Name)}
+\def\BIT@value@englishadvisor{(Supervisor Name)}
+\def\BIT@value@englishinstitute{(Institute Name)}
+\def\BIT@value@englishscholl{(BIT)}
+\def\BIT@value@englishchair{(someone)}
+\def\BIT@value@englishdate{}
+\def\BIT@value@englishdegree{}
+\def\BIT@value@englishmajor{}
+
+
+
+\def\BIT@label@abstract{摘要}
+\def\BIT@label@englishabstract{Abstract}
+\def\BIT@label@keywords{关键词：}
+\def\BIT@label@englishkeywords{Key Words:~}
+\def\BIT@label@conclusion{结论}
+\def\BIT@label@appendix{附录}
+\def\BIT@label@publications{攻读学位期间发表论文与研究成果清单}
+\def\BIT@label@projects{攻读学位期间参与的项目}
+\def\BIT@label@resume{作者简介}
+\def\BIT@label@thanks{致谢}
+\def\BIT@value@templateversion{v1.0}
+%%
+%% label in the head 页眉页脚
+%%
+\def\BIT@label@headschoolname{北京理工大学硕士学位论文}
 
 %% 当前模板的版本
 \newcommand{\version}{\BIT@value@templateversion}
@@ -41,7 +161,7 @@ right=2.7cm,% 右 2.7cm %
 headheight=1.0cm,% 页眉 2.5cm %
 footskip=0.7cm% 页脚 1.8cm %
 ]{geometry} % 页面设置 %
-%% ====================定义几个常用的数学常量符号=====================================
+%% =========================================================
 
 \parskip 0.5ex plus 0.25ex minus 0.25ex
 %% Command -- Clear Double Page
@@ -50,23 +170,51 @@ footskip=0.7cm% 页脚 1.8cm %
   \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 %设置行距，大概为22榜，较麻烦
 \RequirePackage{setspace}
-\setstretch{1.52} 
+\setstretch{1.523} 
 
 %% 设置章节格式
-\CTEXsetup[number={\arabic{chapter}},name={第,章},
-            nameformat={\bfseries\heiti\centering\zihao{3}},
-            titleformat={\bfseries\heiti\zihao{3}},
-            afterskip={30pt}]{chapter}
-\CTEXsetup[nameformat={\bfseries\heiti\zihao{4}},
-            titleformat={\bfseries\heiti\zihao{4}}]{section}
-\CTEXsetup[nameformat={\bfseries\heiti\zihao{-4}},
-            titleformat={\bfseries\heiti\zihao{-4}}]{subsection}
-\CTEXsetup[nameformat={\bfseries\zihao{-4}},
-            titleformat={\bfseries\zihao{-4}}]{subsubsection}
-\CTEXsetup[format={\Large\bfseries}]{section}
-%\CTEXsetup[beforeskip={10pt}]{chapter}
+\ctexset{chapter={
+      name = {第,章},
+      number = {\arabic{chapter}},
+      format = {\bfseries \heiti \centering \zihao{3}},
+      pagestyle = {BIT@headings},
+      beforeskip = 16bp,
+      afterskip = 28bp,
+      fixskip = true,
+  }
+}
+%% 设置一级章节格式
+\ctexset{section={
+  format={\raggedright \bfseries \heiti \zihao{4}},
+  beforeskip = 28bp plus 1ex minus .2ex,
+  afterskip = 24bp plus .2ex,
+  fixskip = true,
+  }
+}
 
-%% 用\textsf{titletoc}设定目录格式。
+% 设置二级标题格式
+
+%黑体小四加粗顶左，单倍行距，序号与题目间空一个汉字符
+
+\ctexset{subsection={
+   format = {\bfseries \heiti \raggedright \zihao{-4}},
+   beforeskip =28bp plus 1ex minus .2ex,
+   afterskip = 24bp plus .2ex,
+   fixskip = true,
+   }
+}
+
+% 设置三节标题格式：黑体小四居左书写，单倍行距，序号与题目间空一个汉字符
+
+\ctexset{subsubsection={
+      format={\heiti \raggedright \zihao{-4}},
+      beforeskip=28bp plus 1ex minus .2ex,
+      afterskip=24bp plus .2ex,
+      fixskip=true,
+  }
+}
+
+%% 设定目录格式。
 \RequirePackage{titletoc}
 \titlecontents{chapter}[0pt]{\vspace{0.25\baselineskip} \songti \zihao{4}}
     {\thecontentslabel\quad}{}
@@ -86,6 +234,40 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %% fancyhdr 页眉页脚控制
 \RequirePackage{fancyhdr}
+
+% 空 页眉页脚
+\fancypagestyle{BIT@empty}{%
+  \fancyhf{}}
+
+%======正文页眉页脚=================
+\fancypagestyle{BIT@headings}{%
+  \fancyhf{}
+  \fancyfoot[C]{\songti\zihao{5} \thepage}
+  \fancyhead[C]{\ifBIT@master\zihao{5}{\songti 北京理工大学硕士学位论文}
+                \else\zihao{5}{\songti 北京理工大学博士学位论文}\fi}
+  }
+
+%==================================对于openright 选项，必须保证章页右开，且如果前章末页内容须清空其页眉页脚。===================
+\let\BIT@cleardoublepage\cleardoublepage
+\newcommand{\BIT@clearemptydoublepage}{%
+	\clearpage{\pagestyle{BIT@empty}\BIT@cleardoublepage}}
+\let\cleardoublepage\BIT@clearemptydoublepage
+
+ %================修该frontmatter 的页码为大写罗马格式，并调整页面风格===============
+\renewcommand{\frontmatter}{
+ \if@openright\cleardoublepage\else\clearpage\fi
+  \@mainmatterfalse
+  \pagenumbering{Roman}
+  \pagestyle{BIT@headings}
+}
+%=======================修改mainmatter 的页码为阿拉伯格式，并调整页面风格========================
+\renewcommand{\mainmatter}{
+  \if@openright\cleardoublepage\else\clearpage\fi
+  \@mainmattertrue
+  \pagenumbering{arabic}
+  \pagestyle{BIT@headings}
+}
+
 
 %% 复杂表格
 \RequirePackage{threeparttable}
@@ -114,6 +296,26 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand\myLongEqual[2][]{\ExtendSymbol{=}{=}{=}{#1}{#2}}
 
 
+\theoremstyle{plain}
+  \newtheorem{algo}{算法~}[chapter]
+  \newtheorem{thm}{定理~}[chapter]
+  \newtheorem{lem}[thm]{引理~}
+  \newtheorem{prop}[thm]{命题~}
+  \newtheorem{cor}[thm]{推论~}
+\theoremstyle{definition}
+  \newtheorem{defn}{定义~}[chapter]
+  \newtheorem{conj}{猜想~}[chapter]
+  \newtheorem{exmp}{例~}[chapter]
+  \newtheorem{rem}{注~}
+  \newtheorem{case}{情形~}
+\theoremstyle{break}
+  \newtheorem{bthm}[thm]{定理~}
+  \newtheorem{blem}[thm]{引理~}
+  \newtheorem{bprop}[thm]{命题~}
+  \newtheorem{bcor}[thm]{推论~}
+\renewcommand{\proofname}{\bf 证明}
+
+
 %% 英文字体使用 Times New Roman
 \RequirePackage{fontspec}
 \RequirePackage{xltxtra} % \XeTeX Logo
@@ -121,12 +323,6 @@ footskip=0.7cm% 页脚 1.8cm %
 \RequirePackage{times}
 %% Set Old Fonts Encoding 
 \usepackage[T1]{fontenc}
-
-
-
-% 重定义\nobreakspace命令 -- xetex与T1字体包一起使用时出现的问题
-% Ref: http://bbs.ctex.org/viewthread.php?tid=60547&extra=page%3D1&page=2
-\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
 
 
 %% graphics packages
@@ -150,7 +346,6 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
 
 
-
 % 将浮动参数设为较宽松的值
 \renewcommand{\textfraction}{0.15}
 \renewcommand{\topfraction}{0.85}
@@ -165,11 +360,6 @@ footskip=0.7cm% 页脚 1.8cm %
 
 % 颜色宏包
 \RequirePackage{xcolor}
-
-
-%% 一些有趣的符号图案
-\RequirePackage{marvosym}
-\RequirePackage{wasysym}
 
 
 % 中文破折号
@@ -239,19 +429,21 @@ footskip=0.7cm% 页脚 1.8cm %
 \bibliographystyle{GBT7714-2005NLang}
 % \bibliographystyle{thubib}
 % \newcommand\thudot{\unskip.}
-% \newcommand\thudoctorbib{[doctor Thesis]}
+% \newcommand\thumasterbib{[Master Thesis]}
 % \newcommand\thuphdbib{[Doctor Thesis]}
 
 %_ BITspace
-\newcommand\BITspace{\protect\CTEX@spaceChar\protect\CTEX@spaceChar}
+%\newcommand\BITspace{\protect\CTEX@spaceChar\protect\CTEX@spaceChar}
+\newcommand{\BITspace}[1][1]{\hspace{#1\ccwd}}
+
 \def\BIT@getfileinfo#1 #2 #3\relax#4\relax{%
   \def\BITfiledate{#1}%
   \def\BITfileversion{#2}%
   \def\BITfileinfo{#3}}%
-\expandafter\ifx\csname ver@bitdoctor-xetex.cls\endcsname\relax
-  \edef\reserved@a{\csname ver@ctextemp_bitdoctor-xetex.cls\endcsname}
+\expandafter\ifx\csname ver@bitmaster-xetex.cls\endcsname\relax
+  \edef\reserved@a{\csname ver@ctextemp_bitmaster-xetex.cls\endcsname}
 \else
-  \edef\reserved@a{\csname ver@bitdoctor-xetex.cls\endcsname}
+  \edef\reserved@a{\csname ver@bitmaster-xetex.cls\endcsname}
 \fi
 \expandafter\BIT@getfileinfo\reserved@a\relax? ? \relax\relax
 \def\BIT@underline[#1]#2{%
@@ -297,8 +489,6 @@ footskip=0.7cm% 页脚 1.8cm %
   \clearpage
   \if@twoside
     \thispagestyle{empty}
-    \ifBIT@typeinfo
-    \fi
     \cleardoublepage
   \fi
  
@@ -347,8 +537,6 @@ footskip=0.7cm% 页脚 1.8cm %
   \clearpage
   \if@twoside
     \thispagestyle{empty}
-    \ifBIT@typeinfo
-    \fi
     \cleardoublepage
   \fi
 }
@@ -477,12 +665,6 @@ footskip=0.7cm% 页脚 1.8cm %
   \fancyfoot[C]{\songti \zihao{5} ~---~{\thepage}~---~} %%首页页脚格式
 }
 
-% 每一章的首页也使用fancyhdr的页眉页脚设置
-% \makeatletter
-% \let\ps@plain\relax
-% \let\ps@plain=\ps@fancy
-% \makeatother
- 
 
  %_ 中文摘要
  \newenvironment{abstract}
@@ -537,7 +719,7 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %_ 参考文献环境
 \renewenvironment{thebibliography}[1]
-     {\chapter{\bibname}%
+     {\chapter*{\bibname}%
       \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
@@ -657,6 +839,6 @@ footskip=0.7cm% 页脚 1.8cm %
   {}%         Thm head spec
 \endinput
 %%
-%% End of file `bitdoctor-xetex.cls'.
+%% End of file `bitmaster-xetex.cls'.
 
 
