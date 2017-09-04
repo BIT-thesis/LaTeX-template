@@ -48,12 +48,12 @@
 
 \begin{lstlisting}[language={[LaTeX]TeX}, caption={长公式排版}]
 \begin {multline}
-  \frac {1}{2}\Delta (f_{ij}f^{ij})=
-  2\left (\sum _{i<j}\chi _{ij}(\sigma _{i}-
-    \sigma _{j}) ^{2}+ f^{ij}\nabla _{j}\nabla _{i}(\Delta f)+\right .\\
-  \left .+\nabla _{k}f_{ij}\nabla ^{k}f^{ij}+
-    f^{ij}f^{k}\left [2\nabla _{i}R_{jk}-
-      \nabla _{k}R_{ij}\right ]\vphantom {\sum _{i<j}}\right )
+  \frac {1}{2}\Delta(f_{ij}f^{ij})=
+  2\left(\sum_{i<j}\chi_{ij}(\sigma_{i}-
+    \sigma_{j}) ^{2}+ f^{ij}\nabla_{j}\nabla_{i}(\Delta f)+\right.\\
+  \left.+\nabla_{k}f_{ij}\nabla ^{k}f^{ij}+
+    f^{ij}f^{k}\left [2\nabla_{i}R_{jk}-
+      \nabla_{k}R_{ij}\right]\vphantom{\sum_{i<j}}\right )
 \end{multline}
 \end{lstlisting}
 
@@ -218,7 +218,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 \begin{table}[htb]               % no placement specified: defaults to here, top, bottom, page
 \centering
  \begin{center}
-  \caption{Physical meaning of parameters in L-B model.}
+  \caption{L-B模型中参数的物理意义}
   \label{tab:LB-parameters}
   \begin{tabular}{cl}
       \toprule
@@ -238,7 +238,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 \begin{table}[htb]
 \centering
  \begin{center}
-  \caption{Physical meaning of parameters in L-B model.}
+  \caption{L-B模型中参数的物理意义}
   \begin{tabular}{cl}
       \toprule
        Parameters & Physical meaning       \\
@@ -353,7 +353,7 @@ BibTeX读取.aux(第一次运行latex得到的)查看参考文献条目，
   \end{lstlisting}
 
 由于中英文参考文献处理起来有差异，所以需要在参考文献中标注是否是中文文献。
-确切地说，BibTeX并不具有区分中英文参考文献的``智能''，这种智慧的来源是.bst文——它定义了处理参考文献的规则。
+确切地说，BibTeX并不具有区分中英文参考文献的能力。.bib是“参考文献的内容”，而控制参考文献表现(格式)的是.bst文件，本模板附带的是GBT7714-2005NLang.bst。
 GBT7714-2005NLang.bst中规定：.bib中的条目，如果条目的``language''域非空，就被认为是中文文献，否则被认为是英文文献。
 例如，刚才的文献，就会被认为是中文参考文献，采取一些针对中文的处理方式。
 
@@ -367,18 +367,6 @@ GBT7714-2005NLang.bst中规定：.bib中的条目，如果条目的``language''�
 	现代塑料加工应用, 2005, 17~(2):  53--56.
 \end{lstlisting}
 
-.bst文件书写起来非常繁杂\footnote{可以参考《Tame The BeaST》。}，书写符合GBT7714标准的.bst文件更是一项浩大的工程。
-因此，当大家为漂亮、标准的参考文献列表感到满意时，应该对
-GBT7714-2005NLang.bst的作者充满谢意。{\color{red} 同时强调一下，由于学校
-  规定参考文献采用5号字体，所以在使用此规范时，需要在前面加上字号限制：}
-\begin{lstlisting}
-{
-\zihao{5}
-\bibliography{reference/chap1,reference/figures/chap2}
-}
-\end{lstlisting}
-
-另外，.bib是“参考文献的内容”，而控制参考文献表现(格式)的是.bst文件，本模板附带的是GBT7714-2005NLang.bst。
 
 \subsection{在正文中引用参考文献}
 
@@ -403,6 +391,15 @@ GBT7714-2005NLang.bst的作者充满谢意。{\color{red} 同时强调一下，�
 \section{用~listings~插入源代码}
 
 这里给使用~listings~宏包插入源代码的例子，这里是一段C代码。另外，listings宏包可以实现各种复杂、漂亮的效果，想要进一步学习的同学，可以参考《The Listings Package》。
+
+{\color{blue}
+\begin{enumerate}
+\item[] ~\verb|\begin{lstlisting}[language={C}, caption={一段C源代码}]|
+\item[] ~\verb|#include <stdio.h>| 
+\item[] ~\verb|...|
+\item[] ~\verb|\end{lstlisting}|
+\end{enumerate}}
+
 
 \begin{lstlisting}[language={C}, caption={一段C源代码}]
 #include <stdio.h>
@@ -433,7 +430,17 @@ int main() {
 }
 \end{lstlisting}
 
-再给一个插入MATLAB代码的例子。
+再给出一个插入MATLAB代码的例子。
+
+{\color{blue}
+\begin{enumerate}
+\item[] ~\verb|\begin{lstlisting}[language={matlab}, caption={一段MATLAB源代码}]|
+\item[] ~\verb|function paper1| 
+\item[] ~\verb|r=0.05;|
+\item[] ~\verb|n=100;|
+\item[] ~\verb|...|
+\item[] ~\verb|\end{lstlisting}|
+\end{enumerate}}
 
 \begin{lstlisting}[language={matlab}, caption={一段MATLAB源代码}]
 function paper1

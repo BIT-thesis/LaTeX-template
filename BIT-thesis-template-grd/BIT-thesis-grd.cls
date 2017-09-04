@@ -488,7 +488,10 @@ footskip=0.7cm% 页脚 1.8cm %
     \thispagestyle{empty}
     \cleardoublepage
   \fi
- 
+ }
+
+\newcommand\makeInfo[1]%
+ {
   \newpage
   \cleardoublepage
   \thispagestyle{empty}
@@ -552,7 +555,7 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand\englishchairman[1]{\def\BIT@value@englishchairman{#1}}
 
 % "绘制"英文标题页
-\newcommand\makeenglishtitle[1]{%
+\newcommand\makeEnglishInfo[1]{%
   \cleardoublepage
   \thispagestyle{empty}
   

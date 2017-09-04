@@ -17,14 +17,14 @@
 
 单面打印
 \begin{lstlisting}[language={TeX}]
-\documentclass[cs4size, a4paer, cs4size, oneside, openany]{bitmaster-xetex}
-
+\documentclass[oneside, master]{BIT-thesis-grd} %硕士
+\documentclass[oneside, doctor]{BIT-thesis-grd} %博士
 \end{lstlisting}
 
 双面打印
 \begin{lstlisting}[language={TeX}]
-\documentclass[cs4size, a4paer, cs4size, twoside]{bitmaster-xetex}
-
+\documentclass[twoside, master]{BIT-thesis-grd} %硕士
+\documentclass[twoside, doctor]{BIT-thesis-grd} %博士
 \end{lstlisting}
 
 关于页眉页脚，按照BIT要求：
@@ -43,33 +43,63 @@
 \section{页面设置}
 页边距设置如下:
 \begin{lstlisting}[language={TeX}]
-\usepackage[top=3.5cm,headheight=25mm,headsep=3mm,footskip=8mm,bottom=2.5cm,left=2.7cm,right=2.7cm]{geometry}
-
+\usepackage[
+paper=a4paper,
+top=3.5cm,% 上 3.5cm
+bottom=2.5cm,% 下 2.5cm
+left=2.7cm,% 左 2.7cm
+right=2.7cm,% 右 2.7cm
+headheight=1.0cm,% 页眉 2.5cm
+footskip=0.7cm% 页脚 1.8cm
+]{geometry} % 页面设置
 \end{lstlisting}
 
 行距离设置，按照要求，应该为22榜，如下设置：
 \begin{lstlisting}[language={[LaTeX]TeX}]
 \RequirePackage{setspace}
-\setstretch{1.4}
+\setstretch{1.523} 
 \end{lstlisting}
 
 \section{章节格式与目录}
 严格按照规范，采用如下代码实现：
 \begin{lstlisting}language={TeX}
 %% 设置章节格式
-\CTEXsetup[number={\arabic{chapter}},name={第,章},
-            nameformat={\bfseries\heiti\centering\zihao{3}},
-            titleformat={\bfseries\heiti\zihao{3}},
-            afterskip={30pt}]{chapter}
-\CTEXsetup[nameformat={\bfseries\heiti\zihao{4}},
-            titleformat={\bfseries\heiti\zihao{4}}]{section}
-\CTEXsetup[nameformat={\bfseries\heiti\zihao{-4}},
-            titleformat={\bfseries\heiti\zihao{-4}}]{subsection}
-\CTEXsetup[nameformat={\bfseries\zihao{-4}},
-            titleformat={\bfseries\zihao{-4}}]{subsubsection}
-\CTEXsetup[format={\Large\bfseries}]{section}
-\CTEXsetup[beforeskip={10pt}]{chapter}
+\ctexset{chapter={
+      name = {第,章},
+      number = {\arabic{chapter}},
+      format = {\bfseries \heiti \centering \zihao{3}},
+      pagestyle = {BIT@headings},
+      beforeskip = 16bp,
+      afterskip = 28bp,
+      fixskip = true,
+  }
+}
+%% 设置一级章节格式
+\ctexset{section={
+  format={\raggedright \bfseries \heiti \zihao{4}},
+  beforeskip = 28bp plus 1ex minus .2ex,
+  afterskip = 24bp plus .2ex,
+  fixskip = true,
+  }
+}
 
+% 设置二级标题格式
+%黑体小四加粗顶左，单倍行距，序号与题目间空一个汉字符
+\ctexset{subsection={
+   format = {\bfseries \heiti \raggedright \zihao{-4}},
+   beforeskip =28bp plus 1ex minus .2ex,
+   afterskip = 24bp plus .2ex,
+   fixskip = true,
+   }
+}
+% 设置三节标题格式：黑体小四居左书写，单倍行距，序号与题目间空一个汉字符
+\ctexset{subsubsection={
+      format={\heiti \raggedright \zihao{-4}},
+      beforeskip=28bp plus 1ex minus .2ex,
+      afterskip=24bp plus .2ex,
+      fixskip=true,
+  }
+}
 %% 用\textsf{titletoc}设定目录格式。
 \RequirePackage{titletoc}
 \titlecontents{chapter}[0pt]{\vspace{0.25\baselineskip} \songti \zihao{4}}
@@ -126,6 +156,7 @@
 \defenddate{****}
 \end{lstlisting}
 
-这些变量设置好之后，\\使用\verb+\maketitle+产生封面的第一二页；\\使用
-\verb+\makeenglishtitle+产生英文标题页；\\使用\verb+\makeVerticalTitle+产
+这些变量设置好之后，\\使用\verb+\maketitle+产生封面的第一页；\\使用
+\verb+\makeInfo+产生中文信息页；\\使用
+\verb+\makeEnglishInfo+产生英文信息页；\\使用\verb+\makeVerticalTitle+产
 生竖着排放的标题页;\\使用\verb+\makeDeclareOriginal+产生声明页。

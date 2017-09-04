@@ -8,14 +8,14 @@
 \chapter{模板使用}
 \label{chap:textStructure}
 
-本章的目的是介绍\LaTeX{}的文本控制流程，即如何实现学位论文在各章节中的分布，以及章节内的交叉引用问题，用户可以根据自身对\LaTeX{}的熟悉程度适当地略过阅读。在了解了本章的内容后，用户即可通过文本内容的粘贴和复制，快速实现生成一个格式满足基本需求的文档。
+本章的目的是介绍\LaTeX{}的文本控制流程，介绍学位论文中各章节分布以及模板内部组成，以及章节内的交叉引用问题，用户可以根据自身对\LaTeX{}的熟悉程度适当地略过阅读。在了解了本章的内容后，用户即可通过文本内容的粘贴和复制，快速实现生成一个格式满足基本需求的学位论文。
 
-以硕士模板为例，文件布局如图\ref{layout-master}所示。
+以硕士模板BIT-thesis-template-grd为例，文件布局如图 \ref{layout-master} 所示。 
 
-\begin{lstlisting}[basicstyle=\small\ttfamily,caption={BIT-thesis-template-master 模板文件布局},label=layout-master,numbers=none]
+\begin{lstlisting}[basicstyle=\small\ttfamily,caption={BIT-thesis-template-grd 模板文件布局},label=layout-master,numbers=none]
   ├── demo.tex              主控文件
-  ├── demo.pdf              生成的论文pdf
-  ├── BIT-thesis-grd.cls   格式控制文件
+  ├── demo.pdf              生成的论文pdfBIT-thesis-template-grd
+  ├── BIT-thesis-grd.cls    格式控制文件
   ├── GBT7714-2005NLang.bst 参考文献格式控制文件
   ├── chapters              章节文件夹
   │   ├── abstract.tex       摘要
@@ -66,7 +66,8 @@
 文章各部分安排如下：
 \begin{itemize}
 \item ~\verb|\maketitle|~ ： 中文封面
-\item ~\verb|\makeenglishtitle|~ ： 英文封面
+\item ~\verb|\makeInfo|~ ： 中文信息
+\item ~\verb|\makeEnglishInfo|~ ： 英文信息
 \item ~\verb|\makeVerticalTitle|~ ： 打印竖排论文题目
 \item ~\verb|\makeDeclareOriginal|~ ： 论文原创性声明和使用授权
 \item ~\verb|\include{chapters/abstract}|~ ：摘要
@@ -75,9 +76,9 @@
 \item ~\verb|\listoffigures|~ ： 加入插图索引
 \item ~\verb|\include{chapters/chapter1}|~ ： 各章正文内容
 \item ~\verb|\include{chapters/conclusion}|~ ： 结论
-\item ~\verb|\bibliography{reference/chap1}|~ ： 参考文献
+\item ~\verb|\bibliography{reference/chap1}|~ ：参考文献
 \item ~\verb|\include{chapters/app1} |~ ： 附录
-\item ~\verb|\include{chapters/pub}|~ ： 发表文章目录
+\item ~\verb|\include{chapters/pub}|~ ： 攻读学位期间发表论文与研究成果清单
 \item ~\verb|\include{chapters/thanks}|~ ： 致谢
 \item ~\verb|\include{chapters/resume}|~ ： 作者简介（博士论文需要）
 \end{itemize}
@@ -88,15 +89,15 @@
 
 这一部分是论文的主体，是以``章''为单位划分的。
 
-正文前部分(frontmatter)：中英文摘要(abstract.tex)。其他部分，诸如中英文封
-面、授权信息等，都是根据~demo.tex~所填的信息``画''好了，不单独弄成文件。
+正文前部分(frontmatter)：中英文摘要(abstract.tex)。其他部分，诸如中英文信息封
+面、授权信息等，都是根据~demo.tex~所填的信息自动生成好了，不需要单独编写文件。
 
 正文部分(mainmatter)：是各章内容，在chapter文件夹中。
 
-正文后的部分(backmatter)：附录(app\emph{xx}.tex)；致谢(thuanks.tex)；攻读
+正文后的部分(backmatter)：附录(app\emph{xx}.tex)；致谢(thanks.tex)；攻读
 学位论文期间发表的学术论文目录(pub.tex)；作者简介(resume.tex)。参考文献列
-表是``生成''的，也不作为一个单独的文件。另外，学校的硕士研究生学位论文模
-板没有要求加入作者简介，但博士的学位论文要求加入作者简介。
+表是自动生成的，也不需要作为一个单独的文件。另外，学校的硕士研究生学位论文模
+板没有要求加入作者简介，但\textbf{博士的学位论文要求加入作者简介}。
 
 
 \subsection{图片文件夹~figures}
@@ -158,7 +159,7 @@ reference~文件夹放置的是各章``可能''会被引用的参考文献文件
 
 中文摘要于\verb|abstract|环境编写；\verb|\keywords|为中文关键字。英文摘要于\verb|englishabstract|环境编写；\verb|\englishkeywords|为中文关键字。
 
-\begin{lstlisting}[language={[LaTeX]TeX}, caption={中英文摘要}]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={ 中英文摘要 }]
 \begin{abstract}
 	本文 ...
 \keywords { 形状记忆；聚氨酯 }
