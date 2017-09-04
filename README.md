@@ -28,6 +28,8 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 
 本模板使用 XeTeX 引擎提供的 `xelatex` 的命令处理，作用于“主控文档” `demo.tex`。并且，可以省略扩展名。格式控制文件为BIT-thesis-grd.cls。
 
+若使用**硕士**论文模板，请在`demo.tex`中`\documentclass`命令采用`master`选项；若使用**博士**论文模板，请使用`doctor`选项。
+
 所有.tex都采用**UTF-8**编码格式
 
 ##  通过 XeLaTeX 编译

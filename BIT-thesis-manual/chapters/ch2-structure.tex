@@ -15,8 +15,7 @@
 \begin{lstlisting}[basicstyle=\small\ttfamily,caption={BIT-thesis-template-master 模板文件布局},label=layout-master,numbers=none]
   ├── demo.tex              主控文件
   ├── demo.pdf              生成的论文pdf
-  ├── bitmaster-xetex.cfg   格式控制文件（布局设置文件）
-  ├── bitmaster-xetex.cls   格式控制文件（文档类文件）
+  ├── BIT-thesis-grd.cls   格式控制文件
   ├── GBT7714-2005NLang.bst 参考文献格式控制文件
   ├── chapters              章节文件夹
   │   ├── abstract.tex       摘要
@@ -40,9 +39,8 @@
 \subsection{格式控制文件}
 \label{sec:format}
 
-格式控制文件控制着论文的表现形式，包括以下几个文件：
-bitmaster-xetex.cfg, bitmaster-xetex.cls~和~GBT7714-2005NLang.bst。
-其中，``.cfg''和``.cls''控制论文主体格式，``.bst''控制参考文献条目的格式，
+格式控制文件控制着论文的表现形式，包括以下两个文件：BIT-thesis-grd.cls 和 GBT7714-2005NLang.bst。
+其中，``.cls''控制论文主体格式，``.bst''控制参考文献条目的格式，
 
 一般用户可以``忽略''格式控制文件的存在。因为该文件已经按照《北京理工大学博士、硕士学位
 论文撰写规范》进行了修改。有其他格式修改的需要，参见第\ref{sec:thesisformat}章。
@@ -62,6 +60,27 @@ bitmaster-xetex.cfg, bitmaster-xetex.cls~和~GBT7714-2005NLang.bst。
 献内容，不需要具体关注每一章里面的具体内容。需要注意，处理文档时所有的操作命令
 {}\cndash{}xelatex, bibtex等，都是作用在~demo.tex~上，而\emph{不是}后面这
 些``分散''的文件，请参考\ref{sec:process}小节。
+
+若使用\textbf{硕士论文模板}，请在~demo.tex~中~\verb|\documentclass|~命令采用~master~选项；若使用\textbf{博士论文模板}，请使用~doctor~选项。同理，单页打印使用~oneside~选项，双面打印使用~twoside~选项。
+
+文章各部分安排如下：
+\begin{itemize}
+\item ~\verb|\maketitle|~ ： 中文封面
+\item ~\verb|\makeenglishtitle|~ ： 英文封面
+\item ~\verb|\makeVerticalTitle|~ ： 打印竖排论文题目
+\item ~\verb|\makeDeclareOriginal|~ ： 论文原创性声明和使用授权
+\item ~\verb|\include{chapters/abstract}|~ ：摘要
+\item ~\verb|\tableofcontents|~ ：加入目录
+\item ~\verb|\listoftables|~ ：加入表格索引
+\item ~\verb|\listoffigures|~ ： 加入插图索引
+\item ~\verb|\include{chapters/chapter1}|~ ： 各章正文内容
+\item ~\verb|\include{chapters/conclusion}|~ ： 结论
+\item ~\verb|\bibliography{reference/chap1}|~ ： 参考文献
+\item ~\verb|\include{chapters/app1} |~ ： 附录
+\item ~\verb|\include{chapters/pub}|~ ： 发表文章目录
+\item ~\verb|\include{chapters/thanks}|~ ： 致谢
+\item ~\verb|\include{chapters/resume}|~ ： 作者简介（博士论文需要）
+\end{itemize}
 
 
 \subsection{论文主体文件夹chapters}

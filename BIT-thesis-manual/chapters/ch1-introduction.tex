@@ -41,7 +41,7 @@
 \section{快速使用}
 \label{sec:process}
 
-安装完TeX套装后，一般而言所需的环境就配置好了。
+安装完TeX Live套装后，一般而言所需的环境就配置好了。
 
 下面以硕士学位论文模板BIT-thesis-template-master为例，进入BIT-thesis-template-master文件夹。
 windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统请点击运行BIT-thesis-run.sh脚本。脚本会自动运行如图\ref{fig:run} 所示（第一次运行可能需要较长时间，请耐心等待）。打开生成的pdf文档demo.pdf查看模板生成内容。
@@ -62,6 +62,7 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 \end{figure}
 
 本模板使用~\XeTeX~ 引擎提供的~\XeLaTeX~的命令处理，作用于“主控文档”demo.tex。
+若使用\textbf{硕士论文模板}，请在~demo.tex~中~\verb|\documentclass|~命令采用~master~选项；若使用\textbf{博士论文模板}，请使用~doctor~选项。
 由于该模板使用~{{\sc Bib}\TeX}~处理参考文献，构建流程为 \textbf{XeLaTeX$\rightarrow$ BibTeX $\rightarrow$ XeLaTeX$\rightarrow$ XeLaTeX}。完整的处理流程是：
 
 {\color{blue}
@@ -102,7 +103,7 @@ windows系统点击运行BIT-thesis-run.bat脚本，linux系统以及mac系统�
 
 硕士模板的格式受~BIT-thesis-run.cls控制，方便模板更新和模板修改。依据《北京理工大学博士、硕士学位论文撰写规范》修改，按照本文档说明使用，即可撰写符合《北京理工大学博士、硕士学位论文撰写规范》的学位论文；
 在对外观进行细微调整时，只需要更新这两个文件，不需要对.tex源文件做修改。这也给模板更新带来了
-极大方便。\textbf{一般使用者不需要修改这两个文件。}
+极大方便。\textbf{一般使用者不需要修改该文件。}
  
 ~\XeLaTeX~ 对应的~\XeTeX~ 对中文字体的支持更好，允许用户使用操作系统字体来代替TeX的标准字体。所以本模板使用~\XeLaTeX~ 引擎处理中文。要使用这个模板协助你完成研究生学位论文的创作，下面的条件必须满足：
 
