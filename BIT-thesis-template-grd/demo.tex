@@ -5,10 +5,10 @@
 %% last update: Sep. 1st, 2017
 %%==================================================
 
-
-% 单面打印（注意字号设置）
-\documentclass[oneside, master]{BIT-thesis-grd}
 % 默认单面打印 oneside 、硕士论文模板 master
+
+\documentclass[oneside, master]{BIT-thesis-grd}
+
 % 打印选项： 双面打印 oneside；单面打印 twoside
 % 模板选项： 硕士论文 master； 博士论文 doctor
 
@@ -18,13 +18,12 @@
 %% 封面
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% 中文封面内容(关注内容而不是形式)
+% 中文封面内容(关注内容而不是表现形式)
 \classification{TQ028.1}
 \UDC{540}
 
 \title{形状记忆聚氨酯的合成及其在织物中的应用}
 \vtitle{形状记忆聚氨酯的合成及其在织物中的应用}
-
 \author{***}
 \institute{**学院}
 \advisor{**教授}
@@ -91,12 +90,11 @@
 
 \include{chapters/conclusion}
 
-%% 参考文献，使用 BibTeX，包含参考文献文件.bib
-{
-\zihao{5}
+%% 参考文献，五号字，使用 BibTeX，包含参考文献文件.bib
+
 %\bibliography{reference/chap1,reference/chap2} %多个章节的参考文献
 \bibliography{reference/chap1}
-}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 后置部分
@@ -111,7 +109,7 @@
 \include{chapters/app1} 
 %\include{chapters/app2} 
 
-%(无编号)
+%(其后部分无编号)
 \backmatter
 
 % 发表文章目录

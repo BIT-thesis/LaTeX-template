@@ -9,17 +9,26 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 
 目前本模板还处于不断修改与更新阶段，可能存在诸多错误与问题，请提出宝贵意见,可直接在 GitHub 中提交Issues 或 Pull Request。
 
+新手可使用**LaTeX学习资料**目录下的学习资料进行初步学习。
+
 ## 作者
 
 [Yang Yating](https://github.com/y-yating/)
+
+## 安装配置环境
+
+*  windows、linux用户推荐安装TeX Live套装，并更新宏包。 [北理工TeX Live镜像](http://mirror.bit.edu.cn/CTAN/systems/texlive/Images/)
+*  OSX用户推荐安装Mac TeX。[北理工Mac TeX镜像](http://mirror.bit.edu.cn/CTAN/systems/mac/mactex/)
+*  由于CTeX套装所含宏包比较陈旧，可能会导致编译无法通过，故不推荐安装。
+
 
 ## 使用方式
 
 下载文件后，Windows 系统请点击运行 `BIT-thesis-run.bat` 脚本，Linux 系统以及 mac OS 系统请点击运行 `BIT-thesis-run.sh` 脚本。脚本会自动运行生成文档 `demo.pdf`。
 
-本模板使用 XeTeX 引擎提供的 `xelatex` 的命令处理，作用于“主控文档” `demo.tex`。并且，可以省略扩展名。
+本模板使用 XeTeX 引擎提供的 `xelatex` 的命令处理，作用于“主控文档” `demo.tex`。并且，可以省略扩展名。格式控制文件为BIT-thesis-grd.cls。
 
-所有.tex都采用UTF-8编码格式
+所有.tex都采用**UTF-8**编码格式
 
 ##  通过 XeLaTeX 编译
 

@@ -140,6 +140,7 @@
 \def\BIT@label@publications{攻读学位期间发表论文与研究成果清单}
 \def\BIT@label@projects{攻读学位期间参与的项目}
 \def\BIT@label@resume{作者简介}
+\def\BIT@label@reference{参考文献！！！！}
 \def\BIT@label@thanks{致谢}
 \def\BIT@value@templateversion{v1.0}
 %%
@@ -427,10 +428,6 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %_  参考文献风格 added by wei.jianwen@gmail.com
 \bibliographystyle{GBT7714-2005NLang}
-% \bibliographystyle{thubib}
-% \newcommand\thudot{\unskip.}
-% \newcommand\thumasterbib{[Master Thesis]}
-% \newcommand\thuphdbib{[Doctor Thesis]}
 
 %_ BITspace
 %\newcommand\BITspace{\protect\CTEX@spaceChar\protect\CTEX@spaceChar}
@@ -719,8 +716,10 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %_ 参考文献环境
 \renewenvironment{thebibliography}[1]
-     {\chapter*{\bibname}%
+     {\zihao{5}
+      \chapter*{\bibname}
       \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      \addcontentsline{toc}{chapter}{参考文献}
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
@@ -813,7 +812,13 @@ footskip=0.7cm% 页脚 1.8cm %
            \listparindent\itemindent}
    \item\relax}
    {\endlist}
-   
+
+\newenvironment{conclusion}
+  {\chapter*{结论}
+    \@mkboth{结论}{结论}%
+    \addcontentsline{toc}{chapter}{结论}}
+  {}
+
 \renewenvironment{thanks}
   {\chapter{\BIT@label@thanks}}
   {}

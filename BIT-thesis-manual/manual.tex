@@ -27,14 +27,15 @@
 \frontmatter
 
 % 目录
-\tableofcontents
-% 表格索引
-%\listoftables
-% 插图索引
-%\listoffigures
+{
+	\hypersetup{linkcolor=blue}
 
-%\addcontentsline{toc}{chapter}{\listfigurename} %将表格索引加入全文目录
-%\addcontentsline{toc}{chapter}{\listtablename}  %将图索引加入全文目录
+    \tableofcontents
+    \listoffigures
+    \listoftables
+}
+\addcontentsline{toc}{chapter}{\listfigurename} %将表格索引加入全文目录
+\addcontentsline{toc}{chapter}{\listtablename}  %将图索引加入全文目录
 
 % 主要符号、缩略词对照表
 % \include{body/symbol}
@@ -56,11 +57,8 @@
 % 参考文献
 % 使用 BibTeX
 % 包含参考文献文件.bib
-{
-\zihao{5}
 \bibliography{reference/chap1,reference/chap2} %多个章节的参考文献
 %\bibliography{reference/chap1}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 附录(章节编号重新计算，使用字母进行编号)

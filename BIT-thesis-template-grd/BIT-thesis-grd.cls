@@ -716,7 +716,8 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %_ 参考文献环境
 \renewenvironment{thebibliography}[1]
-     {\chapter*{\bibname}
+     {\zihao{5}
+      \chapter*{\bibname}
       \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
       \addcontentsline{toc}{chapter}{参考文献}
       \list{\@biblabel{\@arabic\c@enumiv}}%
@@ -811,7 +812,13 @@ footskip=0.7cm% 页脚 1.8cm %
            \listparindent\itemindent}
    \item\relax}
    {\endlist}
-   
+
+\newenvironment{conclusion}
+  {\chapter*{结论}
+    \@mkboth{结论}{结论}%
+    \addcontentsline{toc}{chapter}{结论}}
+  {}
+
 \renewenvironment{thanks}
   {\chapter{\BIT@label@thanks}}
   {}
