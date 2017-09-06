@@ -19,7 +19,7 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 
 *  windows、linux用户推荐安装TeX Live套装，并更新宏包。 [北理工TeX Live镜像](http://mirror.bit.edu.cn/CTAN/systems/texlive/Images/)
 *  OSX用户推荐安装Mac TeX。[北理工Mac TeX镜像](http://mirror.bit.edu.cn/CTAN/systems/mac/mactex/)
-*  由于CTeX套装所含宏包比较陈旧，可能会导致编译无法通过，故不推荐安装。
+*  由于CTeX套装所含宏包比较陈旧，可能会导致编译无法通过，故不推荐安装。如果已安装CTeX，建议将其卸除。
 
 
 ## 使用方式
@@ -30,7 +30,15 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 
 若使用**硕士**论文模板，请在`demo.tex`中`\documentclass`命令采用`master`选项；若使用**博士**论文模板，请使用`doctor`选项。
 
+```
+\documentclass[oneside, master]{BIT-thesis-grd} %硕士模板 单面打印
+\documentclass[oneside, doctor]{BIT-thesis-grd} %博士模板 单面打印
+\documentclass[twoside, master]{BIT-thesis-grd} %硕士模板 双面打印
+\documentclass[twoside, doctor]{BIT-thesis-grd} %博士模板 双面打印
+```
+
 所有.tex都采用**UTF-8**编码格式
+
 
 ##  通过 XeLaTeX 编译
 

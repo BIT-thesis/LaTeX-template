@@ -17,7 +17,7 @@
 \subsection{公式及术语表}
 \label{sec:eqn}
 
-公式定义的内容包含在\verb|\begin{equation}|\verb|\end{equation}|之间。为方便，公式的编辑可以采用在线的\LaTeX{}公式编辑器。公式的编号格式可以在.sty文件夹下的格式文件中定义，公式中涉及的术语表也需要在公式后面进行对应标记。一般的\LaTeX{}编辑器如Winedit、texmaker等都有公式编辑器。
+公式定义的内容包含在\verb|\begin{equation}|\verb|\end{equation}|之间。为方便，公式的编辑可以采用\textbf{在线的\LaTeX{}公式编辑器}。一般的\LaTeX{}编辑器如Winedit、texmaker等都有\textbf{公式编辑器}。
 
 {\bf{实例1：}} 以下是L-B非稳态流动升力模型，公式引用为公式\ref{eqn:LBmodel}。该公式的术语列表见 表 \ref{tab:LB-parameters}。
 \begin{equation}
@@ -59,7 +59,7 @@
 
 \subsection{定理环境}
 
-在~bitmaster-xetex.cfg~中定义了丰富的定理环境
+在~BIT-thesis-grd.cfg~中定义了丰富的定理环境
 algo(算法)，thm(定理)，lem(引理)，prop(命题)，cor(推论)，defn(定义)，conj(猜想)，exmp(例)，rem(注)，case(情形)，
 bthm(断言定理)，blem(断言引理)，bprop(断言命题)，bcor(断言推论)。
 amsmath还提供了一个proof(证明)的环境。
@@ -99,6 +99,20 @@ amsmath还提供了一个proof(证明)的环境。
   
 \end{thm}
 
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={定理环境}]
+\begin{thm}[留数定理]
+假设$U$是复平面上的一个单连通开子集...... 
+\end{thm}
+\end{lstlisting}
+
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={证明环境}]
+  \begin{proof}
+    首先，由……
+    其次，……
+    所以……
+  \end{proof}
+\end{lstlisting}
+
 上面的公式例子中，有一些细节需要注意。微分号d应该使用``直立体''，也就是用mathrm包围起来。
 并且，微分号和被积函数之间应该有一段小间隔，可以插入\verb+\,+得到。
 斜体的$d$通常只作为一般变量。
@@ -116,10 +130,28 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 
 在学位论文中，插图地使用简单地分为两类：单列图片和多列图片。图片地格式包含*.jpg、*.eps、*.pdf，既可以是位图也可以是矢量图，在插入图片是可以定义其高度和宽度。
 
-插入PNG/JPG的例子如\ref{fig:png-jpg}所示。
+以BIT-thesis-grd模板demo示例中第一章的图一为例，插入代码为\ref{demo-figure1}所示。
+
+其中\verb+\centering+表示图片居中，\verb+\includegraphics[...]{...}+导入图片并制定图片大小，\verb+\caption{}+指定图片标题，而\verb+\label{...}+为图片加上引用标签。
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.75\textwidth]{figures/figure1}
+ \caption{BIT-thesis-grd模板demo示例中第一章的图一}\label{fig:diagram}
+\end{figure}
+
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={示例插图代码}, label=demo-figure1]
+\begin{figure}
+ \centering
+ \includegraphics[width=0.75\textwidth]{figures/figure1}
+ \caption{热塑性形状记忆聚氨酯的形状记忆机理示意图}\label{fig:diagram}
+\end{figure}
+\end{lstlisting}
+
+插入两幅PNG/JPG的例子如\ref{fig:png-jpg}所示。
 这两个水平并列放置的图共享一个``图标题''(table caption)，没有各自的小标题。
 
-\begin{figure}[!htp]
+\begin{figure}
   \centering
   \includegraphics[width=0.35\textwidth]{figures/BIT}
   \hspace{1cm}
@@ -129,7 +161,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 \end{figure}
 
 \begin{lstlisting}[language={[LaTeX]TeX}, caption={插入PNG/JPG}]
-\begin{figure}[!htp]
+\begin{figure}
   \centering
   \includegraphics[width=0.3\textwidth]{figures/BIT}
   \hspace{1cm}
@@ -141,7 +173,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 
 这里还有插入eps图像和pdf图像的例子，如图\ref{fig:pdfeps}。这里将EPS和PDF图片作为子图插入，每个子图有自己的小标题。并列子图的功能是使用~subfigure~宏包提供的。
 
-\begin{figure}[!b]
+\begin{figure}
   \centering
   \subfigure[EPS Figure]{
     \label{fig:epspdf:a} %% label for first subfigure
@@ -153,7 +185,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
   \label{fig:pdfeps}
 \end{figure}
 
-\begin{lstlisting}[language={[LaTeX]TeX}, caption={插入eps图像和pdf图像}][!htp]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={插入eps图像和pdf图像}]
 \begin{figure}
   \centering
   \subfigure[EPS Figure]{
@@ -172,14 +204,14 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 图\ref{fig:longcaptionbad}和图\ref{fig:longcaptiongood}都有比较长图标题，通过对比发现，图\ref{fig:longcaptiongood}的换行效果更好一些。
 其中使用了minipage环境来限制整个浮动题的宽度。
 
-\begin{figure}[!htp]
+\begin{figure}
  \centering
  \includegraphics[width=10cm]{figures/pic1}
  \caption{BIT是我国历史最悠久的高等学府之一，是教育部直属、工信部共建的全国重点大学，985，211}
  \label{fig:longcaptionbad}
 \end{figure}
 
-\begin{figure}[!hbp]
+\begin{figure}
   \centering
   \begin{minipage}[b]{0.6\textwidth}
   \captionstyle{\centering}
@@ -191,14 +223,14 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 \end{figure}
 
 \begin{lstlisting}[language={[LaTeX]TeX}, caption={长标题的换行}]
-\begin{figure}[!htp]
+\begin{figure}
  \centering
  \includegraphics[width=10cm]{figures/pic1}
  \caption{BIT是我国历史最悠久的高等学府之一，是教育部直属、工信部共建的全国重点大学，985，211}
  \label{fig:longcaptionbad}
 \end{figure}
 
-\begin{figure}[!hbp]
+\begin{figure}
   \centering
   \begin{minipage}[b]{0.6\textwidth}
   \captionstyle{\centering}
@@ -215,7 +247,43 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 
 表格的定义和引用已经在第~\ref{sec:refofFigAndTab}节中介绍，表格内容包含在\textbackslash begin\{table\}和\textbackslash end\{table\}之间。这里给出一些表格的例子。
 
-\begin{table}[htb]               % no placement specified: defaults to here, top, bottom, page
+先以BIT-thesis-grd模板demo示例中第一章的表一为例，插入代码为\ref{demo-table1}所示。
+
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={示例插表代码}, label=demo-table1]
+\begin{table}
+  \centering
+  \caption{水系聚氨酯分类} \label{tab:category}
+  \begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}}cccc}
+  \toprule
+    类别			&水溶型		&胶体分散型		&乳液型 \\
+  \midrule
+    状态			&溶解$\sim$胶束	&分散		&白浊 \\
+    外观			&水溶型		&胶体分散型		&乳液型 \\
+    粒径$/\mu m$	&$<0.001$		&$0.001-0.1$		&$>0.1$ \\
+    重均分子量	&$1000\sim 10000$	&数千$\sim 20万$ &$>5000$ \\
+  \bottomrule
+  \end{tabular*}
+\end{table}
+\end{lstlisting}
+
+\begin{table}
+  \centering
+  \caption{BIT-thesis-grd模板demo示例中第一章的表一} \label{tab:category}
+  \begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}}cccc}
+  \toprule
+    类别			&水溶型		&胶体分散型		&乳液型 \\
+  \midrule
+    状态			&溶解$\sim$胶束	&分散		&白浊 \\
+    外观			&水溶型		&胶体分散型		&乳液型 \\
+    粒径$/\mu m$	&$<0.001$		&$0.001-0.1$		&$>0.1$ \\
+    重均分子量	&$1000\sim 10000$	&数千$\sim 20万$ &$>5000$ \\
+  \bottomrule
+  \end{tabular*}
+\end{table}
+
+另举一个两列的表格例子。
+
+\begin{table}              % no placement specified: defaults to here, top, bottom, page
 \centering
  \begin{center}
   \caption{L-B模型中参数的物理意义}
@@ -234,8 +302,8 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
  \end{center}
 \end{table}
 
-\begin{lstlisting}[language={[LaTeX]TeX}, caption={插入表格}]
-\begin{table}[htb]
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={插入表格\ref{tab:LB-parameters}}]
+\begin{table}
 \centering
  \begin{center}
   \caption{L-B模型中参数的物理意义}
@@ -256,7 +324,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 
 再给出一些表格的例子，如表\ref{tab:firstone}所示。
 
-\begin{table}[!htp]
+\begin{table}
   \centering
   \bicaption[tab:firstone]{指向一个表格的表目录索引}{一个颇为标准的三线表格\footnotemark[1]}{Table}{A Table}
   \begin{tabular}{@{}llr@{}} \toprule
@@ -270,9 +338,25 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
   \end{tabular}
 \end{table}
 
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={三线表格}]
+\begin{table}
+  \centering
+  \bicaption[tab:firstone]{指向一个表格的表目录索引}{一个颇为标准的三线表格\footnotemark[1]}{Table}{A Table}
+  \begin{tabular}{@{}llr@{}} \toprule
+    \multicolumn{2}{c}{Item} \\ \cmidrule(r){1-2}
+    Animal & Description & Price \\ \midrule
+    Gnat & per gram & 13.65 \\
+    & each & 0.01 \\
+    Gnu & stuffed & 92.50 \\
+    Emu & stuffed & 33.33 \\
+    Armadillo & frozen & 8.99 \\ \bottomrule
+  \end{tabular}
+\end{table}
+\end{lstlisting}
+
 下面一个是一个更复杂的表格，用threeparttable实现带有脚注的表格，如表\ref{tab:footnote}。
 
-\begin{table}[!htp]
+\begin{table}
   \bicaption[tab:footnote]{出现在表目录的标题}{一个带有脚注的表格的例子}{Table}{A Table with footnotes}
   \centering
   \begin{threeparttable}[b]
@@ -294,7 +378,29 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
   \end{threeparttable}
 \end{table}
 
-
+\begin{lstlisting}[language={[LaTeX]TeX}, caption={脚注表格}]
+\begin{table}
+  \bicaption[tab:footnote]{出现在表目录的标题}{一个带有脚注的表格的例子}{Table}{A Table with footnotes}
+  \centering
+  \begin{threeparttable}[b]
+     \begin{tabular}{ccd{4}cccc}
+      \toprule
+      \multirow{2}{6mm}{total}&\multicolumn{2}{c}{20\tnote{1}} & \multicolumn{2}{c}{40} &  \multicolumn{2}{c}{60}\\
+      \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+      &www & k & www & k & www & k \\
+      \midrule
+      &$\underset{(2.12)}{4.22}$ & 120.0140\tnote{2} & 333.15 & 0.0411 & 444.99 & 0.1387 \\
+      &168.6123 & 10.86 & 255.37 & 0.0353 & 376.14 & 0.1058 \\
+      &6.761    & 0.007 & 235.37 & 0.0267 & 348.66 & 0.1010 \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+    \item [1] the first note.
+    \item [2] the second note.
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+\end{lstlisting}
 
 \section{参考文献管理}
 \label{sec:reference}

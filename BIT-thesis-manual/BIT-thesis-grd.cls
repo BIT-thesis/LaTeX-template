@@ -244,7 +244,7 @@ footskip=0.7cm% 页脚 1.8cm %
 \fancypagestyle{BIT@headings}{%
   \fancyhf{}
   \fancyfoot[C]{\songti\zihao{5} \thepage}
-  \fancyhead[C]{\ifBIT@master\zihao{5}{\songti 北京理工大学硕士学位论文}
+  \fancyhead[C]{\ifBIT@master\zihao{5}{\songti BIT-Thesis使用指南}
                 \else\zihao{5}{\songti 北京理工大学博士学位论文}\fi}
   }
 
