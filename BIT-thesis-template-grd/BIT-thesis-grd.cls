@@ -647,6 +647,7 @@ footskip=0.7cm% 页脚 1.8cm %
 % 原创性声明
 \newcommand\makeDeclareOriginal{%
   \cleardoublepage
+  \pdfbookmark[0]{声明}{statement}
   \thispagestyle{empty}
   \begin{center}
   {\bf\zihao{3} \BIT@label@original}
@@ -729,6 +730,7 @@ footskip=0.7cm% 页脚 1.8cm %
 %\makeatother
 %_ 目录
 \renewcommand\tableofcontents{%
+  \pdfbookmark[0]{目录}{bittoc}
   \if@twocolumn
   \@restonecoltrue\onecolumn
   \else
@@ -740,8 +742,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \if@restonecol\twocolumn\fi
 }
 
-\addtocontents{toc}{\let\string\CTEX@spaceChar\relax}
-
+%\addtocontents{toc}{\let\string\CTEX@spaceChar\relax}
 %_ 参考文献环境
 \renewenvironment{thebibliography}[1]
      {\zihao{5}
