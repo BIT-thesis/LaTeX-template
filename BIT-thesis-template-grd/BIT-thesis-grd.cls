@@ -6,7 +6,7 @@
 %%==================================================
 
 %% math packages -- conflict with xunicode
-\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs} 
+\RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs}
 % 直立希腊字母字体
 \RequirePackage{upgreek}
 
@@ -115,7 +115,7 @@
 \def\BIT@label@englishschool{Degree by:}
 \def\BIT@label@englishdate{The Data of Defence:}
 
-  
+
 %%
 %% 英语封面内容
 %%
@@ -171,7 +171,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 %设置行距，大概为22榜，较麻烦
 \RequirePackage{setspace}
-\setstretch{1.523} 
+\setstretch{1.523}
 
 %% 设置章节格式
 \ctexset{chapter={
@@ -215,7 +215,11 @@ footskip=0.7cm% 页脚 1.8cm %
   }
 }
 
-%% 设定目录格式。
+%% 设定目录格式。目录颜色更改黑色
+\addtocontents{toc}{\protect\hypersetup{hidelinks}}
+\addtocontents{lot}{\protect\hypersetup{hidelinks}}
+\addtocontents{lof}{\protect\hypersetup{hidelinks}}
+
 \RequirePackage{titletoc}
 \titlecontents{chapter}[0pt]{\vspace{0.25\baselineskip} \songti \zihao{4}}
     {\thecontentslabel\quad}{}
@@ -318,12 +322,12 @@ footskip=0.7cm% 页脚 1.8cm %
 
 
 %% 英文字体使用 Times New Roman
-\RequirePackage{fontspec}
+%\RequirePackage{fontspec}
 \RequirePackage{xltxtra} % \XeTeX Logo
 %% Times Fonts
-\RequirePackage{times}
-%% Set Old Fonts Encoding 
-\usepackage[T1]{fontenc}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
 
 
 %% graphics packages
@@ -332,13 +336,34 @@ footskip=0.7cm% 页脚 1.8cm %
 \RequirePackage{subfigure}
 
 \RequirePackage{wrapfig}
+%%===========================设置图表标题选项==========================
+\RequirePackage{amsmath}
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{zhspace}{\hspace{1\ccwd}}
+\DeclareCaptionFont{fontsize}{\zihao{5}}
+\captionsetup{
+  font = {fontsize},
+  labelsep = zhspace,
+}
+\captionsetup[table]{
+  position = top,
+  aboveskip = 6bp,
+  belowskip = 6bp,
+}
+\numberwithin{table}{chapter}
+\captionsetup[figure]{
+  position = bottom,
+  aboveskip = 6bp,
+  belowskip = 6bp,
+}
+
 %% 如果插入的图片没有指定扩展名，那么依次搜索下面的扩展名所对应的文件
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
 % ccaption -- bicaption
-\RequirePackage{ccaption}
-\captiondelim{\ }
-\captionnamefont{\songti\zihao{5}}
-\captiontitlefont{\songti\zihao{5}}
+%\RequirePackage{ccaption}
+%\captiondelim{\ }
+%\captionnamefont{\songti\zihao{5}}
+%\captiontitlefont{\songti\zihao{5}}
 
 
 %% sort and compress citations
@@ -407,8 +432,8 @@ footskip=0.7cm% 页脚 1.8cm %
 \hypersetup{
   bookmarksnumbered,%
   colorlinks,%
-  linkcolor=black,%
-  citecolor=black,%
+  %linkcolor=black,%
+  %citecolor=black,%
   plainpages=false,%
   pdfstartview=FitH
 }
@@ -424,7 +449,7 @@ footskip=0.7cm% 页脚 1.8cm %
 \usepackage{enumitem}
 % \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
 % \setitemize[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
-% \setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}  
+% \setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
 
 %_  参考文献风格 added by wei.jianwen@gmail.com
 \bibliographystyle{GBT7714-2005NLang}
@@ -474,7 +499,7 @@ footskip=0.7cm% 页脚 1.8cm %
 %_ “绘制”BIT中文标题页
 \renewcommand\maketitle[1]{%
   \cleardoublepage
-  \thispagestyle{empty}  
+  \thispagestyle{empty}
   \begin{center}
     \vspace*{60mm}
     {\heiti\zihao{-2} \BIT@value@title}
@@ -498,17 +523,17 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %udc ltz
 {
-  {\heiti \zihao{5} \noindent \BIT@label@classification} \BIT@value@classification \\ 
-  {\heiti \zihao{5} \BIT@label@UDC}  \BIT@value@UDC 
+  {\heiti \zihao{5} \noindent \BIT@label@classification} \BIT@value@classification \\
+  {\heiti \zihao{5} \BIT@label@UDC}  \BIT@value@UDC
 }
-  
+
    \begin{center}
 
     \vskip \stretch{1}
        {\heiti\zihao{-2} \BIT@value@title}
     \vskip \stretch{1}
 
-    {\fangsong\zihao{4}}      
+    {\fangsong\zihao{4}}
     \def\tabcolsep{1pt}
     \def\arraystretch{1.5}
 
@@ -519,19 +544,19 @@ footskip=0.7cm% 页脚 1.8cm %
       \BIT@label@institute & & \BITunderline[180pt]{\BIT@value@institute}
     \\
       \BIT@label@advisor & &  \BITunderline[180pt]{\BIT@value@advisor}
-    \\  
+    \\
       \BIT@label@chairman & &   \BITunderline[180pt]{\BIT@value@chairman}
-    \\  
+    \\
       \BIT@label@degree & &    \BITunderline[180pt]{\BIT@value@degree}
-    \\  
+    \\
       \BIT@label@major & &    \BITunderline[180pt]{\BIT@value@major}
-    \\  
+    \\
       \BIT@label@school & &   \BITunderline[180pt]{\BIT@value@school}
-    \\  
+    \\
       \BIT@label@defenddate & &  \BITunderline[180pt]{\BIT@value@defenddate}
     \end{tabular}}
 
-  \end{center} 
+  \end{center}
 
   \vskip \stretch{0.5}
   \clearpage
@@ -558,14 +583,14 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand\makeEnglishInfo[1]{%
   \cleardoublepage
   \thispagestyle{empty}
-  
+
    \begin{center}
 
-  
+
    \vspace*{10em}
-  
+
    {\zihao{-2}\textbf{\BIT@value@englishtitle}}
-  
+
    \vskip \stretch{1}
 
    {\zihao{-3}
@@ -575,19 +600,19 @@ footskip=0.7cm% 页脚 1.8cm %
       \BIT@label@englishinstitute &  \BITunderline[200pt]{\BIT@value@englishinstitute}
     \\
       \BIT@label@englishadvisor &  \BITunderline[200pt]{\BIT@value@englishadvisor}
-    \\  
+    \\
       \BIT@label@englishchairman &   \BITunderline[200pt]{\BIT@value@englishchairman}
-    \\  
+    \\
       \BIT@label@englishdegree &    \BITunderline[200pt]{\BIT@value@englishdegree}
-    \\  
+    \\
       \BIT@label@englishmajor &     \BITunderline[200pt]{\BIT@value@englishmajor}
-    \\  
+    \\
       \BIT@label@englishschool &     \BITunderline[200pt]{\BIT@value@englishschool}
-    \\  
+    \\
       \BIT@label@englishdate &   \BITunderline[200pt]{\BIT@value@englishdate}
     \end{tabular}}
 
-  \end{center} 
+  \end{center}
 
   \vskip \stretch{0.5}
   \clearpage
@@ -604,7 +629,7 @@ footskip=0.7cm% 页脚 1.8cm %
    \thispagestyle{empty}
    \vskip 5cm
    \begin{center}
-    \setstretch{1.1}   
+    \setstretch{1.1}
     \begin{minipage}{1em}
         {\heiti\zihao{3}\BIT@value@vtitle}
         \vskip 2cm
@@ -616,7 +641,7 @@ footskip=0.7cm% 页脚 1.8cm %
         \thispagestyle{empty}
         \cleardoublepage
     \fi
-  
+
 }
 
 % 原创性声明
@@ -639,7 +664,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \vskip 10pt
   {\zihao{4} \BIT@label@authorizationcontent}
   \vskip 40pt
-  
+
   \hspace{8em}{\zihao{4}\BIT@label@authorsign} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@Supervisorsign} \BITunderline[6em]{}
   \vskip 15pt
   \hspace{8em}{\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{}
@@ -648,7 +673,7 @@ footskip=0.7cm% 页脚 1.8cm %
     \thispagestyle{empty}
     \cleardoublepage
   \fi
-  
+
 }
 
 
@@ -680,7 +705,7 @@ footskip=0.7cm% 页脚 1.8cm %
     \thispagestyle{empty}
     \cleardoublepage
   \fi
- } 
+ }
  %_ 中文关键词
  \newcommand\keywords[1]{%
    \vspace{2ex}\noindent{\bf \BIT@label@keywords} #1}
@@ -727,12 +752,12 @@ footskip=0.7cm% 页脚 1.8cm %
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
             \advance\leftmargin\labelsep
-            \setlength{\parsep}{1mm} 
-            \setlength{\labelsep}{0.5em} 
-            \setlength{\itemsep}{0.05pc} 
-            \setlength{\listparindent}{0in} 
-            \setlength{\itemindent}{0in} 
-            \setlength{\rightmargin}{0in} 
+            \setlength{\parsep}{1mm}
+            \setlength{\labelsep}{0.5em}
+            \setlength{\itemsep}{0.05pc}
+            \setlength{\listparindent}{0in}
+            \setlength{\itemindent}{0in}
+            \setlength{\rightmargin}{0in}
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
@@ -746,7 +771,7 @@ footskip=0.7cm% 页脚 1.8cm %
        {\@latex@warning{Empty `thebibliography' environment}}%
       \endlist}
 
-    
+
 \newenvironment{publications}[1]
      {\chapter{\BIT@label@publications}%
       \@mkboth{\MakeUppercase\BIT@label@publications}
@@ -755,12 +780,12 @@ footskip=0.7cm% 页脚 1.8cm %
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
             \advance\leftmargin\labelsep
-            \setlength{\parsep}{1mm} 
-            \setlength{\labelsep}{0.5em} 
-            \setlength{\itemsep}{0.05pc} 
-            \setlength{\listparindent}{0in} 
-            \setlength{\itemindent}{0in} 
-            \setlength{\rightmargin}{0in} 
+            \setlength{\parsep}{1mm}
+            \setlength{\labelsep}{0.5em}
+            \setlength{\itemsep}{0.05pc}
+            \setlength{\listparindent}{0in}
+            \setlength{\itemindent}{0in}
+            \setlength{\rightmargin}{0in}
             \@openbib@code
             \usecounter{enumiv}%
             \let\p@enumiv\@empty
@@ -795,18 +820,18 @@ footskip=0.7cm% 页脚 1.8cm %
      {\def\@noitemerr
        {\@latex@warning{Empty `projects' environment}}%
       \endlist}
-    
+
     \newenvironment{resume}
   {\chapter{\BIT@label@resume}}
   {}
-  
+
 \newenvironment{resumesection}[1]
   {{\noindent\normalfont\bfseries #1}
    \list{}{\labelwidth\z@
            \leftmargin 2\ccwd}
    \item\relax}
    {\endlist}
-   
+
 \newenvironment{resumeli}[1]
   {{\noindent\normalfont\bfseries #1}
    \list{}{\labelwidth\z@
@@ -825,17 +850,17 @@ footskip=0.7cm% 页脚 1.8cm %
 \renewenvironment{thanks}
   {\chapter{\BIT@label@thanks}}
   {}
-  
+
 \newenvironment{symbolnote}
   {\chapter{\BIT@label@symbolnote}
-  \fangsong} 
-  {} 
+  \fangsong}
+  {}
 
 
 \setcounter{secnumdepth}{4}  % 章节编号深度 (part 对应 -1)
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
-    
-    
+
+
 \newtheoremstyle{break}% name
   {}%      Space above, empty = `usual value'
   {}%      Space below
@@ -848,5 +873,3 @@ footskip=0.7cm% 页脚 1.8cm %
 \endinput
 %%
 %% End of file `bitmaster-xetex.cls'.
-
-
