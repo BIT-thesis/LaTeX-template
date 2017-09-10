@@ -313,11 +313,6 @@ footskip=0.7cm% 页脚 1.8cm %
   \newtheorem{exmp}{例~}[chapter]
   \newtheorem{rem}{注~}
   \newtheorem{case}{情形~}
-\theoremstyle{break}
-  \newtheorem{bthm}[thm]{定理~}
-  \newtheorem{blem}[thm]{引理~}
-  \newtheorem{bprop}[thm]{命题~}
-  \newtheorem{bcor}[thm]{推论~}
 \renewcommand{\proofname}{\bf 证明}
 
 
