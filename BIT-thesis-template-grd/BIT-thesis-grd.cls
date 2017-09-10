@@ -172,7 +172,9 @@ footskip=0.7cm% 页脚 1.8cm %
 %设置行距，大概为22榜，较麻烦
 \RequirePackage{setspace}
 \setstretch{1.523}
-
+%==============删除默认模板（book.cls ）在章之间引入的垂直间隔。要放在hyperref 之前才会生效。===============
+\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{} % lof
+\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{} % lot
 %% 设置章节格式
 \ctexset{chapter={
       name = {第,章},
@@ -288,38 +290,8 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand{\mj}{\mathrm{j}}
 \newcommand{\dif}{\mathrm{d}}
 
-% 可伸长的数学符号
-% \makeatletter
-\def\ExtendSymbol#1#2#3#4#5{\ext@arrow 0099{\arrowfill@#1#2#3}{#4}{#5}}
-\def\RightExtendSymbol#1#2#3#4#5{\ext@arrow 0359{\arrowfill@#1#2#3}{#4}{#5}}
-\def\LeftExtendSymbol#1#2#3#4#5{\ext@arrow 6095{\arrowfill@#1#2#3}{#4}{#5}}
-% \makeatother
-
-\newcommand\myRightarrow[2][]{\RightExtendSymbol{=}{=}{\Rightarrow}{#1}{#2}}
-\newcommand\myLeftarrow[2][]{\LeftExtendSymbol{\Leftarrow}{=}{=}{#1}{#2}}
-\newcommand\myBioarrow[2][]{\ExtendSymbol{\Leftarrow}{=}{\Rightarrow}{#1}{#2}}
-\newcommand\myLongEqual[2][]{\ExtendSymbol{=}{=}{=}{#1}{#2}}
-
-
-\theoremstyle{plain}
-  \newtheorem{algo}{算法~}[chapter]
-  \newtheorem{thm}{定理~}[chapter]
-  \newtheorem{lem}[thm]{引理~}
-  \newtheorem{prop}[thm]{命题~}
-  \newtheorem{cor}[thm]{推论~}
-\theoremstyle{definition}
-  \newtheorem{defn}{定义~}[chapter]
-  \newtheorem{conj}{猜想~}[chapter]
-  \newtheorem{exmp}{例~}[chapter]
-  \newtheorem{rem}{注~}
-  \newtheorem{case}{情形~}
-\renewcommand{\proofname}{\bf 证明}
-
-
 %% 英文字体使用 Times New Roman
-%\RequirePackage{fontspec}
 \RequirePackage{xltxtra} % \XeTeX Logo
-%% Times Fonts
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
 \setmonofont{Courier New}
@@ -718,11 +690,7 @@ footskip=0.7cm% 页脚 1.8cm %
  \newcommand\englishkeywords[1]{%
   \vspace{2ex}\noindent{\bf \BIT@label@englishkeywords} #1}
 
-%ltz add
-%\RequirePackage{titletoc}
-%\makeatletter
-%\renewcommand\section{{\ziti{1}}}
-%\makeatother
+
 %_ 目录
 \renewcommand\tableofcontents{%
   \pdfbookmark[0]{目录}{bittoc}
@@ -737,7 +705,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \if@restonecol\twocolumn\fi
 }
 
-%\addtocontents{toc}{\let\string\CTEX@spaceChar\relax}
+
 %_ 参考文献环境
 \renewenvironment{thebibliography}[1]
      {\zihao{5}
@@ -857,15 +825,6 @@ footskip=0.7cm% 页脚 1.8cm %
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
 
 
-\newtheoremstyle{break}% name
-  {}%      Space above, empty = `usual value'
-  {}%      Space below
-  {\itshape}% Body font
-  {}%         Indent amount (empty = no indent, \parindent = para indent)
-  {\bfseries}% Thm head font
-  {.}%        Punctuation after thm head
-  {\newline}% Space after thm head: \newline = linebreak
-  {}%         Thm head spec
 \endinput
 %%
 %% End of file `bitmaster-xetex.cls'.
