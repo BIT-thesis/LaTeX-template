@@ -820,7 +820,26 @@ footskip=0.7cm% 页脚 1.8cm %
   \fangsong}
   {}
 
-
+  %%%============================术语=====================
+  \newcommand{\bit@denotation@name}{主要符号对照表}
+  \newenvironment{denotation}[1][2.5cm]{
+      \chapter{\bit@denotation@name} % no tocline
+      \noindent\begin{list}{}%
+      {\vskip-30bp\zihao{-4}
+       \renewcommand\makelabel[1]{##1\hfil}
+       \setlength{\labelwidth}{#1} % 标签盒子宽度
+       \setlength{\labelsep}{0.5cm} % 标签与列表文本距离
+       \setlength{\itemindent}{0cm} % 标签缩进量
+       \setlength{\leftmargin}{\labelwidth+\labelsep} % 左边界
+       \setlength{\rightmargin}{0cm}
+       \setlength{\parsep}{0cm} % 段落间距
+       \setlength{\itemsep}{0cm} % 标签间距
+      \setlength{\listparindent}{0cm} % 段落缩进量
+      \setlength{\topsep}{0pt} % 标签与上文的间距
+     }}{\end{list}}
+%====增加化学、国际单位宏包
+     \RequirePackage[version=4]{mhchem}
+     \RequirePackage{siunitx}
 \setcounter{secnumdepth}{4}  % 章节编号深度 (part 对应 -1)
 \setcounter{tocdepth}{2}     % 目录深度 (part 对应 -1)
 
