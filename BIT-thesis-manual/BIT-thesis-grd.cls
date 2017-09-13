@@ -284,18 +284,6 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand{\mj}{\mathrm{j}}
 \newcommand{\dif}{\mathrm{d}}
 
-% 可伸长的数学符号
-% \makeatletter
-\def\ExtendSymbol#1#2#3#4#5{\ext@arrow 0099{\arrowfill@#1#2#3}{#4}{#5}}
-\def\RightExtendSymbol#1#2#3#4#5{\ext@arrow 0359{\arrowfill@#1#2#3}{#4}{#5}}
-\def\LeftExtendSymbol#1#2#3#4#5{\ext@arrow 6095{\arrowfill@#1#2#3}{#4}{#5}}
-% \makeatother
-
-\newcommand\myRightarrow[2][]{\RightExtendSymbol{=}{=}{\Rightarrow}{#1}{#2}}
-\newcommand\myLeftarrow[2][]{\LeftExtendSymbol{\Leftarrow}{=}{=}{#1}{#2}}
-\newcommand\myBioarrow[2][]{\ExtendSymbol{\Leftarrow}{=}{\Rightarrow}{#1}{#2}}
-\newcommand\myLongEqual[2][]{\ExtendSymbol{=}{=}{=}{#1}{#2}}
-
 
 \theoremstyle{plain}
   \newtheorem{algo}{算法~}[chapter]
@@ -309,11 +297,6 @@ footskip=0.7cm% 页脚 1.8cm %
   \newtheorem{exmp}{例~}[chapter]
   \newtheorem{rem}{注~}
   \newtheorem{case}{情形~}
-\theoremstyle{break}
-  \newtheorem{bthm}[thm]{定理~}
-  \newtheorem{blem}[thm]{引理~}
-  \newtheorem{bprop}[thm]{命题~}
-  \newtheorem{bcor}[thm]{推论~}
 \renewcommand{\proofname}{\bf 证明}
 
 

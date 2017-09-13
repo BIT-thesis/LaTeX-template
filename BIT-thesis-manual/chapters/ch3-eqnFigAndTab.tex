@@ -60,9 +60,7 @@
 \subsection{定理环境}
 
 在~BIT-thesis-grd.cfg~中定义了丰富的定理环境
-algo(算法)，thm(定理)，lem(引理)，prop(命题)，cor(推论)，defn(定义)，conj(猜想)，exmp(例)，rem(注)，case(情形)，
-bthm(断言定理)，blem(断言引理)，bprop(断言命题)，bcor(断言推论)。
-amsmath还提供了一个proof(证明)的环境。
+algo(算法)，thm(定理)，lem(引理)，prop(命题)，cor(推论)，defn(定义)，conj(猜想)，exmp(例)，rem(注)，case(情形)，amsmath还提供了一个proof(证明)的环境。
 这里举一个``定理''和``证明''的例子。
 \begin{thm}[留数定理]
 \label{thm:res}
@@ -326,7 +324,8 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 
 \begin{table}
   \centering
-  \bicaption[tab:firstone]{指向一个表格的表目录索引}{一个颇为标准的三线表格\footnotemark[1]}{Table}{A Table}
+  \label{tab:firstone}
+  \caption{一个标准的三线表格}
   \begin{tabular}{@{}llr@{}} \toprule
     \multicolumn{2}{c}{Item} \\ \cmidrule(r){1-2}
     Animal & Description & Price (\$)\\ \midrule
@@ -341,7 +340,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 \begin{lstlisting}[language={[LaTeX]TeX}, caption={三线表格}]
 \begin{table}
   \centering
-  \bicaption[tab:firstone]{指向一个表格的表目录索引}{一个颇为标准的三线表格\footnotemark[1]}{Table}{A Table}
+  \caption{一个标准的三线表格}
   \begin{tabular}{@{}llr@{}} \toprule
     \multicolumn{2}{c}{Item} \\ \cmidrule(r){1-2}
     Animal & Description & Price \\ \midrule
@@ -357,7 +356,8 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 下面一个是一个更复杂的表格，用threeparttable实现带有脚注的表格，如表\ref{tab:footnote}。
 
 \begin{table}
-  \bicaption[tab:footnote]{出现在表目录的标题}{一个带有脚注的表格的例子}{Table}{A Table with footnotes}
+  \label{tab:footnote}
+  \caption{一个带有脚注的表格的例子}
   \centering
   \begin{threeparttable}[b]
      \begin{tabular}{ccd{4}cccc}
@@ -380,7 +380,7 @@ i,j作为虚数单位时，也应该使用``直立体''，为了明显，还加�
 
 \begin{lstlisting}[language={[LaTeX]TeX}, caption={脚注表格}]
 \begin{table}
-  \bicaption[tab:footnote]{出现在表目录的标题}{一个带有脚注的表格的例子}{Table}{A Table with footnotes}
+  \caption{一个带有脚注的表格的例子}
   \centering
   \begin{threeparttable}[b]
      \begin{tabular}{ccd{4}cccc}
