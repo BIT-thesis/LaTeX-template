@@ -348,7 +348,7 @@ footskip=0.7cm% 页脚 1.8cm %
 
 
 %% sort and compress citations
-\RequirePackage[sort&compress,numbers]{natbib}
+\RequirePackage[numbers,square,comma,super,sort&compress]{natbib}
 % 上标引用
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
 
@@ -707,7 +707,6 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %_ 目录
 \renewcommand\tableofcontents{%
-  \pdfbookmark[0]{目录}{bittoc}
   \if@twocolumn
   \@restonecoltrue\onecolumn
   \else
@@ -715,6 +714,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \fi
   \chapter*{\contentsname}%目录里显示“目录”，否则\chapter*
   \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
+  \pdfbookmark[0]{目录}{bittoc}
   \@starttoc{toc}%
   \if@restonecol\twocolumn\fi
 }
