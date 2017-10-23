@@ -288,7 +288,7 @@ footskip=0.7cm% 页脚 1.8cm %
 \newcommand{\me}{\mathrm{e}} %定义 对数常数e，虚数符号i,j以及微分算子d为直立体。
 \newcommand{\mi}{\mathrm{i}}
 \newcommand{\mj}{\mathrm{j}}
-\newcommand{\dif}{\mathrm{d}}
+\newcommand{\dif}{\,\mathrm{d}} 
 
 \theoremstyle{plain}
   \newtheorem{algo}{算法~}[chapter]
