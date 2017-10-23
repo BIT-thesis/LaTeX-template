@@ -1,9 +1,8 @@
 
 # BIT-Thesis v1.1
 # 北京理工大学硕士（博士）学位论文LaTeX模板
-[gitter]()
+[![Join the chat at https://gitter.im/yuzhangbit/BIT-LaTeX-Template](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yuzhangbit/BIT-LaTeX-Template)
 
-![Beijing Institude of Technology](https://github.com/y-yating/image/raw/master/image-school/bit-thesis.png)
 
 学位论文通常具有比较严格的格式要求，这是为了方便同行学术交流的起码要求，同时也是科学研究严谨性的体现。然而，由于市场各种排版软件混杂，使用者水平不一，学生对格式的重视程度不够，学生编写标准格式的学位论存在很多问题。
 
