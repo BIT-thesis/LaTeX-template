@@ -1,6 +1,7 @@
 
 # BIT-Thesis v1.1
 # 北京理工大学硕士（博士）学位论文LaTeX模板
+[gitter]()
 
 ![Beijing Institude of Technology](https://github.com/y-yating/image/raw/master/image-school/bit-thesis.png)
 
