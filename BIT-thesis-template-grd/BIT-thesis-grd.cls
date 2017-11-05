@@ -826,7 +826,9 @@ footskip=0.7cm% 页脚 1.8cm %
   {}
 
 \renewenvironment{thanks}
-  {\chapter{\BIT@label@thanks}}
+  {\chapter{\BIT@label@thanks}
+  \fangsong
+  }
   {}
 
 \newenvironment{symbolnote}
