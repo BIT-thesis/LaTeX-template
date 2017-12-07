@@ -223,14 +223,14 @@ footskip=0.7cm% 页脚 1.8cm %
 \addtocontents{lof}{\protect\hypersetup{hidelinks}}
 
 \RequirePackage{titletoc}
-\titlecontents{chapter}[0pt]{\vspace{0.25\baselineskip} \songti \zihao{4}}
-    {\thecontentslabel\quad}{}
+\titlecontents{chapter}[0pt]{\songti \zihao{4}}
+    {\thecontentslabel\hspace{\ccwd}}{}
     {\hspace{.5em}\titlerule*{.}\contentspage}
-\titlecontents{section}[2em]{\songti \zihao{-4}}
-    {\thecontentslabel\quad}{}
+\titlecontents{section}[2\ccwd]{\songti \zihao{-4}}
+    {\thecontentslabel\hspace{\ccwd}}{}
     {\hspace{.5em}\titlerule*{.}\contentspage}
-\titlecontents{subsection}[4em]{\songti \zihao{-4}}
-    {\thecontentslabel\quad}{}
+\titlecontents{subsection}[4\ccwd]{\songti \zihao{-4}}
+    {\thecontentslabel\hspace{\ccwd}}{}
     {\hspace{.5em}\titlerule*{.}\contentspage}
 
 %% 选择编译
@@ -571,7 +571,7 @@ footskip=0.7cm% 页脚 1.8cm %
    \vspace*{10em}
 
    {\zihao{-2}\textbf{\BIT@value@englishtitle}}
-
+   \bfseries
    \vskip \stretch{1}
 
    {\zihao{-3}
