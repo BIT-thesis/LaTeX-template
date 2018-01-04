@@ -1,8 +1,8 @@
 %==================================================
 %% BIT-thesis-grd.cls for BIT Thesis
 %% modified by yang yating
-%% version: 1.0
-%% last update: Sep 1st, 2016
+%% version: 1.2
+%% last update: Jan 1st, 2018
 %%==================================================
 
 %% math packages -- conflict with xunicode
@@ -42,7 +42,7 @@
 \def\BIT@label@major{学~~~~科~~~~专~~~~业}
 \def\BIT@label@title{论文题目}
 \def\BIT@label@author{作~~~~者~~~~姓~~~~名}
-\def\BIT@label@classification{中图分类号}
+\def\BIT@label@classification{中图分类号：}
 \def\BIT@label@confidential{密级}
 \def\BIT@label@UDC{UDC\!分类号：}
 \def\BIT@label@serialnumber{编号}
@@ -113,7 +113,7 @@
 \def\BIT@label@englishdegree{Degree Applied:}
 \def\BIT@label@englishmajor{Major:}
 \def\BIT@label@englishschool{Degree by:}
-\def\BIT@label@englishdate{The Data of Defence:}
+\def\BIT@label@englishdate{The Date of Defence:}
 
 
 %%
@@ -172,9 +172,7 @@ footskip=0.7cm% 页脚 1.8cm %
 %设置行距，大概为22榜，较麻烦
 \RequirePackage{setspace}
 \setstretch{1.523}
-%==============删除默认模板（book.cls ）在章之间引入的垂直间隔。要放在hyperref 之前才会生效。===============
-\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{} % lof
-\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{} % lot
+
 %% 设置章节格式
 \ctexset{chapter={
       name = {第,章},
@@ -231,6 +229,14 @@ footskip=0.7cm% 页脚 1.8cm %
     {\hspace{.5em}\titlerule*{.}\contentspage}
 \titlecontents{subsection}[4\ccwd]{\songti \zihao{-4}}
     {\thecontentslabel\hspace{\ccwd}}{}
+    {\hspace{.5em}\titlerule*{.}\contentspage}
+
+\titlecontents{figure}[0pt]{\songti\zihao{-4}}
+    {\figurename~\thecontentslabel\quad}{\hspace*{-1.5cm}}
+    {\hspace{.5em}\titlerule*{.}\contentspage}
+
+\titlecontents{table}[0pt]{\songti\zihao{-4}}
+    {\tablename~\thecontentslabel\quad}{\hspace*{-1.5cm}}
     {\hspace{.5em}\titlerule*{.}\contentspage}
 
 %% 选择编译
@@ -827,8 +833,8 @@ footskip=0.7cm% 页脚 1.8cm %
 
 \renewenvironment{thanks}
   {\chapter{\BIT@label@thanks}
-  \fangsong
-  }
+  \fangsong
+  }
   {}
 
 \newenvironment{symbolnote}

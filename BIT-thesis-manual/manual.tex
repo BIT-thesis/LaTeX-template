@@ -28,8 +28,14 @@
 
 % 目录
 \tableofcontents
-%\listoffigures
-%\listoftables
+
+%增加图、表索引
+\let\origaddvspace\addvspace
+\renewcommand{\addvspace}[1]{}
+\listoffigures
+\listoftables
+\renewcommand{\addvspace}[1]{\origaddvspace{#1}}
+
 
 % 主要符号、缩略词对照表
 % \include{body/symbol}

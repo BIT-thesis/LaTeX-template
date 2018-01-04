@@ -75,11 +75,15 @@
 % 加入目录
 \tableofcontents
 
-% 加入表格索引
-%\listoftables
 
-% 加入插图索引
+%加入图、表索引(同时取消图表索引中章之间的垂直间隔)
+%\let\origaddvspace\addvspace
+%\renewcommand{\addvspace}[1]{}
 %\listoffigures
+%\listoftables
+%\renewcommand{\addvspace}[1]{\origaddvspace{#1}}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 正主体部分
