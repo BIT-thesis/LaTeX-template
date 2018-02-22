@@ -177,7 +177,7 @@ footskip=0.7cm% 页脚 1.8cm %
 \ctexset{chapter={
       name = {第,章},
       number = {\arabic{chapter}},
-      format = {\bfseries \heiti \centering \zihao{3}},
+      format = {\bfseries \sffamily \centering \zihao{3}},
       pagestyle = {BIT@headings},
       beforeskip = 16bp,
       afterskip = 28bp,
@@ -186,7 +186,7 @@ footskip=0.7cm% 页脚 1.8cm %
 }
 %% 设置一级章节格式
 \ctexset{section={
-  format={\raggedright \bfseries \heiti \zihao{4}},
+  format={\raggedright \bfseries \sffamily \zihao{4}},
   beforeskip = 28bp plus 1ex minus .2ex,
   afterskip = 24bp plus .2ex,
   fixskip = true,
@@ -198,7 +198,7 @@ footskip=0.7cm% 页脚 1.8cm %
 %黑体小四加粗顶左，单倍行距，序号与题目间空一个汉字符
 
 \ctexset{subsection={
-   format = {\bfseries \heiti \raggedright \zihao{-4}},
+   format = {\bfseries \sffamily \raggedright \zihao{-4}},
    beforeskip =28bp plus 1ex minus .2ex,
    afterskip = 24bp plus .2ex,
    fixskip = true,
