@@ -414,23 +414,20 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %% hyperref package
 
-\ifxetex  % xelatex
-\RequirePackage[xetex]{hyperref}
+\RequirePackage{hyperref}
+\definecolor{navyblue}{RGB}{0,0,128}   %增加海军蓝颜色
 \hypersetup{
   bookmarksnumbered,%
-  colorlinks,%
-  %linkcolor=black,%
-  %citecolor=black,%
+  linktoc=all,
+  colorlinks=true,
+  citecolor=navyblue,
+  filecolor=cyan,
+  linkcolor=navyblue,
+  linkbordercolor=navyblue,
+  urlcolor=navyblue,
   plainpages=false,%
   pdfstartview=FitH
 }
-\else
-\ifpdf    % pdflatex
-\RequirePackage[pdftex,unicode]{hyperref}
-\else     % dvipdfmx or dvips
-\RequirePackage[dvipdfmx,unicode]{hyperref}
-\fi
-\fi
 
 %% enumerate 列表环境间距调节
 \usepackage{enumitem}
