@@ -26,6 +26,12 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 
 本模板使用 XeTeX 引擎提供的 `xelatex` 的命令处理，作用于“主控文档” `demo.tex`。并且，可以省略扩展名。格式控制文件为BIT-thesis-grd.cls。
 
+自动模式下：编译文档请使用XeLaTeX引擎。模版包含了latexmk设置文件，将命令行工作目录切换到项目文件夹下，执行
+```bash
+latexmk
+```
+命令即可自动调用相关程序进行编译，处理各种文件依赖并自动预览。执行`latexmk -c`命令清理所有缓存文件。使用TeXstudio、Texmaker或WinEdt等编辑环境请将编译引擎设置成latexmk。Windows平台下使用MikTeX还需要安装[Perl语言解释器]
+
 若使用**硕士**论文模板，请在`demo.tex`中`\documentclass`命令采用`master`选项；若使用**博士**论文模板，请使用`doctor`选项。
 
 ```
@@ -40,7 +46,13 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 
 ##  通过 XeLaTeX 编译
 
-完整的处理流程是：
+自动模式下：编译文档请使用XeLaTeX引擎。模版包含了latexmk设置文件，将命令行工作目录切换到项目文件夹下，执行
+```bash
+latexmk
+```
+命令即可自动调用相关程序进行编译，处理各种文件依赖并自动预览。执行`latexmk -c`命令清理所有缓存文件。也可以使用TeXstudio、Texmaker或WinEdt等编辑环境请将编译引擎设置成latexmk。Windows平台下使用MikTeX还需要安装[Perl语言解释器]
+
+手动模式编译：完整的处理流程是：
 
 ```
     xelatex -no-pdf --interaction=nonstopmode demo
