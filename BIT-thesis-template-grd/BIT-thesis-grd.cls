@@ -415,16 +415,16 @@ footskip=0.7cm% 页脚 1.8cm %
 %% hyperref package
 
 \RequirePackage{hyperref}
-\definecolor{navyblue}{RGB}{0,0,128}   %增加海军蓝颜色
+%\definecolor{navyblue}{RGB}{0,0,128}   %增加海军蓝颜色
 \hypersetup{
   bookmarksnumbered,%
   linktoc=all,
   colorlinks=true,
-  citecolor=navyblue,
+  citecolor=blue,
   filecolor=cyan,
-  linkcolor=navyblue,
-  linkbordercolor=navyblue,
-  urlcolor=navyblue,
+  linkcolor=blue,
+  linkbordercolor=blue,
+  urlcolor=blue,
   plainpages=false,%
   pdfstartview=FitH
 }
