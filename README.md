@@ -24,14 +24,6 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 
 下载文件后，Windows 系统请点击运行 `BIT-thesis-run.bat` 脚本，Linux 系统以及 mac OS 系统请点击运行 `BIT-thesis-run.sh` 脚本。脚本会自动运行生成文档 `demo.pdf`。
 
-本模板使用 XeTeX 引擎提供的 `xelatex` 的命令处理，作用于“主控文档” `demo.tex`。并且，可以省略扩展名。格式控制文件为BIT-thesis-grd.cls。
-
-（附加的编译方法）：编译文档请使用XeLaTeX引擎。模版包含了latexmk设置文件，将命令行工作目录切换到项目文件夹下，执行
-```bash
-latexmk
-```
-命令即可自动调用相关程序进行编译，处理各种文件依赖并自动预览。执行`latexmk -c`命令清理所有缓存文件。也可以使用TeXstudio、Texmaker或WinEdt等编辑编译，请将编译引擎设置成latexmk。Windows平台下使用MikTeX还需要安装[Perl语言解释器]
-
 若使用**硕士**论文模板，请在`demo.tex`中`\documentclass`命令采用`master`选项；若使用**博士**论文模板，请使用`doctor`选项。
 
 ```
@@ -58,7 +50,13 @@ latexmk
 - 编译器编译：
 采用智能编辑器编译，必须设置默认的tex编译引擎为xelatex，具体可以在每个编辑器中的设置——编译器-Xelatex，推荐用编译器编译
 
-到文档最后成稿，只需要小改的时候，才推荐用批处理就行操作，不然很难定位错误。
+- 附加的编译方法：模版包含了latexmk设置文件，可以进行一体化编译。将命令行工作目录切换到项目文件夹下，执行
+```bash
+latexmk
+```
+命令即可自动调用相关程序进行编译，处理各种文件依赖并自动预览。执行`latexmk -c`命令清理所有缓存文件。也可以使用TeXstudio、Texmaker或WinEdt等编辑调用`latexmk`编译，请将编译引擎设置成latexmk。另外在Windows平台下使用MikTeX可能还需要安装Perl语言解释器
+
+`到文档最后成稿，只需要小改的时候，才推荐用批处理就行操作，不然很难定位错误。`
 
 ## 作者
 
