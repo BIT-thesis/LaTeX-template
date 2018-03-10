@@ -12,6 +12,9 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 
 新手可使用**LaTeX学习资料**目录下的学习资料进行初步学习。因学习资料内容较多，已移至 [LaTeX学习资料](https://github.com/BIT-thesis/LaTeX-materials)，内含基础学习资料以及北理工学位论文格式资料。
 
+# QQ 交流群：北理TeX交流群
+# 群   号：537769255
+
 ## 安装配置环境
 
 *  windows、linux用户推荐安装TeX Live套装，并更新宏包。 [北理工TeX Live镜像](http://mirror.bit.edu.cn/CTAN/systems/texlive/Images/)
