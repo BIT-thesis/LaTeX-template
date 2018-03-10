@@ -30,10 +30,8 @@ BIT-Thesis 为符合北京理工大学硕士（博士）学位论文的 LaTeX �
 若使用**硕士**论文模板，请在`demo.tex`中`\documentclass`命令采用`master`选项；若使用**博士**论文模板，请使用`doctor`选项。
 
 ```
-\documentclass[oneside, master]{BIT-thesis-grd} %硕士模板 单面打印
-\documentclass[oneside, doctor]{BIT-thesis-grd} %博士模板 单面打印
-\documentclass[twoside, master]{BIT-thesis-grd} %硕士模板 双面打印
-\documentclass[twoside, doctor]{BIT-thesis-grd} %博士模板 双面打印
+\documentclass[oneside, master]{BIT-thesis-grd} %硕士模板 
+\documentclass[oneside, doctor]{BIT-thesis-grd} %博士模板 
 ```
 
 所有.tex都采用**UTF-8**编码格式
