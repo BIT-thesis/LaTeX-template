@@ -1,8 +1,8 @@
 %==================================================
 %% BIT-thesis-grd.cls for BIT Thesis
 %% modified by yang yating
-%% version: 1.2
-%% last update: Jan 1st, 2018
+%% version: 1.4
+%% last update: Mar 25th, 2018
 %%==================================================
 
 %% math packages -- conflict with xunicode
@@ -12,7 +12,7 @@
 
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesClass{BIT-thesis-grd}
-  [2017/09/01 v1.0 BIT-thesis-grd document class]
+  [2018/03/25 v1.2 BIT-thesis-grd document class]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 \newif\ifBIT@master\BIT@masterfalse
@@ -142,7 +142,7 @@
 \def\BIT@label@resume{作者简介}
 \def\BIT@label@reference{参考文献！！！！}
 \def\BIT@label@thanks{致谢}
-\def\BIT@value@templateversion{v1.0}
+\def\BIT@value@templateversion{v1.2}
 %%
 %% label in the head 页眉页脚
 %%
@@ -169,22 +169,24 @@ footskip=0.7cm% 页脚 1.8cm %
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
   \thispagestyle{empty}%
   \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-%设置行距，大概为22榜，较麻烦
+%设置行距，大概为22榜
 \RequirePackage{setspace}
 \setstretch{1.523}
 
-%% 设置章节格式
+%% 设置章节格式, 黑体三号加粗居中，行距22磅，与正文或节标题的间距设定为段后间距1行。章序号与章名间空一格。
 \ctexset{chapter={
       name = {第,章},
       number = {\arabic{chapter}},
       format = {\bfseries \sffamily \centering \zihao{3}},
       pagestyle = {BIT@headings},
-      beforeskip = 16bp,
-      afterskip = 28bp,
+      beforeskip = 16 bp,
+      afterskip = 32 bp,
       fixskip = true,
   }
 }
 %% 设置一级章节格式
+% 黑体四号加粗顶左，行距22磅，与上一节的间距为1行，与下面正文或节标题的段间间距为0.5行。序号与题目间空一格。
+
 \ctexset{section={
   format={\raggedright \bfseries \sffamily \zihao{4}},
   beforeskip = 28bp plus 1ex minus .2ex,
@@ -195,7 +197,7 @@ footskip=0.7cm% 页脚 1.8cm %
 
 % 设置二级标题格式
 
-%黑体小四加粗顶左，单倍行距，序号与题目间空一个汉字符
+% 黑体小四加粗顶左，行距22磅，与上一节的间距为1行，与下面正文或节标题的段间间距为0.5行。序号与题目间空一格。 
 
 \ctexset{subsection={
    format = {\bfseries \sffamily \raggedright \zihao{-4}},
@@ -205,7 +207,8 @@ footskip=0.7cm% 页脚 1.8cm %
    }
 }
 
-% 设置三节标题格式：黑体小四居左书写，单倍行距，序号与题目间空一个汉字符
+
+% 设置三节标题格式
 
 \ctexset{subsubsection={
       format={\heiti \raggedright \zihao{-4}},
@@ -415,7 +418,7 @@ footskip=0.7cm% 页脚 1.8cm %
 %% hyperref package
 
 \RequirePackage{hyperref}
-%\definecolor{navyblue}{RGB}{0,0,128}   %增加海军蓝颜色
+%\definecolor{navyblue}{RGB}{0,0,128}   %增加海军蓝颜色
 \hypersetup{
   bookmarksnumbered,%
   linktoc=all,
@@ -488,9 +491,9 @@ footskip=0.7cm% 页脚 1.8cm %
     \vspace*{60mm}
     {\heiti\zihao{-2} \BIT@value@title}
     \vskip 40mm
-    {\heiti \zihao{-2} \BIT@value@author}
+    {\heiti \zihao{-3} \BIT@value@author} %黑体 小三
      \vskip 4mm
-    {\songti \zihao{4} \BIT@value@defenddate}
+    {\heiti \zihao{-3} \BIT@value@defenddate} %黑体 小三
   \end{center}
   \clearpage
   \if@twoside
@@ -505,8 +508,8 @@ footskip=0.7cm% 页脚 1.8cm %
   \cleardoublepage
   \thispagestyle{empty}
 
-%udc ltz
-{
+%udc ltz 
+{ %
   {\heiti \zihao{5} \noindent \BIT@label@classification} \BIT@value@classification \\
   {\heiti \zihao{5} \BIT@label@UDC}  \BIT@value@UDC
 }
@@ -521,6 +524,7 @@ footskip=0.7cm% 页脚 1.8cm %
     \def\tabcolsep{1pt}
     \def\arraystretch{1.5}
 
+	%黑体 小三
     {\heiti\zihao{-3}
      \begin{tabular}{l p{3mm} c}
       \BIT@label@author & &\BITunderline[180pt]{\BIT@value@author}
@@ -572,11 +576,12 @@ footskip=0.7cm% 页脚 1.8cm %
 
 
    \vspace*{10em}
-
+%论文题目	  Times New Roman 小二 加粗
    {\zihao{-2}\textbf{\BIT@value@englishtitle}}
-   \bfseries
+   %\bfseries
    \vskip \stretch{1}
-
+   
+% Times New Roman 小三
    {\zihao{-3}
      \begin{tabular}{ll}
       \BIT@label@englishauthor & \BITunderline[200pt]{\BIT@value@englishauthor}
@@ -662,7 +667,7 @@ footskip=0.7cm% 页脚 1.8cm %
 }
 
 
-%_ 页眉页脚
+% 页眉页脚
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[C]{\songti \zihao{5} \BIT@label@headschoolname}  % 奇数页左页眉
@@ -676,7 +681,7 @@ footskip=0.7cm% 页脚 1.8cm %
 }
 
 
- %_ 中文摘要
+ % 中文摘要
  \newenvironment{abstract}
  {
   \cleardoublepage
@@ -691,11 +696,11 @@ footskip=0.7cm% 页脚 1.8cm %
     \cleardoublepage
   \fi
  }
- %_ 中文关键词
+ % 中文关键词
  \newcommand\keywords[1]{%
    \vspace{2ex}\noindent{\bf \BIT@label@keywords} #1}
 
- %_ 英文摘要
+ % 英文摘要
  \newenvironment{englishabstract}
  {
   \clearpage
@@ -703,7 +708,7 @@ footskip=0.7cm% 页脚 1.8cm %
  }
  {}
 
- % _英文摘要
+ % 英文摘要
  \newcommand\englishkeywords[1]{%
   \vspace{2ex}\noindent{\bf \BIT@label@englishkeywords} #1}
 
