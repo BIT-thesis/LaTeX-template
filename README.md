@@ -1,5 +1,5 @@
 
-# BIT-Thesis v1.2
+# BIT-Thesis v1.4
 # 北京理工大学硕士（博士）学位论文LaTeX模板
 
 ![Beijing Institude of Technology](https://github.com/y-yating/image/raw/master/image-school/bit-thesis.png)
@@ -68,8 +68,5 @@ latexmk
 
 感谢大家宝贵的修改意见！！！欢迎大家一同努力完善BIT-Thesis模板！
 
-## v1.2版本更新
-- 调整图表索引格式
-- 模板笔误勘正
-- 更新目录样式，更新英文封面的大写问题
-- 调整致谢字体
+## v1.4版本更新
+- 按照2018年最新《北京理工大学研究生学位论文撰写规范》调整格式
