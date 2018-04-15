@@ -759,32 +759,27 @@ footskip=0.7cm% 页脚 1.8cm %
 
 
 \newenvironment{publications}[1]
-     {\chapter{\BIT@label@publications}%
+     { \zihao{5}
+     	\chapter{\BIT@label@publications}%
       \@mkboth{\MakeUppercase\BIT@label@publications}
               {\MakeUppercase\BIT@label@publications}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            \setlength{\parsep}{1mm}
-            \setlength{\labelsep}{0.5em}
-            \setlength{\itemsep}{0.05pc}
-            \setlength{\listparindent}{0in}
-            \setlength{\itemindent}{0in}
-            \setlength{\rightmargin}{0in}
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `publications' environment}}%
-      \endlist}
-
+     }
+  
+\newcounter{pubctr} %自定义新计数器
+\newenvironment{publist}{%%%%%定义新环境
+	\begin{list}{[\arabic{pubctr}]} %%标签格式
+		{
+			\usecounter{pubctr}
+			\setlength{\leftmargin}{1.7em}     % 左边界 \leftmargin =\itemindent + \labelwidth + \labelsep
+			\setlength{\itemindent}{0em}     % 标号缩进量
+			\setlength{\labelsep}{0.5em}       % 标号和列表项之间的距离,默认0.5em
+			\setlength{\rightmargin}{0em}    % 右边界
+			\setlength{\topsep}{0ex}         % 列表到上下文的垂直距离
+			\setlength{\parsep}{0ex}         % 段落间距
+			\setlength{\itemsep}{0ex}        % 标签间距
+			\setlength{\listparindent}{0pt} % 段落缩进量
+	}}
+	{\end{list}}
 
 \newenvironment{projects}[1]
      {\chapter{\BIT@label@projects}%
