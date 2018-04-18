@@ -284,6 +284,10 @@ footskip=0.7cm% 页脚 1.8cm %
   \pagestyle{BIT@headings}
 }
 
+%修默认table字体的大小为五号字
+\renewenvironment{table}
+     {\@float{table} \small}
+     {\end@float}
 
 %% 复杂表格
 \RequirePackage{threeparttable}
