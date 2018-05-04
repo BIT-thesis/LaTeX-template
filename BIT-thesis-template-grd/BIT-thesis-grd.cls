@@ -242,11 +242,7 @@ footskip=0.7cm% 页脚 1.8cm %
     {\tablename~\thecontentslabel\quad}{\hspace*{-1.5cm}}
     {\hspace{.5em}\titlerule*{.}\contentspage}
 
-%% 选择编译
-\RequirePackage{ifthen}
 
-%% check pdfTeX mode
-\RequirePackage{ifpdf}
 
 %% fancyhdr 页眉页脚控制
 \RequirePackage{fancyhdr}
@@ -284,10 +280,7 @@ footskip=0.7cm% 页脚 1.8cm %
   \pagestyle{BIT@headings}
 }
 
-%修默认table字体的大小为五号字
-\renewenvironment{table}
-     {\@float{table} \small}
-     {\end@float}
+
 
 %% 复杂表格
 \RequirePackage{threeparttable}
@@ -326,10 +319,8 @@ footskip=0.7cm% 页脚 1.8cm %
 
 %% graphics packages
 \RequirePackage{graphicx}
-%% 并列子图
-\RequirePackage{subfigure}
 
-\RequirePackage{wrapfig}
+
 %%===========================设置图表标题选项==========================
 \RequirePackage{amsmath}
 \RequirePackage{caption}
