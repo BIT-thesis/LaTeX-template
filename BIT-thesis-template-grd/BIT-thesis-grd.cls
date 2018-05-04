@@ -88,6 +88,9 @@
     (char) {\phantom{\ifblank{#1}{#2}{#1}}};
     \node at (char.center) {\makebox[0pt][c]{#2}};}}
 \robustify{\circled}
+% 表格默认五号字
+\BeforeBeginEnvironment{tabular}{\begin{center}\small} 
+\AfterEndEnvironment{tabular}{\end{center}}
 
 %% 论文原创性声明
 \def\BIT@label@original{研究成果声明}
