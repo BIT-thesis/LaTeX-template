@@ -59,6 +59,39 @@ latexmk
 
 `到文档最后成稿，只需要小改的时候，才推荐用批处理就行操作，不然很难定位错误。`
 
+
+## 在vscode上编译 (LaTex Workshop)
+
+- 对于使用vscode写tex的用户，添加如下配置,就可以在vscode上使用使用XeLaTeX了
+
+```
+"latex-workshop.latex.tools": [
+    {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOC%"
+        ]
+    }
+],
+"latex-workshop.latex.recipes": [
+    {
+        "name": "xelatex -> bibtex -> xelatex*2",
+        "tools": [
+            "xelatex",
+            "bibtex",
+            "xelatex",
+            "xelatex"
+        ]
+    }
+]
+```
+
+
+
 ## 作者
 
 [Yang Yating](https://github.com/y-yating/)
