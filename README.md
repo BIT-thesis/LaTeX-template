@@ -59,6 +59,49 @@ latexmk
 
 `到文档最后成稿，只需要小改的时候，才推荐用批处理就行操作，不然很难定位错误。`
 
+
+## 在vscode上编译 (LaTex Workshop)
+
+对于使用vscode写tex的用户，添加如下配置，就可以在vscode上使用使用XeLaTeX了：
+
+```
+"latex-workshop.latex.tools": [
+    {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOC%"
+        ]
+    }
+],
+"latex-workshop.latex.recipes": [
+    {
+        "name": "xelatex -> bibtex -> xelatex*2",
+        "tools": [
+            "xelatex",
+            "bibtex",
+            "xelatex",
+            "xelatex"
+        ]
+    }
+]
+```
+
+## Linux用户可能遇到的问题
+
+字体缺失问题： 因为库里用到的字体是Windows里的宋体、楷体、黑体等字体，在编译过程中会报错缺失这些字体，可以到fontzone等网站下载，copy到`/usr/share/fonts`里然后刷新cache即可。
+
+黑体：`https://fontzone.net/downloadfile/simhei`
+
+宋体：`https://fontzone.net/downloadfile/simsum`
+
+楷体：`https://fontzone.net/downloadfile/kaiti`
+
+
+
 ## 作者
 
 [Yang Yating](https://github.com/y-yating/)
