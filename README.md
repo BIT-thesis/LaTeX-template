@@ -1,5 +1,5 @@
 
-# BIT-Thesis v1.4
+# BIT-Thesis v1.5
 # 北京理工大学硕士（博士）学位论文LaTeX模板
 
 ![Beijing Institude of Technology](https://github.com/y-yating/image/raw/master/image-school/bit-thesis.png)
