@@ -32,9 +32,9 @@
 %%
 %% the setup of ctex package
 %%
-\def\CTEX@contentsname{目录}
-\def\CTEX@listfigurename{插图索引}
-\def\CTEX@listtablename{表格索引}
+\def\contentsname{目\BITspace 录}
+\def\listfigurename{插\BITspace 图}
+\def\listtablename{表\BITspace 格}
 
 %%
 %% 封面标题
@@ -225,7 +225,7 @@ footskip=0.7cm% 页脚 1.8cm %
 
 \RequirePackage{titletoc}
 \titlecontents{chapter}[0pt]{\songti \zihao{4}}
-    {\thecontentslabel\hspace{\ccwd}}{}
+    {\bf\thecontentslabel\hspace{\ccwd}}{\bf}
     {\hspace{.5em}\titlerule*{.}\contentspage}
 \titlecontents{section}[2\ccwd]{\songti \zihao{-4}}
     {\thecontentslabel\hspace{\ccwd}}{}
