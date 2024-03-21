@@ -8,7 +8,7 @@
 %% math packages -- conflict with xunicode
 \RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs}
 % 直立希腊字母字体
-\RequirePackage{upgreek}
+\RequirePackage{upgreek,tikz}
 
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesClass{BIT-thesis-grd}
@@ -502,6 +502,14 @@ footskip=0.7cm% 页脚 1.8cm %
   \fi
  }
 
+ \newcommand{\floatingbox}[3]{%
+ \begin{tikzpicture}[remember picture, overlay]
+     \node[anchor=north east, inner sep=5pt, outer sep=0pt] at ($(current page.north east) + (-2.0cm,-3.5cm)$) {%右，上
+         \fbox{\parbox{3.5cm}{\raggedright\zihao{5}\setstretch{1.0} #1 \\ #2 \\ #3}}%
+     };
+ \end{tikzpicture}
+}
+
 \newcommand\makeInfo[1]%
  {
   \newpage
@@ -513,7 +521,7 @@ footskip=0.7cm% 页脚 1.8cm %
   {\heiti \zihao{5} \noindent \BIT@label@classification} \BIT@value@classification \\
   {\heiti \zihao{5} \BIT@label@UDC}  \BIT@value@UDC
 }
-
+\floatingbox{$\bigstar$ 特别类型}{$\square$ 交叉研究方向}{$\square$ 政府项目留学生}
    \begin{center}
 
     \vskip \stretch{1}
