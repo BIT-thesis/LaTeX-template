@@ -8,7 +8,7 @@
 %% math packages -- conflict with xunicode
 \RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,mathrsfs}
 % 直立希腊字母字体
-\RequirePackage{upgreek}
+\RequirePackage{upgreek,tikz}
 
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesClass{BIT-thesis-grd}
@@ -92,11 +92,12 @@
 %% 论文原创性声明
 \def\BIT@label@original{研究成果声明}
 \def\BIT@label@authorization{关于学位论文使用权的说明}
-\def\BIT@label@authorsign{作者签名：}
+\def\BIT@label@authorsign{签\qquad 名：}
 \def\BIT@label@Supervisorsign{导师签名：}
-\def\BIT@label@originalDate{签字日期：}
-\def\BIT@label@originalcontent{\BITspace\BITspace 本人郑重声明：所提交的学位论文是我本人在指导教师的指导下进行的研究工作获得的研究成果。尽我所知，文中除特别标注和致谢的地方外，学位论文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得北京理工大学或其它教育机构的学位或证书所使用过的材料。与我一同工作的合作者对此研究工作所做的任何贡献均已在学位论文中作了明确的说明并表示了谢意。\par 特此申明。}
-\def\BIT@label@authorizationcontent{\BITspace\BITspace 本人完全了解北京理工大学有关保管、使用学位论文的规定，其中包括：\circled{1} 学校有权保管、并向有关部门送交学位论文的原件与复印件；\circled{2} 学校可以采用影印、缩印或其它复制手段复制并保存学位论文；\circled{3} 学校可允许学位论文被查阅或借阅；\circled{4} 学校可以学术交流为目的,复制赠送和交换学位论文；\circled{5} 学校可以公布学位论文的全部或部分内容（保密学位论文在解密后遵守此规定）。}
+\def\BIT@label@originalDate{日期：}
+\def\BIT@label@originalcontent{\BITspace\BITspace 本人郑重声明：所提交的学位论文是我本人在指导教师的指导下独立完成的研究成果。文中所撰写内容符合以下学术规范（请勾选）：\par $\square$ 论文综述遵循“适当引用”的规范，全部引用的内容不超过50\%。\par $\square$ 论文中的研究数据及结果不存在篡改、剽窃、抄袭、伪造等学术不端行为，并愿意承担因学术不端行为所带来的一切后果和法律责任。\par $\square$ 文中依法引用他人的成果，均已做出明确标注或得到许可。\par $\square$ 论文内容未包含法律意义上已属于他人的任何形式的研究成果，也不包含本人已用于其他学位申请的论文或成果。\par $\square$ 与本人一同工作的合作者对此研究工作所做的任何贡献均已在学位论文中作了明确的说明并表示了谢意。\par 特此声明。}
+\def\BIT@label@authorizationcontent{\BITspace\BITspace 本人完全了解北京理工大学有关保管、使用学位论文的规定，其中包括：\par \circled{1} 学校有权保管、并向有关部门送交学位论文的原件与复印件；\par \circled{2} 学校可以采用影印、缩印或其它复制手段复制并保存学位论文；\par \circled{3} 学校可允许学位论文被查阅或借阅；\par \circled{4} 学校可以学术交流为目的,复制赠送和交换学位论文；
+\par \circled{5} 学校可以公布学位论文的全部或部分内容（保密学位论文在解密后遵守此规定）。}
 
 
 %%
@@ -501,6 +502,14 @@ footskip=0.7cm% 页脚 1.8cm %
   \fi
  }
 
+ \newcommand{\floatingbox}[3]{%
+ \begin{tikzpicture}[remember picture, overlay]
+     \node[anchor=north east, inner sep=5pt, outer sep=0pt] at ($(current page.north east) + (-2.0cm,-3.5cm)$) {%右，上
+         \fbox{\parbox{3.5cm}{\raggedright\zihao{5}\setstretch{1.0} #1 \\ #2 \\ #3}}%
+     };
+ \end{tikzpicture}
+}
+
 \newcommand\makeInfo[1]%
  {
   \newpage
@@ -512,7 +521,7 @@ footskip=0.7cm% 页脚 1.8cm %
   {\heiti \zihao{5} \noindent \BIT@label@classification} \BIT@value@classification \\
   {\heiti \zihao{5} \BIT@label@UDC}  \BIT@value@UDC
 }
-
+\floatingbox{$\bigstar$ 特别类型}{$\square$ 交叉研究方向}{$\square$ 政府项目留学生}
    \begin{center}
 
     \vskip \stretch{1}
@@ -638,25 +647,26 @@ footskip=0.7cm% 页脚 1.8cm %
   \pdfbookmark[0]{声明}{statement}
   \thispagestyle{empty}
   \begin{center}
-  {\bf\zihao{3} \BIT@label@original}
+  {\sffamily\centering\bfseries\zihao{-2} \BIT@label@original}
   \end{center}
   \vskip 10pt
-  {\zihao{4}\BIT@label@originalcontent}
-  \vskip 10pt
-  \hspace{8em}{\zihao{4}\BIT@label@authorsign} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{}
+  {\zihao{3}\BIT@label@originalcontent}
+  \vskip 80pt
+  \hspace{8em}{\zihao{3}\BIT@label@authorsign}  \hspace{8em} {\zihao{3}\BIT@label@originalDate} \hspace{6em}
 
-  \vskip 30mm
+  \cleardoublepage
+  \thispagestyle{empty}
 
   \begin{center}
-  {\bf\zihao{3} \BIT@label@authorization}
+  {\sffamily\centering\bfseries\zihao{-2} \BIT@label@authorization}
   \end{center}
   \vskip 10pt
-  {\zihao{4} \BIT@label@authorizationcontent}
-  \vskip 40pt
+  {\zihao{3} \BIT@label@authorizationcontent}
+  \vskip 80pt
 
-  \hspace{8em}{\zihao{4}\BIT@label@authorsign} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@Supervisorsign} \BITunderline[6em]{}
+  \hspace{8em}{\zihao{3}\BIT@label@authorsign} \hspace{8em} {\zihao{3}\BIT@label@originalDate} \hspace{6em}
   \vskip 15pt
-  \hspace{8em}{\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{} \hspace{2em} {\zihao{4}\BIT@label@originalDate} \BITunderline[6em]{}
+  \hspace{8em}{\zihao{3}\BIT@label@Supervisorsign} \hspace{8em} {\zihao{3}\BIT@label@originalDate} \hspace{6em}
   \clearpage
   \if@twoside
     \thispagestyle{empty}
